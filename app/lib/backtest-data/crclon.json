@@ -1,0 +1,1709 @@
+{
+  "symbol": "CRCLon",
+  "mint": "6xHEyem9hmkGtVq6XGCiQUGpPsHBaoYuYdFNZa5ondo",
+  "bucketHours": 12,
+  "generatedAt": 1783962622785,
+  "series": [
+    {
+      "ts": 1775131200,
+      "date": "2026-04-02 12:00",
+      "netMint": 0.015099210000000036,
+      "mintVol": 3.6639423829999993,
+      "burnVol": 3.648843173,
+      "z": 0,
+      "procComp": 100,
+      "sigs": [
+        "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"
+      ]
+    },
+    {
+      "ts": 1775433600,
+      "date": "2026-04-06 00:00",
+      "netMint": 644.1916701959999,
+      "mintVol": 648.310296316,
+      "burnVol": 4.11862612,
+      "z": 0,
+      "procComp": 100,
+      "sigs": [
+        "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"
+      ]
+    },
+    {
+      "ts": 1775476800,
+      "date": "2026-04-06 12:00",
+      "netMint": 152.288542787,
+      "mintVol": 154.71859304000003,
+      "burnVol": 2.4300502529999997,
+      "z": 0,
+      "procComp": 100,
+      "sigs": [
+        "VbgZNk62SarwwMExmhjSxbefSGy9NCG5B7LbJR8YwcjGBL9ZZgXd32CEWZg6qCgws3AGnnwD5F162ZCKMKj2pQk",
+        "3FPrviVX9Z8AX4dm1FKYz9ccTqGowkazuDcLW8PFPF6Z9pbyTXFjDNMyHyXbKgxFMwSnnH9468nNzU2rUZGohduk",
+        "48cc8f8DkrgH2EbHefcFWD4Ki7zYyzKrdbiZVgjGaxpmsW7jdHzvFinFHK8ey7KDQGpkaP5SA2UJZgJ56WD2j9G",
+        "BB6KaF92m3q71j5hQ1Ko28mmx46Uk3miEF9gW7CWiX3h7x3nP74ebhUUWa3ywWXq8zdHsurG9E6RE5EcwzdF85Q",
+        "3MGQYnRBuKieLXijytj5jnX1DCNRUhezfnEdmQJNoww7WhAMECXY21UJqHHMsJRrgwLJjGMYAecoqHH4AkpnGSWe",
+        "4hoS8HX3ywPyCni1WUdqdhJea1kAaek3E4n4BSmD82Y54Yo7nwVEcqsRNHmvxTcz12yL27e7ZnZZeoYnu41hRq2C",
+        "sXprCzLReaUzAmZaYwWmmMDjRBxDae2veEhFjyQgS8iZEdAgyE9okuzCWZsH3rf4SAAuLTSdb3Z746gTchX8BXb",
+        "4C1LpW7x9BQ6fKh5G45vQG3rvDyzowFkBH6EanVvuv2VGG6b57oGJwEwYD5XthkArHjeLWFXtgK46tpuW35zBjoN",
+        "zawtWz75Y3fMQ1ZX2cf7oepKVXkPVuUbokYwmcH7feKc6aGULv9EbtuGpuGWSfEoHCBboG8jCMMpovWBhYpFjak"
+      ]
+    },
+    {
+      "ts": 1775520000,
+      "date": "2026-04-07 00:00",
+      "netMint": 206.797791269,
+      "mintVol": 208.15234257699998,
+      "burnVol": 1.354551308,
+      "z": 0,
+      "procComp": 100,
+      "sigs": [
+        "3mjsb2DtqR6JZfewJu7YjtnHBAk7FYYad99DR6izRmbnqcYGiFhkEjMZRVabGaDnkQUeHr73NoTtt7vnmtwXcLRG",
+        "4NvUbGj4jFWGaJFrJTMA7LyNifDjmSpDKvFpsF7fgFJmB7uT7TGctFwkmqZ5jDbc3r4DhbWjrjnEwPNWavKViGDG",
+        "37KQVYhJRtqwi2tfukF6FxuVeYgEiEWSDCJQ7J5vAxn596aZSjBZkKYyzNdaBMy1X1Dm2JDvrxrBNQnj1sdQVU2t",
+        "5v3ZVExRufR4LZGMkDjyb3FDEfPYMHV88RwNYa1vPX6PSkAowdnGpsobgWNnDoTsvsBbqrVG2XaegsPYMdH2BnPM",
+        "2KsLSrQaAm7C6RgVC3E3FuEQdYwuLadMPDQBi5mmJ6KLpQ5PJsUuP2y6PS862ih1hcvASKjbHziXbiQ9qMxqtc4Q"
+      ]
+    },
+    {
+      "ts": 1775563200,
+      "date": "2026-04-07 12:00",
+      "netMint": -10.054778227,
+      "mintVol": 2.944293579000001,
+      "burnVol": 12.999071806,
+      "z": 0,
+      "procComp": 100,
+      "sigs": [
+        "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"
+      ]
+    },
+    {
+      "ts": 1775606400,
+      "date": "2026-04-08 00:00",
+      "netMint": 0.082250871,
+      "mintVol": 0.429771082,
+      "burnVol": 0.347520211,
+      "z": 0,
+      "procComp": 100,
+      "sigs": [
+        "2gJEbcV6kPjHf6zugYEwfEghBttLATZkSvUHB7ykSv9XzbWRZ7a1P4ab5fCUZXLLVL9sD46SA7XtsrT28niLS7WZ",
+        "5Hb8jLF787CLYNuuCSU1zkK2WYuDssSzyoWxNJZCdPWnv1HkFME9G7w3ZgZrsxTYBbtaeFrkEeTupyU4Bjy8BewP",
+        "2aRCxYPZtgTcHXc915pKt7H95y5nuXeMGtuHYycYvhE1koD9Guzko6MvSz7ofHaQJp8Dqh1DcEdMFecrC1vfyyo4",
+        "r3vY5uRkF9JdKvJXpHQoJ6ECU7YeWiz8HNJaVQimwwhWQiv6DCJEGciBL6Gwk2ontgbg3ArJzkUKCRbWbhgfYZC",
+        "xt25Mdes5SzdTUXDYyiagvaphGw9kcW9RKpS8nrBNRYi7tNsrLVgXLTUv5fxEbj78cU1YjNRq3PULvXnu81r4AC",
+        "2TSWvY15dbqL3JKNNzE56BhFMr2Z9x436Y5DymuYPUFBJDdCsTJ4fQEpinwjCRi9koPLe5tmnoHYzb1jbFNykYHm",
+        "2sdnQhnn7NJRe4pgQJUKMjEVtg7vTTvvPse3MNFZKaeZpmsSDLz76YiWW6rQd41VYqbijX8Dy8BeTScsJrrd5u7N",
+        "5GNPgxwCxsbi9AwindaSunq7v63BsC44skdHPtj4pPy2qFrr3w5asa4CRV5nFyP7DLDw2cu7WYy4mCWxE7C9auYe",
+        "4QRJR7NNV9mkXcAZKk1CXcSSUtvDGKgp1GdzkCjkBaom56C7ZUPw5wFdZKuMggUfg2Y53un489xMWjkuwbVQ7QLa",
+        "5joMS4iNXHPtXSCXv7xsfQvQVFb7cLrmRzWah1kzDCY84gDgpzqNhwYtaDffsgpHsVqqpmT1dzMko14EESVeYGeU",
+        "64R9stnxAN97j7q7iyzgBrnYqdCF7UesP1eADJi9s1YzfMtfzhDZpjiKn5VyEHUkb3a7n5rrt1pMBbQEkaMU8Ts8"
+      ]
+    },
+    {
+      "ts": 1775649600,
+      "date": "2026-04-08 12:00",
+      "netMint": 0.04329113799999999,
+      "mintVol": 1.8957657529999996,
+      "burnVol": 1.852474615,
+      "z": 0,
+      "procComp": 100,
+      "sigs": [
+        "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"
+      ]
+    },
+    {
+      "ts": 1775692800,
+      "date": "2026-04-09 00:00",
+      "netMint": -1002.794176524,
+      "mintVol": 1.6833983409999997,
+      "burnVol": 1004.4775748649997,
+      "z": 0,
+      "procComp": 100,
+      "sigs": [
+        "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"
+      ]
+    },
+    {
+      "ts": 1775736000,
+      "date": "2026-04-09 12:00",
+      "netMint": 273.26610726,
+      "mintVol": 273.42521114500005,
+      "burnVol": 0.159103885,
+      "z": 0.6366478291234479,
+      "procComp": 99.36,
+      "sigs": [
+        "5r5uyHCqXDXpe8HknC7nEwnxvt3CpKS1UkHUU3iNf3a5waQbzNfzk9tRPErbzS3fVqnCm7VvgpKBzzLC5Jphpm2Y",
+        "5fjzpsifE83vyiCZ4wigfmNqeNh7dBRWaX3BLQyisCVLgbvsc5BaDw8ifkQHngx4SFRi6CCbTnFcNp76Xr9iYsV5",
+        "6iTLdRECo5ptXp48EBsum6k8bGa2CEqYmKRpPnojUpUhjPaV3B6wQDkdrX6vX8Nc5jsDRLyghvqhyQ5PCPd3mkA",
+        "345DGV1yRYSyy93mAxPmzkuHa7gM7jRTrViGF38fPsrEaZMPXNxtpc1mucfVydMnWX2wdK55PVizA3anWJLKoKW3",
+        "aYMUqCT82dEos7d5b9XxYbYaYsLANfrujSyEbAgbd9axx2NZzneiuubUgU3auzcMfLCwC4ChtX1dTE4m4Gu9A1c",
+        "Fkx8QbpH1tqmobXvQiVE9Vij6zddz2c8guRkozvC8sPmGi7JuoWzubvrkEYybWn8sfeeL6AtZfLFTujHRHX5tZN",
+        "HeUjGwzvd3bzAeS7Hin7q9daybseVJ4zghWFn5Ze8pBJJaJWZWSBNJV2tQmS2yAxsCAehiVLiBS9pE5TPN6v6KB",
+        "7oGpTPxL9VMxmB1EtYtqsCaVkmC5FHnaQ9QqexNb4ZiD7SK88HrRrBn75676DixhboTTh2EKL4BcgbyX7a3dGvF",
+        "2JysKFKFKJGm4Q6b1jnzKk5AxcX8V4M7SPCueaCBSc3s4N1h3N1viuQiMdL51MX7ss7MkTz95wmnThWeYY4rj1nV"
+      ]
+    },
+    {
+      "ts": 1775779200,
+      "date": "2026-04-10 00:00",
+      "netMint": -0.187092204,
+      "mintVol": 0.08628359299999999,
+      "burnVol": 0.273375797,
+      "z": -0.07100827176637275,
+      "procComp": 100,
+      "sigs": [
+        "327X9R8AZRhumFjiTqZ4JcGHaj6PNjSjrzhD3GQkenj8U4KCa7iQZQEht9Q5h6qGzcZorWseZtm6uMYTFSksW1dJ",
+        "26pgeRmxiCAyNykHwwjyS9LTjDtPCrju8hShF5pwJpnwALbTa1ZFbdEcxDnKgVb5w6PJKfFujtR9XitLD2UD9zyu",
+        "oPxpkYmxeoNQaQAvxK2EErsv3Kb4hqdAqt3i62rQDtFaYiKSpJyQiPcfJkcomBgTNDttsXz7oWeUHcdmw4wwx1Y",
+        "46rBeDk3fWFPcG746pXtD8j15vagXkvXoTtjjqmbcE4LeAPdKAicjXWpFJ4Q8jb5RrZ7og32WK4z3gDV7zioCS1B",
+        "3cE3Xeu6QLP2qrpJNjbPiCw8pKRNUiFyuFNutxifsoZEmVbVuD2xRa3TrXTAFPudNGLUy8u4mPQZpzzUHQ9Skax",
+        "5e49u7MyoX6WfzwHbepTViWMLnChYr3WRWQGeqatyZtaFUutGrhxHHtHftt8g2aX5rC2V3mHtznsJRGnkHnLWSUD"
+      ]
+    },
+    {
+      "ts": 1775822400,
+      "date": "2026-04-10 12:00",
+      "netMint": -4.592059658,
+      "mintVol": 1.212507738,
+      "burnVol": 5.804567396,
+      "z": -0.07852030780557598,
+      "procComp": 100,
+      "sigs": [
+        "5VNYUN2FRHLDKzFgjrgz2bYuUZ2zw4We6mCzeG42QacRy425TpjgMam551cu4qThpDz7drt4smRwwi7WPpAR1ToN",
+        "3DEh8NLxzZUVxvNn2LP6JcdHWwcPvPkjjXPeXGa5cm4p4YhjRASaA8W7V21DWjpZyrE8xcBQ8e2b6sKjDZi7akX7",
+        "27KZsS7z1zZJmJEa2WGobjdy1aX6rgrX6WKWDWyGmn4Mu3MYdBsR5T6Uu1XVfTC64nHqJUZDKEoBDADYYqVotoS8",
+        "3DhtcYgtFuJBmFKnjpJ63btxusvr3iG29n2E2peS8Wa3HgCP6e6fKTZZNWqWD2vXswvDpnaGTfSa1cuxqsnruE2o",
+        "f7tGvrbhUjkLS5gm9Wxt96yNY799UsbrVWrz5eSSSQEufEJGVqcUv8kqb1PDPWvx5DLGZDZ7Py6PH5qntGLjuiM",
+        "2NGi4K4pgXgYmushbAwFhW3MdDBy99kwp7dQmATc123AEPFm8a3QLdxfqXECfhSK47qh6LSXuRp6wHaoZX9nqbVJ",
+        "4RrG1vvzo92zhrA5GeHoJxWqvicqdEsnBA3pu3yCE82Sr1Cb6PpDQrKT4Mt7tMwrwtNgYUyjZKQPVQey14diJDbr",
+        "5tHmSe5usrZ1knG2UHywcYcyrWDnGKkWJmR3Vv3HRZeH9PENVgJRDziga7FfzDwYfkfBb8Jka8Yi44YmAfcgZWtJ"
+      ]
+    },
+    {
+      "ts": 1776038400,
+      "date": "2026-04-13 00:00",
+      "netMint": -273.209119752,
+      "mintVol": 0.347607209,
+      "burnVol": 273.55672696100004,
+      "z": -0.7892302635751791,
+      "procComp": 100,
+      "sigs": [
+        "9HYHh86WhHyer4daw6u9R4ofYbxnvNKemrALYjy4graouJW1YqeXnzus9274tEu5WkRZKcSGWGpXRqWThsPQGp8",
+        "37D1RhYFVDcvMsygqRRH4exi3WcaKrkvaCFpFDaoi6BpfE3763FqUtXuhZPUYVW1NeusKHsMPnNWV9AKTfeZLNRJ",
+        "4eG1pMuV9HrKzSJJ8EjyTpA4WuaKLvhrSs748jWU4HKZ1Qm4CxnBpDkHDvnBMR8wiBZ1NVjDLwswXUCkyxdb52XK",
+        "2Nj4zGhL4KwLGKMPTkh7vWNBvh9N7wXQs9Lf2XfMpsgUsoZg48h96iD9zELdFy6gSazREZoGHsCbBRLZ6QzqdoTh",
+        "2zYXh3nQVuD44qagr36C7YNazdvbSuVXqwngdJxzVKeEDHFi88tNVLLZzssFQyEV52h8aBsDLS7t3gJCXmNgiwGN",
+        "4MAGn114uMK81qmRcDaGpdyiV1XCiQrAxTdwjcjSxbtbQNAJRuCrQjAtHKebLHEg6MtqfQF8xMuGd1T1zTao63RF",
+        "63xyh1vqVNuurzbNb6qkM5ZpAZuwi7BzwkkP9AQgRRAQRLgB7a89YwDhLXGGJtpZMFFJgEhmYo7fXEhj3RbS3spw",
+        "2uHXGrGrVaQsKGUZMD6ULPg5U9rNGNqv7MSZ3CsYo8TZrh9zUznpN59zgchvTxmaonRDzxVbxQGPyRDETSETX7GS",
+        "2nMpA9AWvuSw8kAaFsUcphjdZwiGxz3AZ81H7FuQMGFZRXytfnqopyGp8agddCCUpEBHJzauJ5yGRh96FUNXmTto",
+        "48dYC4Dqp6bKjJmUNVeZTfw24oT7KXgvoAhCpELiC1xFwZdv1xmAVPYftk2gGxbctkCjHGQB27QbshDsHRSZ9Vn5"
+      ]
+    },
+    {
+      "ts": 1776081600,
+      "date": "2026-04-13 12:00",
+      "netMint": 0,
+      "mintVol": 0.051629948,
+      "burnVol": 0.051629948,
+      "z": 0.003194151279236147,
+      "procComp": 100,
+      "sigs": [
+        "5pLTzjnokecHnPu6YzT4jdt24QPXMEbrwzNtuC9bWv2pDicsuDP6qAX1QC5287HcSjWm4ddfFUcKcUUeGtPJgG4K",
+        "3Wk3qvzozDysfkaCJh3wDz5znyLxZRR8sZcfTVX1AmvveiMAdw3bnvZ67dwGcbXbyureyri8MRdk1ga9Acto1ae7"
+      ]
+    },
+    {
+      "ts": 1776124800,
+      "date": "2026-04-14 00:00",
+      "netMint": 1.982252703,
+      "mintVol": 2.1806211610000004,
+      "burnVol": 0.198368458,
+      "z": 0.008656684092262812,
+      "procComp": 99.99,
+      "sigs": [
+        "35G5V2UXnP9AUstM9nYWDMdTH55CdPJnQneV8WUd7BkTKoNffQ5rP6Adf5dgAcdzphoffk7D2KfqGHEcMxY6j8gv",
+        "3AofZfhu1SAowus1RJ3T2eYK8WBSGJMsBtt567tAVrzXgzaYrJ8JiFZFseNH4tTSL8RzHGE36QSpD17L6pACMiRe",
+        "N8hoFmCU2VXJ86484URD8qc9LoswRHEwJko1RftxuYoFmwTPC5bjZhjwEFWaKyZ2UQEvYYZTT1bYkzr1yexmoU6",
+        "r4fjCB7dq4FTdLCzBfcbXPo73BoZPwxyaPLgTR3Umt6Hxi1PK7eNuNJAHS59ZLTTeD84Mk2uGVM9gtsu4f59m4j",
+        "gurv8B64xne6APvsLgpseuMR36mvTGaMJ1NbYSYQ5cBthuaHBrA4BhpbXrg11HsR8LMVECRscPyjox5MAxgBCq2",
+        "bU9f351JdhpVcCpJQqjeXjd8eokLbq3NXZWxmDMpq8L4wLU8RQnoWHqWj46yNTwBoKumVvWWDZh5ksqe5aNwQbt",
+        "aESc3DEMn39BLxuhMVdiZ2deJBfZDbnoZfDn8Nv8D4fCV813cpy37pBsUpZ5RHe4KLf3MqoB1ACopQFK8FkyB8Z",
+        "3vTqnht6CB7hv2ZDFyB17uA5Q1EFh5ZshU2DLYPnvKem5HiHESDUQ2o8579bQj82JpsV73oxmLSynxN23qezLtPu"
+      ]
+    },
+    {
+      "ts": 1776211200,
+      "date": "2026-04-15 00:00",
+      "netMint": 0.000009479999999999211,
+      "mintVol": 0.09396038500000001,
+      "burnVol": 0.093950905,
+      "z": 0.002543030666242975,
+      "procComp": 100,
+      "sigs": [
+        "2cMSn6G1Jo81Pkr3H9TQqq3SHrH9Rt4hZt6QgS6MT9347KPkgqoCDmJKvkcNwTUEvc65BC4BrFUbVvmokTrwAFfH",
+        "3oKhZaKbsrXthSSe1Jrq11HXioscXYzLvpL9JTdcedALgNLPDTY8QVr5RR3a3bQNRrcmQVJxCMickXtne2gAcetU",
+        "37zn1kyArA65dceNjcwJuhNgQi3vozY7fkwgPbj4g3c5w5ETiLoFF5yn7HBKhdjxcsxQ9u6DYFMX9i11LDCRqudr",
+        "4rChf4v9CpBDviMcExyNaJD7dmo8DLVUKVSZZgaqTheZexjnvNk6wFuBzgPi2YYr41xNKSaYak5xV98STHii9uQH"
+      ]
+    },
+    {
+      "ts": 1776254400,
+      "date": "2026-04-15 12:00",
+      "netMint": 1.860137742,
+      "mintVol": 2.026321029,
+      "burnVol": 0.166183287,
+      "z": 0.008089295879745325,
+      "procComp": 99.99,
+      "sigs": [
+        "d7iPKa5UWJTXEToKk5N5P5PjB9nJy2AsZWJradqJVaq1WDRCrD4KTjzYobYszAS6hUWD7aq3vsUU4E72jjEFcyr",
+        "46intV7Kg6LLX534ojtPcWTxrfTTntDz1v4cAyfdGFx4SfFLBE3YDWSLNYLx9cKJm9SktR3GBPaUWMyf472jzx1g",
+        "2mjLTj34B9DpGcgCSMy7iDRhEw6rqbXZNCXHzsgbRa3ugTN3Tz2bwV33bendBVbn7t6B9V2SJUSgKZPT7g27EriP",
+        "2bjaVbF1c4MugK8oqjt3R31FmnCun9wtjU5eAZ6krB8FSBBAWoxS79RgoKQB8XzdxbRfYt4F9SqPcc6rYnqnoU7Z",
+        "52kveah5M7ZakgyYkyP4J7BMyaupohLYAYuj8SH4fpmHBpBk6ATGtPJN5d3CY4YxuGCE7Cnc7HxkTw7Uao2U4mmV",
+        "5Q2ZbShzHDurbRUwWcwBX2GvChv3w387orweT1AnAPLLd7ohhhsGUrTYn78PdB2BKig34VnSdffy1VN9c2dBnc1o"
+      ]
+    },
+    {
+      "ts": 1776297600,
+      "date": "2026-04-16 00:00",
+      "netMint": 0.00003074799999999711,
+      "mintVol": 0.30473206900000005,
+      "burnVol": 0.304701321,
+      "z": 0.0020152732340025866,
+      "procComp": 100,
+      "sigs": [
+        "4fm275fMEpVrhaDYccxxzAfZ6bu2ZVfQcgPsVY6cYPKCcscJZbVwhnqi6mb2V2gUt5rin6NWjbhK3wJkTurSh4Pn",
+        "47Zmjz6eX44SGW51653b5UCUAFs6o1odgGEgsVXczBBvogmfckJTUiWF1RXU8E2eiSSPYrUrLMVADQDq9uV8JD4C",
+        "2U77Gbsr6g88tXNjSV43CHxTJ3ZZQqYFcTej4tmru4TVyorD8wKLPxyn8J2sjSddYqC8P1ekZnLkH8mX2cte1sod",
+        "5oZPEX7BXnToGsBwSzTduNY4J1ns3yMd8grHgL7WbSihiQ52j3qTLKSwJFX1ie68A7SJaVi3GDA2QFt5ZPTgaiyw",
+        "EcrhsqQ7jauNbUJjv66hKeP9k1KmKem26W9VMPnqqze9kJvkqqswKAySoMtCzZE2vBNmc2WFpN117SJNVUdFyLH",
+        "2fB2J9JXAoxJu4vcANdLjBvaGswti2sX9KG5vmpkqqgc7VBevMw3HCHDWfMhTstmfPCs5RHN9KnxsijQUdZa4mbT",
+        "3UbmuyDuzCkHKpfik8VzwUcksCvNG3h6ZSjMpjMuKn897eFUAkRE5xAZYvX4AHGK6G128S5Hzkbu7LGK9UUmnjSM"
+      ]
+    },
+    {
+      "ts": 1776340800,
+      "date": "2026-04-16 12:00",
+      "netMint": -1.859904151,
+      "mintVol": 0.097604635,
+      "burnVol": 1.957508786,
+      "z": -0.004040510947870922,
+      "procComp": 100,
+      "sigs": [
+        "4UxqN6AptSVDi1t1VuAdHze5dWNv7hVZ4u9Lcm99rgFLpdFzwjAQRFzKnFu3NL9LTbCQd1fFRYU5BwKd7eqH5MBT",
+        "5e6WpeDGMqwqkSC3p8Dk939Jvrmnk89grzi3RYCf2cZJHNvrrnZxXxpefNnGQDGpret3dXh8donW5xkRRS7C5bDq",
+        "3zVEMMjadSFehWWtYZwCCz6PYdYsKga5fpnbzrQrQyVtoVHyoQnGnEB5gk8S9RfH9LjGQkcK7HvEG46uZgfFvKDT"
+      ]
+    },
+    {
+      "ts": 1776384000,
+      "date": "2026-04-17 00:00",
+      "netMint": 0.000009451000000007537,
+      "mintVol": 0.09366624600000001,
+      "burnVol": 0.09365679499999999,
+      "z": 0.002242692317846407,
+      "procComp": 100,
+      "sigs": [
+        "27ZRjnxzJtodQt6hNAYmmH39z7QHRfRCwa34qMz5bRKVabB1VA8bDqXhF2ncXfMpGAKRg2pPcDBKC8xQYdneU854",
+        "3K81oR4ARCKEPQa8k16uMna4sEYTZDqQKJhwzDzZvffAseoMQZugAqHYFtPP9nUNjZz7HC5cfP9X5jAUE9vwrKDc",
+        "4c5CPZgTDdcTDneaNxQtTXKbgZWwu8yWyM218uBGQDUeZDJ23E9BtbhE8Z3vQpBp896ou57xW5VLhL6gQa4fkRuo",
+        "7PbUtL86VPhwQKX4qYTq7rx8dCtz5cXufbRhAo7RU3bAvNYuN7vwZkCfmM7E5atiKqe5R8DCgBUTKDvuRgvsyWH"
+      ]
+    },
+    {
+      "ts": 1776427200,
+      "date": "2026-04-17 12:00",
+      "netMint": 0.000014359999999997985,
+      "mintVol": 0.142323082,
+      "burnVol": 0.142308722,
+      "z": 0.002182892850258669,
+      "procComp": 100,
+      "sigs": [
+        "3NvWxkpLFxxZZeoxUHKvTpRQpmmtFRnYS9zBNhLsJxS9ktbf6NT1hvTEbvkL544nFaxpa3sFti8wAZisXPSSMF6d",
+        "38e1p7kzmuZedwnYs8y9XMR4uXVYQcAgJMPSvcoPpmsPBpZyQoNCR1wb5g1YRZdPXZcyoU7QwQFSsLZH2L2gyLwN",
+        "Zu9eTNyc8tL9Bqu8GP6ZjcF5vDW3qDLjDve13KGqeyXbpQ8KqnvbYwfg4pj3Qzhzz5VSvWbzQFN9MnBYZQQD4VM",
+        "52qu4ZgncZszzSLe1N2jfHmbv2Aw7daNzUkbazhLv4SBrfRxqyQtypzmkGeuuntsCgdqgoAB6tjDUGsuqKBzPNwH",
+        "5GjdgzRyBdqCiXz8Ks94uYgf21xYnZP7K32q99vrC4BVKnxNoY9QZD6JdrGG34hKjR3mjb6cuHTgXzABPnx3idNC",
+        "4Vo6KQaU2QCrjmGN3CNEko1AZG1KKum4BGqmnaVAgNCt8mKYTV8Wbxy77UQCrGjr1Hrn8eeRbStrLEezMoohLvSx"
+      ]
+    },
+    {
+      "ts": 1776686400,
+      "date": "2026-04-20 12:00",
+      "netMint": 0.0000048789999999993006,
+      "mintVol": 0.048354048,
+      "burnVol": 0.048349169,
+      "z": 0.002127587365621353,
+      "procComp": 100,
+      "sigs": [
+        "3yKzfYaZZyWagLKpECVfgucR5hAuwMng5RHFsVsrMWpUE8Up73mq832h5MqwJ9F9exFEuGSoWr6uwaw5doBDPcPx",
+        "3oZWMQUm34SQ386UxNevd6rQwzDLaeBuPw3Uq7EKfNQW36YqRik2Sr8bFUKu86xLZyEoVyNnAoKxYdrBrxTNjYi2"
+      ]
+    },
+    {
+      "ts": 1776729600,
+      "date": "2026-04-21 00:00",
+      "netMint": 0.000004807000000002504,
+      "mintVol": 0.047634332,
+      "burnVol": 0.047629525,
+      "z": 0.0020763121835753596,
+      "procComp": 100,
+      "sigs": [
+        "2Hyaf7twgUjEiirB97AZKx1jZyZHNwHT51so89EhDMfgKcHUz3CBhaaysuAm6zar8NBHMfssvwidjAZ7a7tNpMCp",
+        "51Fx4mAc8FwtXGepNPSpShEFPrEMapAvKk4wbPWcXTBBW3ZWwTbS34EbdZ32drQZR1QnEWdPYBJ2gwY4SjLmkx5C"
+      ]
+    },
+    {
+      "ts": 1776859200,
+      "date": "2026-04-22 12:00",
+      "netMint": 0.095990608,
+      "mintVol": 0.095990608,
+      "burnVol": 0,
+      "z": 0.0023805634754782037,
+      "procComp": 100,
+      "sigs": [
+        "4Ahxb8ZZX1g39xJJ2MMWPDDXm95KJfbWE2UgXDWG5aJPgmg29nZjPGtYMR32j9Mmio9PnUquHP6aeXtdLWKvmWyN"
+      ]
+    },
+    {
+      "ts": 1776902400,
+      "date": "2026-04-23 00:00",
+      "netMint": -0.09596858999999999,
+      "mintVol": 0.122234217,
+      "burnVol": 0.218202807,
+      "z": 0.0016084832329807297,
+      "procComp": 100,
+      "sigs": [
+        "qw9oWVwv4hTp4mzXqnAtetMxVHSu5cdGiVMw1MZSYJ7kYgodBuERmp3WvYDo8dWF8YkMiAkfH3fiqKbLrTmNSeZ",
+        "3WVCwE55R94Quf21LpY5FZMaBApyWAjtdJwLGDwWA4omNWURenr3DnX9S5b1tTpgoqcMuzcUwBywwGyCXhkt7Vr6",
+        "4XKMKchAWEkkoquh3XXUMn2iYehCFHvo59hoSybhpA15CuDERy2eCWmdYknAUdMMzZs8t58XyHcBrg4VwoYGNfMJ",
+        "3hXiTuaPHEJzsLzzBYuAYkvCK2dejUHHGig3smwGgcYVkdnmXrAXHTjc1fZeuWkbpeLmZwEfkyqzZjuZuch7is31",
+        "3kBbLhTarNuWqfCwuZAXq9kX21nRb7rMQMpy4ZYcyf2jh4boPHvbLw1uMCJ3HvXgD2kFXooFwPmGMDnhtseC7gDK"
+      ]
+    },
+    {
+      "ts": 1776945600,
+      "date": "2026-04-23 12:00",
+      "netMint": 201.738389174,
+      "mintVol": 201.738389174,
+      "burnVol": 0,
+      "z": 0.7746318154244203,
+      "procComp": 99.23,
+      "sigs": [
+        "3dzB9Bk5hZrQf9Q2bEE86QEm3zpYkZY77QZcod9sPPyWEyoyAqrJcdKuBVABfD4uqgV7RNcJy3JhJ1tFqNsnyvLv",
+        "2NmHhzyHzKqbuesgDG6AnLqiYenx1DgLYpUy45gyYd62HbmiBRnK39vVvNeQhu7CnX6ardY3ZCzQos5qLtZU7jw7"
+      ]
+    },
+    {
+      "ts": 1776988800,
+      "date": "2026-04-24 00:00",
+      "netMint": -201.70824162099998,
+      "mintVol": 0.00979215,
+      "burnVol": 201.718033771,
+      "z": -0.8085017973843011,
+      "procComp": 100,
+      "sigs": [
+        "5zpVm9qPAiJrvuDioRKRCrHvMiapNtdz6GVhnZtVtjm2yRmV4qarVsgpHV2iW8S9nSzK8KUZCtpqguVspeoRgJj1",
+        "3pHyWFgjZh5wpr28T4gF3xxLZmGxDLu4Uuwpm5JSAw3ZYiCvEZbRRGoKkspD3zE5Qa7yAp3CgS7r93vkNsbZLhvk"
+      ]
+    },
+    {
+      "ts": 1777032000,
+      "date": "2026-04-24 12:00",
+      "netMint": 0.04094493899998497,
+      "mintVol": 405.79721224599996,
+      "burnVol": 405.75626730700003,
+      "z": 0.001976049016009748,
+      "procComp": 100,
+      "sigs": [
+        "ZGQwrkdog4NCKycaH6Hveoc5zBrrMYjF1RP2HdXP3PcpCJdfFZ2pj1npysrGkmDWGoM5xfRn3uA3gtFe6ivfdnc",
+        "4cWsJZv4YGE2MZ9VFqzorMx3T5uNQ6wdKo9nnWkMf66GhRATVhaWBSaB5nCVqBTenpMiud76qKrPob7eU32URoa9",
+        "2iNVKNz6BuiAcmakcbJbYRi5jgbneuouYP63vw4sTWWaJrVbfV5huTBoF72nnnVrhzkTVawrS9zqxx7iHfS2zwiC",
+        "3Ea5eu3wmZajqYgsedcFodaLCqzJmomPiursLfkpH46iMkofoubaNhe7Fky8m7g8ZKSrpE7BGuHYia2P38M7NCaP"
+      ]
+    },
+    {
+      "ts": 1777248000,
+      "date": "2026-04-27 00:00",
+      "netMint": 199.802299642,
+      "mintVol": 199.802299642,
+      "burnVol": 0,
+      "z": 0.7940061102800333,
+      "procComp": 99.21,
+      "sigs": [
+        "5s5QnNz12Bqtx5YijuhJgdGm9d2ZKBHAjDDVGKe9CcUFzjFJ3Yxyje1RieH3EctYc9eDVQSYevb2Z7oZsDmcgwfG"
+      ]
+    },
+    {
+      "ts": 1777291200,
+      "date": "2026-04-27 12:00",
+      "netMint": 9.995362687999986,
+      "mintVol": 209.77750227800001,
+      "burnVol": 199.78213959,
+      "z": 0.01314402369159002,
+      "procComp": 99.99,
+      "sigs": [
+        "5PVL3rHZBHTc4EByDv9Y8p3ZsskT6cpRH7T9fWajtjKSPH3BNuZqc6NkhSzqGNmmz6HS7XyWW1sgdgrGddMGbXvD",
+        "66vv3iEbrMbHUKQjgr6KhcmFX9Ep4nv2LgCSC94jbzv7k25cwiKubgPmJ2Ts6Qp4mGC1b5FHjyV6ovJ9oaYi22xG",
+        "ipAonp7zv5ZQZ9C3MC75oNQMdXAJxBHk4LtVAZNphtAFSuyVP4EpgBAHCyyHYdcA17Seu9nLTuckLKHwreeZmPe"
+      ]
+    },
+    {
+      "ts": 1777334400,
+      "date": "2026-04-28 00:00",
+      "netMint": 1.068236608,
+      "mintVol": 1.068236608,
+      "burnVol": 0,
+      "z": -0.023362587309938326,
+      "procComp": 100,
+      "sigs": [
+        "49MZYUeu1fy4zmHxLAQ6onBcDDBYDbur7pa6XZcW7Aqkx7F9KTyE7UbA2Ux64bmcdxX1QeYympzEFjNH567NvvzB"
+      ]
+    },
+    {
+      "ts": 1777420800,
+      "date": "2026-04-29 00:00",
+      "netMint": -2.179094565,
+      "mintVol": 0,
+      "burnVol": 2.179094565,
+      "z": -0.036391647918483816,
+      "procComp": 100,
+      "sigs": [
+        "3cQ8crXxCjG35pQzSgArcKczg6LKXATDqAqumTtyB22nzfqvmULAPeXYsH6fbLcpidbbrZv8o2GKvzy4JAwXtsCb"
+      ]
+    },
+    {
+      "ts": 1777464000,
+      "date": "2026-04-29 12:00",
+      "netMint": -0.218657548,
+      "mintVol": 0,
+      "burnVol": 0.218657548,
+      "z": -0.027562419240886465,
+      "procComp": 100,
+      "sigs": [
+        "4qxWpkghGJiiocN8g9fsgaJHASJnmTYVXY7BA42Qkp8NCgrcE8pEd57N7a7LbSvjpHyZVg5N4f9txkcAnnFH63C2"
+      ]
+    },
+    {
+      "ts": 1777507200,
+      "date": "2026-04-30 00:00",
+      "netMint": -0.259115179,
+      "mintVol": 0.01043139,
+      "burnVol": 0.269546569,
+      "z": -0.027300715042332887,
+      "procComp": 100,
+      "sigs": [
+        "Jmw9fcFXhfAQWR11hCaXXLKNfAUULkSCMTu9FAzrXhvUJaEKUb4ctzSUaDBEHzzPv53Aka4oDz6gYhiVFAevbC4",
+        "3qj8Xjto8nJGmHxqgh9FtuhAzmw1hMu6LGkXMWphVVHomhVMWaV5APeHvSecAWtHGLDm2wjSFsFBtw2CgxQxX8hv",
+        "3i2nfJmfXo7xcYrPqU6vUtD4Gmy5txyYdRj3ZAPFme9CGccnoxAeod7YyfKUQB8yPUiqfCM8fKxWywAtTRKpwCSm"
+      ]
+    },
+    {
+      "ts": 1777636800,
+      "date": "2026-05-01 12:00",
+      "netMint": -3.0976560170000003,
+      "mintVol": 0.914514913,
+      "burnVol": 4.01217093,
+      "z": -0.03918799971933871,
+      "procComp": 100,
+      "sigs": [
+        "3nzBnMKtSVLimDjT2SkF98utedAGVvceRAadVrPifPQVhBahRc94sskNBMXsUwooA2L4cUxyrEzGKd5Mb7gSaCyt",
+        "5ofjTt5X8Sf4rRwad9pM34sAEfsFgFFWLnifMF2uw8yBUFow3hqPgbXd9t8VjMd9xfEkztWrsGWt1D4KxFXX2xaD",
+        "4wsYNwNiQPpp6xCK1K1ZJz6cRNfvv6usevfoA6eq3cPiDX2ZVdN1G1bRQibeCan1XHcRqJautt6FczEg1d5zyZfM"
+      ]
+    },
+    {
+      "ts": 1777896000,
+      "date": "2026-05-04 12:00",
+      "netMint": 287.047247276,
+      "mintVol": 287.047247276,
+      "burnVol": 0,
+      "z": 1.2379896478907935,
+      "procComp": 98.76,
+      "sigs": [
+        "32w3oYknWWWFgJ4dpFbuiABszmkT7tzkzP8Fj4YNwj6Ns1UZ57jjpJvkAHna783NMDgNWuLJJ7Tq3jQsgrEnrjfe",
+        "HzKE4ZitMJfGXpWZdQpWUEWFX73L8cvbkmcGbMbKCJLfbtgcyPUXpMEzbrp2ZdE6gQTNYWFysQLiGWwPVhtoRw7",
+        "4WhxXKLFs2HJVU2EPHL2FUE3gu1JcthpxZiUDd5v1DbafHZ6rVW9HHn7pfM5TnntE94sEcj2GCE44uPtQ2yePsoM",
+        "k5snj2QEPLYDXxKMg8REbybF2u4CT78f9XTb4j1oFfpvk8oFT494UXDRwtxMQSSYU1J31QRPBYHm2ZztEH9UNxk"
+      ]
+    },
+    {
+      "ts": 1777939200,
+      "date": "2026-05-05 00:00",
+      "netMint": -286.934141455,
+      "mintVol": 0,
+      "burnVol": 286.934141455,
+      "z": -1.3136757579057086,
+      "procComp": 100,
+      "sigs": [
+        "3th29MmB1JykXN7NG3DaeXmj6L8W1usUcWSkFeoSpJr9ujSr5YkpJBDDPZs4qvbYZ31k6epWMPiZU5uafs2vaQmy",
+        "og4zbHHfRnbHMcgHbM5y7zPzkd8kb2aLBxhfaRS8Ht65onGzB6jupy6Vjmu61oQm8NqUkLLEWdafCCo7d4CubW3",
+        "JxbSAy5MZTjp4usofQR6a2GQziyc8JkPijWwxhm6vsRGniY3HEvYj8BXpCRftTgpmc7YiCXrfzKBtfv2FQ4w24t",
+        "5nAAUxYoqBQVVH1qTZXQrC9otvY325dEBpFWvJ1UpNUvUU2v4Dana8EdJPRYJLbMTvRfz5EuNCxAjeduxiHJdD9W",
+        "4MAtLPH9jEeTXiLftXUi4WhXPC4FPAZF1paXinpLHZ6Yqqb7o3eSkgxQpoRyZEzT1SzrrZfH4e5do7yTdeXMaYQL",
+        "2XBWvfhecwbsdjkqqKb92S6vjtrzM1vSTBpQjmF9morBon97JkcvJXi8EYAaEkVaWWidRccsMwHHPLADdgyFfKNg",
+        "4FLHBbXtDkgX33WE8yN4WMEz6u4HhnhZ36GZYNbYz9QUREL9ZNfSQbBULQgqgH4sg8Dgi8mzqNYTXpy1JFFtJaX7",
+        "2izXN9z846SajJxFCPDz1Gb3xRXeeAxPsLinpicd3CXj2irRhEDqnrRHek2UZSLJEgNt9XcsdAjdoetGyJZ2GZ4u",
+        "rWTYq5QtdDioeTzAsAFFYQ4vGsotEU9enSh6Z486mgvGq6y9FbA1vTY8o7KabUNBCwsEpubUghyjmS9zKuvwueS",
+        "5npD453uEbnzVgagFypiHswr7fSqbBwsTqm9j4LCaDNakkEaqwH8fap2AAoDPzbhFkKFM5kMQaYf8RFNzAYe52So",
+        "UwgTKCHbirTDSKnZtc4sg3BGy5iXzucqjnJTLEP5QoUEQVXrVcAz9CNtdW3aHx4vPzhQdJC6uQ2uD4YqBgANXAM",
+        "2p2yqreWy2D9V4VuNp8iCSoiqsqYat8KYn4SMEMeLzXjtM2cypWTbq3CXPkdjbxFeFFhqDEvGnUnERRycux4V9R1",
+        "3Rq6EjUEab43vjdKCJaCnJNkAoiqcV4G432EW7v2SfdX41UQr7FRHjvZVPmUcHtzCt8vuSx1BaZd8iFYSEL5TKaN",
+        "431zf3nNJMnJKh5rW89zwr4vg5EmmxKeBZMDNGwYQGSzoJhin5abkkyPaNqgBkHXDhgk1Vcj9wqE45QC6kVLWEHX"
+      ]
+    },
+    {
+      "ts": 1778025600,
+      "date": "2026-05-06 00:00",
+      "netMint": 0.041742495,
+      "mintVol": 0.041742495,
+      "burnVol": 0,
+      "z": -0.02304206402738239,
+      "procComp": 100,
+      "sigs": [
+        "5JesP8PhLUtSYsb72gwpyUFU7vJispaaTftBTtTrzm2RUwgDnQpCZbL6yv9J8aUvwQiS9pyj3sF4WA7qZDVYiisQ"
+      ]
+    },
+    {
+      "ts": 1778068800,
+      "date": "2026-05-06 12:00",
+      "netMint": -0.03329290300000001,
+      "mintVol": 0.133574702,
+      "burnVol": 0.166867605,
+      "z": -0.023057686836288175,
+      "procComp": 100,
+      "sigs": [
+        "5d5RbRGjEdZvVKXLux1G4FYnh4QU64nsqQbehsR5PHNePPXrphaDHL1NcvA7NoXPamNJCM79c1NrAuTMEXtGQfhr",
+        "2NPq1ozub6HWGXSqVJLD24hFCH2Uoyr9XW4KGMW8oRN9EUqMQDE9oNd6SQficyP32djq4Pet3hGtKzbsH5zTA7CF",
+        "23wWLLwm5BLHc6wF6PYkrAacVgugQAetmwwWMWgij7pun74wj1BwpcsEg2kZQfopnuMX68rZ5VNjieTfwEFLL7TW",
+        "2oZGFW28ujGEAiAxzb9o1Pi5JYPf2RAEz6LT9swTJgJd9sanhfosSHRXBaMqEjgq85JciPE7Wg5zXdQd11Qg6YPK",
+        "2Yrrej5P1Nb4xcw1myaY9C7RoNj5mCj2wsPMvd72xLB618wx76yVgmMAr7pne7UqxRNLnXF2ozTqXW3uySSQbsf",
+        "4VLQ6jjeo4syfiZMZ3p4QwRujNtBnFHJQ4qgUHyBtQadyNAHFUT3HXmVzv9Rjb7UqLFokYsPYkxEXhzwz7yVunHn"
+      ]
+    },
+    {
+      "ts": 1778112000,
+      "date": "2026-05-07 00:00",
+      "netMint": 8.400000000088892e-8,
+      "mintVol": 0.008321755,
+      "burnVol": 0.008321671,
+      "z": -0.022604045581283035,
+      "procComp": 100,
+      "sigs": [
+        "5ZrmaYpZvNhbaNkoLLff3UxxS311g5AzhjhzeVUqcYwU7xTz9Ac5eKjnxpgEhHiBVYR1jVDsBzh5DC3PS1fyENwM",
+        "4ezMoLHcQ2mdvWR1xQ6NJwCr4RQmZWh21QKWi1cydbRQeiDgnM1UJVyPx9d5UDjfzz9hfH3JagiNoTNm4UV2Y1Fm"
+      ]
+    },
+    {
+      "ts": 1778155200,
+      "date": "2026-05-07 12:00",
+      "netMint": 0,
+      "mintVol": 207.692540353,
+      "burnVol": 207.692540353,
+      "z": -0.022312222478708437,
+      "procComp": 100,
+      "sigs": [
+        "4HNVTyuCtNPbrjek5rp1kLn5ymN1rgWTanet4EFmhDnZrbPRYQHWjKhiurN2qNJCMPhyySKk417WhPQyD9aBnbzC",
+        "46c9B2rsGQamXESPib4uPG84owDNr145FffZQGuugpfyxTNhJ1BvVZjbfV6nBw58EU4VFMftnB7roLyTv1TbKaCx"
+      ]
+    },
+    {
+      "ts": 1778198400,
+      "date": "2026-05-08 00:00",
+      "netMint": 589.348063604,
+      "mintVol": 623.133698056,
+      "burnVol": 33.785634452,
+      "z": 2.6671200029866697,
+      "procComp": 97.33,
+      "sigs": [
+        "5QvPq8a8SDtQvNi1Rj3mCpEPr5bhiVMiJ9eirPMEML5Y2e27CpmXxb3o7er6NSn5CBnqyZuecsX2DMiUZ9h6UVem",
+        "4gZQn51rM31qUgN16FH8WKzjggosj8yVbexZYftatdKchSKQLJ939uPdhsdZ6UuSXipHsUctPh4jtYfUNjGaUbxY",
+        "ZCDBj2KL3AWSE1wCissyLjXYaajybtoqjzpmj3GuUE3rtuxpAVi2G469tUbXvTutuGUSY93bPS8mJ9uhjUVg2tV"
+      ]
+    },
+    {
+      "ts": 1778241600,
+      "date": "2026-05-08 12:00",
+      "netMint": 21.758973058,
+      "mintVol": 22.12328091,
+      "burnVol": 0.36430785200000004,
+      "z": 0.011403332471477533,
+      "procComp": 99.99,
+      "sigs": [
+        "o6BQeF8GDCsSKhsRqpkyBaTqa8r9myVUGrGNKxw2q6SbSnp2zPnuaRQmCxnK9Vccbyg6fQiEoUaH3jk3A6HDS2E",
+        "5V8Dp86giEqmqgyKRm54VGrRLUjBUnMMgat4tnM2qBqvkeKepzeAKWv8vEhCuVGiDAryyY7Xh2JCYukpRVi3aQyr",
+        "5oJZxg4p34auPTpjrdxsge67ioLBSN91oubhUsCbowyHF6WYNraLuU1vXcvuk7gC8gApFHoD3GmjeUh7tCHRFao1",
+        "3hR2CjCuWYE2dtUeX8GhDy1rYBjJcowDNCGB3AwnqhamhqW9MkVN5HS2KutgQivDxFQHaZCVUWAPaA3qzW5VBvqa",
+        "5GRPwqHhA2FB1oCofqk4sarjjijXW8vzrP4spxeEfzqzSwzS3AcN1uPPbKWcnYhjQbu8ZCPNmsueM78H9QPRUjby",
+        "2jbZeDfD8tBQX7TfwtfPvysdhkYaK758suhDjNUgdeAiTa5UoatJAPaZ1z63kmTMmi7C2U2pAwq4e4MDCu4VyLik",
+        "WVJ3z56LG1ycASp7PeJq6hvBoiQqnc5CQKegyWAfvZUiYuZUAi4pdTEaBucS6iWNShmaaxFtnYkLo1ZEtwu5ZtU",
+        "4goCaAxHni6AMJX6LAtKap7DDjHpaVQ8LTAR6DHogztztjuMsS3AA6d1WaBX9sStp8RunVbNqetuqnjgC67yqWoD",
+        "njNrHei1Dt3ijfoyep7UcKu2AN1cMeeL36Ub7y7HGsCRanZEWB5PzYky2jFtSxxc2jM2ySWdCToVSt7T3A2JYfr",
+        "vxffUg7uJQi6V6AMREssn7rkywMSXRoif4tkWSCKVW9B9BaTvuePwQiMVdch6oXv8THRrV4SSewB71Y5TGX6dGJ",
+        "2kpFqMeoPTvuuGU9BCeMgoMP64MT42EbBzrp4cnxsgomg1XzrhDdtDDafjHnFUwhjfBTKndNpTyZiSfSS9hfRTbH",
+        "5kcTg9xdNXNGsb2UYk1t7PeuYji3ZSCT6w2BN4BvW3VmhcvrnB1usCeW5g9yikgDHU7wQXXBWe57EKHUguZtKo5m"
+      ]
+    },
+    {
+      "ts": 1778457600,
+      "date": "2026-05-11 00:00",
+      "netMint": -176.75633572799998,
+      "mintVol": 0,
+      "burnVol": 176.75633572799998,
+      "z": -0.8455534606850623,
+      "procComp": 100,
+      "sigs": [
+        "3SrJEwZFeryEV1kHfC5aPyW6i53Fvoofa7hiK3Rn74WTNgSoJuTp4M6ykDaSuBny1CjHhqyrq6AFuRGSd5T5ULMX",
+        "NDVjCJsq5ngRMxvMiANtEHGMoCZvccHhsemeER3mfmnPv73FTvNC3BapD6M2jkPYbVoGjLF5ngAyfGLBdJGcFgv"
+      ]
+    },
+    {
+      "ts": 1778500800,
+      "date": "2026-05-11 12:00",
+      "netMint": 42.256491483999994,
+      "mintVol": 42.631630376,
+      "burnVol": 0.375138892,
+      "z": 0.11982201661812796,
+      "procComp": 99.88,
+      "sigs": [
+        "3WmXVrg3Z7qJSKzy2HddFUnBGT3JhBdpZ9Q6XbFWxr3ooRmYwMjFMF3dPUAX3oH9iq4nVz4YD8eMrRbg8qXRtu5W",
+        "2HDXTXtZZjA18gtBvP97c5YCdZggYjtGAFhG9KXFZddAoNjbsdMTvaHqgfw1vLEmcc7oZXsKC6ggpCY9MuLN4BXo"
+      ]
+    },
+    {
+      "ts": 1778544000,
+      "date": "2026-05-12 00:00",
+      "netMint": 0,
+      "mintVol": 0.13120128,
+      "burnVol": 0.13120128,
+      "z": -0.06668069933111347,
+      "procComp": 100,
+      "sigs": [
+        "2csvUQnGgDyBVSDjebfAZhjHjuEQjGb1UuSV3MJTMWU2VMaZaiD6ed6f7UXqbyB3FoXZDstojyZvkKduMh28dKfw",
+        "EXuQgjm12f4chqzY3QoRibBiWh7jNB9ruoMaKsJjBEu4vutcToH1QWcq1kfjbNVT8EFFftkKDUbFGdADeE2NP6T"
+      ]
+    },
+    {
+      "ts": 1778630400,
+      "date": "2026-05-13 00:00",
+      "netMint": 188.14462336,
+      "mintVol": 188.14462336,
+      "burnVol": 0,
+      "z": 0.7675491882435332,
+      "procComp": 99.23,
+      "sigs": [
+        "5SvncRMB3yHxUT17FaadDk65ry5ADRu1s4XLK4cHEfLJq1NtXz7qYd4LTocMQxYpf41ZRC8DzSRm7dF9noBDcQV4"
+      ]
+    },
+    {
+      "ts": 1778673600,
+      "date": "2026-05-13 12:00",
+      "netMint": -619.1960706699999,
+      "mintVol": 3.937627386,
+      "burnVol": 623.133698056,
+      "z": -2.838762977670939,
+      "procComp": 100,
+      "sigs": [
+        "5hAjw7gv5LxtrRPaZgHDmoe4FsCJjCss4seN5aocXN9CnoE5YAXPmVN6j6PAWMKvHUmFwCxTACVXj6Uk7KATRjaj",
+        "cZda7cnVYXtG7bA43ap6DYX18i3ADL2oAmA8hMfUaKVaAis5NDf1RJTCtRoFvuKKhC4yydT2TmVoCnJWaA2tTDy"
+      ]
+    },
+    {
+      "ts": 1778716800,
+      "date": "2026-05-14 00:00",
+      "netMint": 582.7534462360001,
+      "mintVol": 583.554132693,
+      "burnVol": 0.800686457,
+      "z": 2.4010623640656834,
+      "procComp": 97.6,
+      "sigs": [
+        "fTQj94qFFZGq4jjSa9FUNMVDArjwfpSy41uTUjjChnKyEtTn8JadZJGP1LPZbxVPYJUSCApNMK3u9Jb91orL4bZ",
+        "aB8uPAT4Xk72caH2F7N1KYmcS2kWFSUtpSt1BzE42bzdSUMdsgG4pRiEsepH8iBQbdj1sMxg8c177z2pTnRZ7ef",
+        "2awxZ3tBs4gAfAw1enZ67jaHVFBSX1vZAxezGgjm3BaSmP1uyDa9NUB3X19e8yHtXv3zP7jVLMM9ALcmJgLASmw7",
+        "2sKb8hNWPZf99QVXGqyf6QXJWyXJrLzmnVadeZd9HXapF2qyAg9aAxBL854YhnA2LDgAWLiXdWYqGztQWRBS4Mwr",
+        "5Ey6Sn7iLasAhVshCjP5KQmRaHZVCwQjz3LfLexQKnm9x5RSF1gkYFjNnkjaQoLL1md4Fq5iPWetV4PebQRRqLou"
+      ]
+    },
+    {
+      "ts": 1778760000,
+      "date": "2026-05-14 12:00",
+      "netMint": -0.019675857000000005,
+      "mintVol": 0.122835116,
+      "burnVol": 0.14251097299999999,
+      "z": -0.06799819650726387,
+      "procComp": 100,
+      "sigs": [
+        "kTSEMeDHFsbX1nBddFYEKe7y46xXU5MAt7DLVJYWpJ2ApDZthNsUoXs6yFsDikgAPdAdSJNcz5bmUCioVVjPQZ4",
+        "HrpMKe2vVGctD4ep4gff9yzdt2QfKSh37GsPYQx9JCZuWAyBAAf2QbGEvsWPiDb3QdxDpCCvLTDwToKCnVC658n",
+        "4MA5Ki1uD9EwxAxj8pbpwQb13GQoLwkDWKLR4Mef2Hn39dPwhJppY27oxHmQaPEPzNKkkqA216kxRycMW2A8W1av",
+        "5so3fmzuKm36E555LfE111324MbXK4PTMsvBTQi7uYunfdSuSXm8hu5ZrVZP8SzukBdSZ653eq8cpjxWj6Pmt5pa"
+      ]
+    },
+    {
+      "ts": 1778803200,
+      "date": "2026-05-15 00:00",
+      "netMint": 82.90277892200001,
+      "mintVol": 82.90277892200001,
+      "burnVol": 0,
+      "z": 0.2652019731596859,
+      "procComp": 99.73,
+      "sigs": [
+        "3zBHtz9FTxcEooQd4MwmyEEZfSFmEz7HfMDGmvPGmFvDa4TKMAjwXFziYr4yguqWSGQo3MQzh9R9kwk4YrRxLFJA",
+        "3hH2RzF3Z8SJpa9Te3fZNVumLYix77GmPZWABZYK4WFqA7sxS9nA5cor5vEeQK6MJW6ojeLnpdmhQ5wxK6hCv5Uf"
+      ]
+    },
+    {
+      "ts": 1778846400,
+      "date": "2026-05-15 12:00",
+      "netMint": 3.4443038469999996,
+      "mintVol": 3.4443038469999996,
+      "burnVol": 0,
+      "z": -0.05926628678838149,
+      "procComp": 100,
+      "sigs": [
+        "2TK5n9pLttAnftowHtK5BcVBK2gtjN9cfMDCM4Fph5PLLtvRZw6G6XCq3DUKXrdPGHvQohRzAKa1xgXx4CLU9vRS",
+        "5FnmzJ7k6BAZ7tLkLDnKR4Er6hWLV18EL7jofxYBuy28NgQekE9jgH7rXCKghvPmUpZLYmT15avk1rXYpHAt5kvG"
+      ]
+    },
+    {
+      "ts": 1779062400,
+      "date": "2026-05-18 00:00",
+      "netMint": 222.996641571,
+      "mintVol": 222.996641571,
+      "burnVol": 0,
+      "z": 0.8387977282714001,
+      "procComp": 99.16,
+      "sigs": [
+        "3JHHCw7HRjhBpYaB5fYWtWtwt7EgwcKLTwBJBoZyDUQbBsDfYMGJDVp6MHmRWjNCiHtY2pLtQmKwRwv3jpwi6Sxs",
+        "34t2m7vTNPHEjEjEmqgEAtsZMnmH6a1AXnu9tL7V9hoJxfJ5ysh3x4Ns4EUBmEvokR7Y2vHW4T7TaoYrHk4BoTqB",
+        "42A1Y25nKG3HpTfzGmanqmKZj3P9NJcPLDBiqpitUEWSQhH1MwERCqsnrfqfy1aW4Swet6ihNRLakXo9zqYGeWBY",
+        "58vfcotd6vPNy3rNZf79GX37SCYzEAUF9Jk55HLYqAPVuvb6a8f9EHE7PCCmLrRi1E7UrvQB8FrmCvhXMy5SnsT4"
+      ]
+    },
+    {
+      "ts": 1779148800,
+      "date": "2026-05-19 00:00",
+      "netMint": -1,
+      "mintVol": 0,
+      "burnVol": 1,
+      "z": -0.09325668314403412,
+      "procComp": 100,
+      "sigs": [
+        "3QLaZqhHJHVBYBf5ViihfF61ouXP6awvta1tpdZ9nwL2jBCUNFE1cTuASim37JxoYkcnvoXgqvR7BQNboSTRH7fD"
+      ]
+    },
+    {
+      "ts": 1779321600,
+      "date": "2026-05-21 00:00",
+      "netMint": 0,
+      "mintVol": 0.088741871,
+      "burnVol": 0.088741871,
+      "z": -0.08822623888095409,
+      "procComp": 100,
+      "sigs": [
+        "kBZGSQL3iLmkGY81e2S4cfVLuJb7gwx3MiswE3uJRJmdV84U6i5cfgzxSt9iof94sWXKFHSEZPXnDHcaSWbWomF",
+        "E1aP1UvTmhRqMU2ATH8cwcXsPWVWpUkX1D11g4wVUxJ79UmuT2fVvoBnzVdiXqJvHdvaJiLH4o8n54y3ySnGY51"
+      ]
+    },
+    {
+      "ts": 1779364800,
+      "date": "2026-05-21 12:00",
+      "netMint": -0.695777146,
+      "mintVol": 0,
+      "burnVol": 0.695777146,
+      "z": -0.09030579384418758,
+      "procComp": 100,
+      "sigs": [
+        "448wLQSvKa1JzRS857Nku3yhhyc7t6qq9K5jZotKT9D9Zx41LV7s3uEoiQqBviCBBx7WmbqjNXEHujq5XigLMdXy"
+      ]
+    },
+    {
+      "ts": 1779796800,
+      "date": "2026-05-26 12:00",
+      "netMint": -1055.856628348,
+      "mintVol": 20.128936803,
+      "burnVol": 1075.985565151,
+      "z": -4.537663034048974,
+      "procComp": 100,
+      "sigs": [
+        "5JjvwMU2HtsJseUKB1NWUiZekQtYmhLSRkvbqQjnWTGM98VbbBeu1GuewqgZE4AUP4P23MqNVJDgz48a93zqC9gs",
+        "3skvJUoNr4UXyLgCVjyUanpg1gSG57MHUpNyhFEMwoS7hR26bSq4UxgCorc1wKRfk1NJpw8pGtD9zZWPezbFNe8Q",
+        "2tdmZExTdsQXALRXmCrw8ogYSCZmd97pSoHS8htx36x8X1Kq82D6WPJdoiyyVnM9sgXNKf9r71237asV4Z1WtWCi",
+        "5NRjSEL5XeSHyXHvWimreK8sxvP9XAZGR6VXrP67c6cQ8noJpkLRLvUpXhv4utGbAohpb3QJN4dJZrPpMWofxQDV",
+        "5GPb7XbxBwVRG2wazv2CXSMBkswRUrxU7tocoFBk1ngtkzebJPw5zUPVPHyhmjbot4oFT1zxSyTqHW4YzhrsLZZN",
+        "5xcbMKTaWqvJuVFrcqmu3QdR4W189phMpYgMnWxTyUz87DNcWNXmLYmbf97G22YEEfaFkT1rT3pHYzC6vs6Y2B7L",
+        "3dvHRx4aHmrkGycmf1VhNppWtvCy74LTGnZEWK8jre63hQXiR7N2AGkNQMDT2zLPwLaPPJhXTvT8ZvqkKB2o1L2T",
+        "2mWPQzwogahMKwpsZQWxxEv7pUorzFLYutBQgvKaXj8BCm8DmuZTYG7ZuSarUYcvZtZTzqPVVsdPQrtCFRJf2H3h",
+        "DSpU48jcy3eTYpthQXVrNDe62cmVotwaNBK9mLYwquPVaLGWKmg9FHu6A5FuqdAjDvaUSqboiJX6aitZcdQ89zq"
+      ]
+    },
+    {
+      "ts": 1779883200,
+      "date": "2026-05-27 12:00",
+      "netMint": -3.210070296,
+      "mintVol": 0.581731889,
+      "burnVol": 3.791802185,
+      "z": -0.01643161894084786,
+      "procComp": 100,
+      "sigs": [
+        "64ABAiXYQqsCckPWuJgNbxe2PGHqkW9eEZckHRPjt3jTfACtCGYJDimL3yiiMkyTcRMbDUiNoxWEsZ728mHcWtf2",
+        "59Bvk8o99xo6uNyBiZ7gqkFtKkGGjP8YXq2snguZzBGumKt2QpzMxEAvpx5wniAP3CtKmZAhsNLiqs8wWkFHqmsC",
+        "44HZ93dQVm4ZmUZQwpvLmT63WMADM95dD4Q7aLwZPLzdLqvtfMJ3mBTZaMLs7UVYqG2wBnueDTASsgBKpVjc2Bj4"
+      ]
+    },
+    {
+      "ts": 1779926400,
+      "date": "2026-05-28 00:00",
+      "netMint": -0.046931572,
+      "mintVol": 0,
+      "burnVol": 0.046931572,
+      "z": -0.00467914495878393,
+      "procComp": 100,
+      "sigs": [
+        "4Pb2GfGX6kZGNgubmuTaqbTdHQkyK9ospG9NbfjpYLTyN28Qz4ghssXAoN2WGrBZ2BwFfZCWz6x5oiCQCEReVMyQ"
+      ]
+    },
+    {
+      "ts": 1780315200,
+      "date": "2026-06-01 12:00",
+      "netMint": 10.796235323000005,
+      "mintVol": 32.676559197,
+      "burnVol": 21.880323874,
+      "z": 0.03549967960839483,
+      "procComp": 99.96,
+      "sigs": [
+        "2j872vpPUFtqZGqikaREZt4dRYe7CdM3qQrua745Zrpe8m98exS5Wim8gamMqmnSpHkLJUfCTAvZ3Lp3a4VAdnfk",
+        "5dsyGnHJoZSARV75GyATciA3eZpfi9XbtPxs1RMmQkYoh6kFq4oVQQWhZGmEVi4uyqqcVMfwPjQK6kcwEtGH96VM"
+      ]
+    },
+    {
+      "ts": 1780358400,
+      "date": "2026-06-02 00:00",
+      "netMint": 0.072618546,
+      "mintVol": 0.072618546,
+      "burnVol": 0,
+      "z": -0.004838912032713322,
+      "procComp": 100,
+      "sigs": [
+        "4irAgiaibQRbpbhxxGzqdS2gbcRrgaxRVnyeh1gvri8mPzK9zq1bvLfZ11SyStXUqemsuHfShShxc3w9upQSFFUC",
+        "4b4GyyS9wYFsMyyK3ddEU5UG7zfxoE7p6i5sTETgrZFtYYM4sgSRUx7NCzgcvpCfG6QobmCcVvfCtk3LVwxRva47"
+      ]
+    },
+    {
+      "ts": 1780401600,
+      "date": "2026-06-02 12:00",
+      "netMint": -0.072618546,
+      "mintVol": 0,
+      "burnVol": 0.072618546,
+      "z": -0.005345228594896082,
+      "procComp": 100,
+      "sigs": [
+        "2U3Vt1iUHW4fsfoVSuhJyxdM83hzi69doFL3vH3ywCR1BKchhTrKZY6dR2oFNXPGdurMdYYPCmfM79X6Mcdxtb3a"
+      ]
+    },
+    {
+      "ts": 1780488000,
+      "date": "2026-06-03 12:00",
+      "netMint": 10.418113905,
+      "mintVol": 10.418113905,
+      "burnVol": 0,
+      "z": 0.034523681993818736,
+      "procComp": 99.97,
+      "sigs": [
+        "9qAQ2h7DN6fphnYq7PNnRuTudBJJpbgbjA7BCd2mGt5FvS67gnEXaF1LeMqcQPEwj2FGBx9jNmWdKwGJyMtuBwK"
+      ]
+    },
+    {
+      "ts": 1780660800,
+      "date": "2026-06-05 12:00",
+      "netMint": 2.3961191110000004,
+      "mintVol": 2.5334237040000005,
+      "burnVol": 0.137304593,
+      "z": 0.0035424046525999965,
+      "procComp": 100,
+      "sigs": [
+        "2bf15Cxnx64oJf6PjeF2Rm9s5gvDijidvFwQeUq6PswEnFjm38MnasG3WwEnggHb4v5BagPfzaKbtPVrF2Tgby54",
+        "2sSLDKYTnwGdS3YKJTKbs2rXtfnVajL7xdgEpctRaiH8qA7pJx9cUa57SZtCxAxCxxVqGGvNAnA6bnCjWmm9cSxH",
+        "2TMD55EY5TT5LrZJrer4DGAUQpLHZQNWvovKTtWsfL5JvAhphBY36ip5mVE7PfFRJn2ThZ5AkPmD4txD1ueULqiy",
+        "9jMKuvTEVW2wmFvAsVXMu42TwVtqGhHB9afbaSePh65q3RNKSSPg1tG8oXGmoxUSf3wt2ZamZEnTQkkVQ2hTEUi",
+        "5KdcsN5TTXumEyaJx6swQYznQ8RYf5dE3M5mCZBNoNZLwot1wMB8RStARjfvgXQ9SegVWj8XFgbSVBsre6ywFZ6U",
+        "3eKoZSGfGsC5tK4PKoBzpCf12iVNaLBuhvVTCtkPfizhymsHSuTcnfDkNnFV7TGifTo5Zmq4rWZg2ri461RQnp2y",
+        "36zSCwmpHmsc16XZHpzR7nTCpGnmXLbCytgens9EoDx9mdtARDcCNPtBnkTh4zqDFTcjL8ZyLi4yGjNXhRcst3u6",
+        "3MEEPPYNNeJN8eYyUTZpDMvqNMxTnpwahj6wzn2h5PG6quQshdMuFMjRdqquuaymJqapxbacczfU8QhuY16k3wu2"
+      ]
+    },
+    {
+      "ts": 1780876800,
+      "date": "2026-06-08 00:00",
+      "netMint": 0.012002302,
+      "mintVol": 0.012002302,
+      "burnVol": 0,
+      "z": -0.0056834901800505225,
+      "procComp": 100,
+      "sigs": [
+        "2f7Jfi2KbJttpHWyN8Xdinq7L53WXYqYXH5fSM19FaBSo7kdLBrbZc7QUDsqai9DSMd72WnVRewxJ5SHRuhVNhLR"
+      ]
+    },
+    {
+      "ts": 1780920000,
+      "date": "2026-06-08 12:00",
+      "netMint": 15.186598086,
+      "mintVol": 15.186598086,
+      "burnVol": 0,
+      "z": 0.05336583081279046,
+      "procComp": 99.95,
+      "sigs": [
+        "5U7tuBzf6Eub5yYnthyBcJs3ype6d5q5Uvk4LYHqwYRkB86PpDurQ4TqUPZyv35MDcJJDasXogsN25CG3o716b6F"
+      ]
+    },
+    {
+      "ts": 1781092800,
+      "date": "2026-06-10 12:00",
+      "netMint": 0.134161373,
+      "mintVol": 0.261488705,
+      "burnVol": 0.127327332,
+      "z": -0.006031366225253861,
+      "procComp": 100,
+      "sigs": [
+        "3U24wReKytmLdnAkDcj5bWmuLCpbVXkLN8nSbUiUBdn5xSetamAKiFn6qWXU6jWuEj97f9Skw6f5gCVKV2PdgPxY",
+        "39D5v1mxAESFphbWWDZkmH5sJBjuQyg5wnu7bQZU6BKLRMCR2tjinmf7novjZGxttSQjukPcCzNu79V98kQPWhuY",
+        "2FHX4D1EVKc7ZymRfTvQfa5ovc7jg17xXwyrts2z9GWe5JXiJb4xeipCXi2B2yizdNsB6k87oSAaL9fATtb2MqTo"
+      ]
+    },
+    {
+      "ts": 1781265600,
+      "date": "2026-06-12 12:00",
+      "netMint": 0.49220559600001934,
+      "mintVol": 313.583875751,
+      "burnVol": 313.091670155,
+      "z": -0.0045717278629977265,
+      "procComp": 100,
+      "sigs": [
+        "VtR7pAvKHLrt8tVJrzv9QpGpYhxJSaZ842vkoCjnJjK1Yx1pJZRFwD7cfXKx43E8HH52k2ip4wgvEvbdqubtfhG",
+        "4B1nmpiBbApVMDpHUUN6t7f3HNHv3X6v4sfSQsggwnqxTD4K3AeHFRxDc941HxSrfysE15aPQTKec6VdCcVLQuUG"
+      ]
+    },
+    {
+      "ts": 1781697600,
+      "date": "2026-06-17 12:00",
+      "netMint": 18.814981325999998,
+      "mintVol": 18.814981325999998,
+      "burnVol": 0,
+      "z": 0.06835769080224534,
+      "procComp": 99.93,
+      "sigs": [
+        "5kqYE8HHk3dxHDBWNk1MXfz7ANpECN1H29fE5TnokargaPTBXnX8Mn2UThdCQfWRZ1fjiR9uWN1ztK78GMM9UZkL",
+        "31z6bhz2CNcuqorBDU65tnSo9XNPuV9dhsxGF7BPotdKZBycUUMKXEB2aCRmpZntwr1YSvJhb5duCEdTLjKg9jd5",
+        "566dkkSfcD9ALPpuFeAnv43HVdqNxPzxwmfeg2pfFK3WtYBChKdwdKPrExQ3ttLUqjTUM5ArjtsBXwUeFcwheN6n",
+        "T97PXDujoJetwg9UdBpQiGSuwRBFvT3tiN5apUFU72bVUZctqmdBd8F4YiyNJMzWYXkcggn2Jr5TxJYHjSKYLB1",
+        "3X9o8NPN9aQSCg9p1y57V4racsaFiCr6UhDVFMyiJJZFrzZbdtuRGxcgGfW3CGStk5WbWyTveFwJf5vkA5x479br"
+      ]
+    },
+    {
+      "ts": 1781740800,
+      "date": "2026-06-18 00:00",
+      "netMint": 0,
+      "mintVol": 0.123313494,
+      "burnVol": 0.123313494,
+      "z": -0.007556438286992631,
+      "procComp": 100,
+      "sigs": [
+        "5A1ZeEzXPh3KfpyNmD3TbT3poCR4r7oMjq7shsTL25skjZaJ9ij6PSNCpMn7MfX3td3jLQkuKjvUci12emXZeKBq",
+        "53q9XNMsXTfrpknPAfXgWbHXokQwLkyJiMvLD351sMSvYLdL9Y6Tk77Hvcdro3iHfEYaa4qWGfW3tLq6wPd2h6cS"
+      ]
+    },
+    {
+      "ts": 1781784000,
+      "date": "2026-06-18 12:00",
+      "netMint": 3.789091925,
+      "mintVol": 3.789091925,
+      "burnVol": 0,
+      "z": 0.007795818004380206,
+      "procComp": 99.99,
+      "sigs": [
+        "yJT2GBb3CLFTScu26utaRGBJ2w19Pw6XooEwz2Wh9RXUjP8EoYfsoAUCJPnSPVuNoSfgBtVfUbjR1m1qy2sH1Sc"
+      ]
+    },
+    {
+      "ts": 1782129600,
+      "date": "2026-06-22 12:00",
+      "netMint": -22.194341457,
+      "mintVol": 0,
+      "burnVol": 22.194341457,
+      "z": -0.09791757903549385,
+      "procComp": 100,
+      "sigs": [
+        "24iXjNVDa9zcx9g8eM2npqKDe9QJ9Wj56dRab3c827e9eo7DAvZByPyobtsitW1RLJNtCvwbL1XTqu9qaVXnGz82"
+      ]
+    },
+    {
+      "ts": 1782216000,
+      "date": "2026-06-23 12:00",
+      "netMint": 39.203457067,
+      "mintVol": 39.203457067,
+      "burnVol": 0,
+      "z": 0.15420541381155814,
+      "procComp": 99.85,
+      "sigs": [
+        "URa24dfHLtCH38Hk1yJYYwfJxjqbsGXip9dgef6NLEnN1gWm4saLrLsdtiyb8jzgWpjjLUTx2x2ZMSCcTmfwDPD",
+        "3ZgUVxmzM1QxtnqzJjd2X9cvFkPcRFGsTUy694q3JywgQkoNdqfqbRLJ8BzZLkD8RDexAE7Xwk3gMAW4rYxziknt"
+      ]
+    },
+    {
+      "ts": 1782302400,
+      "date": "2026-06-24 12:00",
+      "netMint": 27.863634505,
+      "mintVol": 27.863634505,
+      "burnVol": 0,
+      "z": 0.10635070827716722,
+      "procComp": 99.89,
+      "sigs": [
+        "Y7QJbGFR5wFN8ayEbNDuJRbQ1Am6vagbxgA8W3Pq3pfdqYWkwAtwYW5ZySThB5Qcfa5FqtJAagXzP4gGaB4ZkSU"
+      ]
+    },
+    {
+      "ts": 1782345600,
+      "date": "2026-06-25 00:00",
+      "netMint": 2.128794751,
+      "mintVol": 2.128794751,
+      "burnVol": 0,
+      "z": -0.0012208279973529863,
+      "procComp": 100,
+      "sigs": [
+        "3uwhuhmdvV5xGg78qawvqEy9U591tUR3u7L4UPpAJfSvKACGrEsymTLuQEMdUxf2fiSru6ncfSdJ5QzFi9S9eJ23"
+      ]
+    },
+    {
+      "ts": 1782388800,
+      "date": "2026-06-25 12:00",
+      "netMint": 1.007193924,
+      "mintVol": 1.007193924,
+      "burnVol": 0,
+      "z": -0.005900407689039584,
+      "procComp": 100,
+      "sigs": [
+        "5DU1amQNxd8powgjQvDqrUJ5B5mVS42MMRSbpXLjPvKxqsTmee5e14eMpghrdMRr55bJM4Woup7Mm2Gj5uzy3Szp"
+      ]
+    },
+    {
+      "ts": 1782475200,
+      "date": "2026-06-26 12:00",
+      "netMint": -0.02,
+      "mintVol": 0,
+      "burnVol": 0.02,
+      "z": -0.010183120871608513,
+      "procComp": 100,
+      "sigs": [
+        "2DGwcQzkYPm9vXn12rVmYLcZZEtvuD9MpLdxc11n2PyXNBY9pmrDJbykVKGoescvhuQL8v1KWgEaUxEAjtnbso4H"
+      ]
+    },
+    {
+      "ts": 1782734400,
+      "date": "2026-06-29 12:00",
+      "netMint": 13.667595761,
+      "mintVol": 13.667595761,
+      "burnVol": 0,
+      "z": 0.047860830817383626,
+      "procComp": 99.95,
+      "sigs": [
+        "4WLmvDuajvdPgHCX9VCgzb6oheinKnxvReRAH6gZBw8fzCHetiXRDhnDJMFZaKFSxgKCMa7J4zk9VzqiUK2kpuvD"
+      ]
+    },
+    {
+      "ts": 1782820800,
+      "date": "2026-06-30 12:00",
+      "netMint": -47.324845201,
+      "mintVol": 2.6287577759999996,
+      "burnVol": 49.953602976999996,
+      "z": -0.21248838372768356,
+      "procComp": 100,
+      "sigs": [
+        "2aPuKHD5LDSAyrcHGbSZF2irX4LYKtgGASEAxA4LcPBF1A2KxEXSSqAEeBB3wPd7ytmdiUrBwa4BshGTUoxPBuZb",
+        "3VxVLFSnr9AHxUPqVJ4bbuZ6ZcN6koPrtduxka5oif4qakXbk1Y3xsQS3gzxkJikDPhXqjoJaicPCtqHtjJutBbG",
+        "4Svgu8oavbiyADDzoPWNLB2jJvWzjfC1yzgsC5Q3minY7tmur5BvHNJX5wz132X6yrQ4c2a6Z4i5FHGT91SRNi4k",
+        "5ugHWHKbsfSL6JCyou3B22ssA7jZ1DCkmuC51XynCidwNbDfzbb71wdwHcnt7NViUymbk3iuzesArWkwxQSS4166",
+        "58w5ySdU42c9ypY3v6EPxhtNkSJoFwkZx11h9GnPfZv5e7zwTwWRT6Qn8xbjKpJxC9fJCETwnQ1SBiwrdAsMnRDf"
+      ]
+    },
+    {
+      "ts": 1782864000,
+      "date": "2026-07-01 00:00",
+      "netMint": 79.37844793100001,
+      "mintVol": 79.37844793100001,
+      "burnVol": 0,
+      "z": 0.3324683214017402,
+      "procComp": 99.67,
+      "sigs": [
+        "56UN6P6EvM4i41ivtgJ1fXD6ef4wsPuA1BnUXhvWXZyzX9b9vtKpyL8XgvGRqjSsY9TWw3CFQ1QXYhzex9PUs686",
+        "2WPexSzMmcQUhkVPGWsQmmm2rSti2RjoQyDvQnS6LPwLhLpYECSEZSoeboK88XUcnYGXCJzudz5zRoWcFn6WZaUF"
+      ]
+    },
+    {
+      "ts": 1782907200,
+      "date": "2026-07-01 12:00",
+      "netMint": 235.35171698,
+      "mintVol": 235.35171698,
+      "burnVol": 0,
+      "z": 1.0030221714143126,
+      "procComp": 99,
+      "sigs": [
+        "33bznC53inSWjAFtEoDPhRYQkeVQB8UbP2WwmXJ4MTNPQkfizLYjhZiF6LFn1py6SE3PLELgGG5vgMXHbHDUSKBY"
+      ]
+    },
+    {
+      "ts": 1782993600,
+      "date": "2026-07-02 12:00",
+      "netMint": -15.907933482999999,
+      "mintVol": 0.03116982,
+      "burnVol": 15.939103303,
+      "z": -0.09349699726978568,
+      "procComp": 100,
+      "sigs": [
+        "2hDDKbagqZxkZ1nJkgVd85oaHivACAfsvBwVrwzjfv2cK483PaDYYSjM9u3u7JDzZp1pCfrjpmLPNzPdmf3c87hW",
+        "2U2BDqEqaF1PCvMNgfEtjabMVFosm2GsaUfX4JsQ8qPAjcPS7dCUkWR8y4gdm3M3sdREB1icJvBNEkhfFMHeYF55"
+      ]
+    },
+    {
+      "ts": 1783425600,
+      "date": "2026-07-07 12:00",
+      "netMint": 1.032256013,
+      "mintVol": 1.423374541,
+      "burnVol": 0.391118528,
+      "z": -0.019375763124555592,
+      "procComp": 100,
+      "sigs": [
+        "3RH6NzHjuUhC4L7n65fnv833pQ6e4zfzWQaJeMmBAzc8mQPBR1SzvP9kFxmrJE7i5hpsfBcZzkCU17tJEtceUp4P",
+        "Kj65MWstcFg8UoT4MU185GYi7pTZCUYxojGvSCnAPrN74dpo2RPBpm6Kx2Xiry72mA2EQLDPoWsxRaaY2vLjuAJ",
+        "4rXTNx3UnhidHtZbdKkRiWk2La5KDdf7GPCvgH96KxEW2S5NskX6aVgpeqHMQAmLn4xxbEFgi5ZWbKDsVtb5D6hV",
+        "5GWskb3PqE4x7gKw9Mr3Pw5gpguoA8835LESSKRCMC5uuYmJeDLR9Hzft63Tcn3tqLfMvsSP5E4ech5tayiF6A5K",
+        "4SxUKNt53MXjujVPAbLBiA5N6HbtmKJHqGoEVpUsggWwQJMgTtBKR65nBQshvYaczyQrnhGBC7uKFS8rZcExs9N4",
+        "63hoodQ1mgpSJdU1WW5QebtYcbW5V4QyPRpLYrZoaycndk9Zmt6EP7WpV5YWEesTPGbttSZH6oGgyayitic7Ko8b"
+      ]
+    },
+    {
+      "ts": 1783512000,
+      "date": "2026-07-08 12:00",
+      "netMint": 7877.282374445001,
+      "mintVol": 7884.814161109,
+      "burnVol": 7.531786664,
+      "z": 34.38183700687391,
+      "procComp": 65.62,
+      "sigs": [
+        "gGq7FRWrZLETEnq9SofupgQ78njKp9GVPcVpfRQyWgMLsZxQmMWfmow3EQTd5hcnQ6AabmoZHgxyze5sDyZAhgr",
+        "4vcN4dubm7FNRGYCEWWc6mBUbtARKVQjyTNCCkPmpu4RqxFwuoRkSvbwngC61owbg1Ve8C62DPByhL9T8yswxZyR",
+        "426wAk7Seebh2U7CqQzkvMWaopRLbevTQ75Ht7xfhXGAQsQibSYYQQKcicLzReeBc55c2F9M5gDmzbkurTjpMAVa",
+        "5ro851SRV6comSVeuXEufowEdjJr2QeCptuPSZdEbfCKxUJfmkCbUz6Pk4Bfnfiwptsrx1aWpdf5hw1K8dEVab4E",
+        "26autiYM7KT8o17KGEteWAC87zBXgHHFLeARoMdoqEKLNJiQePQD18abpRp5RcwAmzYSRbTciR4MzuGKZzUuVw45",
+        "5T2GQjTAp9KGCPAYGcAhMTP1hGd4o4CNmh56qqUfjEGm3qhKABvUYPFXaZiSzu3vnyy56oR3YKhAGWCRPUjgSpYD",
+        "HT4YrJqkLRKoeiqGMjRpc6qvSwVDGooDLWZG4tpR5MaNJ5c8qWYM1fhh8dud79tsnUgxJY2CwVEyyrNpyJNvj78",
+        "5SxqmCjQ4kYbA8vsDjDzZySGChnf9yZ4Gjmcivm9riBZAZGT5urhGpd5gMikijpsFnGeuGLyCP4jcYBMh2Dxei6f",
+        "5N5qQQ6kJk2puBVTcG8wARNS4gLz5KW46zwVpRrg8BNouA8YpXJwV9Bpw7GvZFq9Jo2kSSCrbfkW7xGoqsjXgwpM"
+      ]
+    },
+    {
+      "ts": 1783555200,
+      "date": "2026-07-09 00:00",
+      "netMint": 3131.596620416,
+      "mintVol": 3135.3676307289998,
+      "burnVol": 3.771010313,
+      "z": 3.4118550123056144,
+      "procComp": 96.59,
+      "sigs": [
+        "5SaiucbQaVZ8E9BAKMmRygdY1YWKxZ57cZL8yJu9vigPNe5vLbgdFRAd4LL6V4tDNfSGFfVK5SMqeCsBPmFgzsXW",
+        "3SntrwfL46itDA88vURbytuo7Lr4WNKFoqFZZoL8uAX7oYeYx48BdTYSZp9gpwvr4TyzNNEYxEwhEw9Qendt8DuD",
+        "S71qQAWwpLqaHB4FHb6148cTX8kH3hbW4TwZCZrpc9Xn4Z1kzFwscCFFoMhjb8MkQ6V2SnSMM9hXdxQ1X6NTQN5"
+      ]
+    },
+    {
+      "ts": 1783598400,
+      "date": "2026-07-09 12:00",
+      "netMint": 4736.482015807,
+      "mintVol": 4744.765818868,
+      "burnVol": 8.283803061,
+      "z": 4.881427306370437,
+      "procComp": 95.12,
+      "sigs": [
+        "5gX6XEWkZEFwKMyV5WcavD5WkoQLyKiR697xgMKSf7Eqrm4CHZA1ZA3ft6jb5JxxvdHN4m8trsPgaBLZpGaQcGYd",
+        "5ZNU6FYnwLdYVyn3j1kxHAYGh7YucywS9pbbCgksixLUBS8N4YdgXAuQz1irS1xzVWRxHD8ghBM1Vmkf7a1AvCVC",
+        "23oKNmL49582VywWHqX5bKEXxJgcu4WWqArFjtSkun5sHMJHTjj9AQ2tgmjQVovRAG6qk83p9t2Ltk9W9s8NwJ14",
+        "5Lv9qFaAyYQP6xKAaaHGcdCByVTkstLe1sy42HZVwSS9WXacgEAkUjVYXeZz51yDiyLoikCRSNUr9JZ5wTagV9m3",
+        "rZbuKz445DhLastJ87zfha7qcwrJxZSrz8KnHcLf8N2Vnx6rvhAvmLJ3BJ9DYW48J9efFXsBcfRw5U5obccFLtC",
+        "668TfDjzvctVMjPgURCbJ51a9tsUnBtWifwzGL7ebfETiGRPvztoJjwztHX7QhowqpuBvvfcZ89py4mUmSc9oD7h",
+        "3zBK7XpQXe8BKmHa2Q9juK1mQP8yjAiJq12JzpA6GYe6VJ7pKi1n32tmYizTzKKaURaAvuydVyTpJSwwXKBKRedL",
+        "4EpQw6wzaqK8qzJAEtQrw9C1VFboWJTH4XpCt5vyRapxGg9CiDB7xB5GvsD4gYHPnLcNwQqz1UNyBot6c3Fe13Mp"
+      ]
+    },
+    {
+      "ts": 1783641600,
+      "date": "2026-07-10 00:00",
+      "netMint": 0.075248066,
+      "mintVol": 0.075248066,
+      "burnVol": 0,
+      "z": -0.17963230962787174,
+      "procComp": 100,
+      "sigs": [
+        "4UrxUyJ1HWSNTtoWQuR8q7SLUWijf1oqXuHwh2Ytcff2BULARuvkV3N4fkukzhLLXQbEiTzT7wgj73ABifQEcAh5"
+      ]
+    },
+    {
+      "ts": 1783728000,
+      "date": "2026-07-11 00:00",
+      "netMint": 0.8742926120000003,
+      "mintVol": 2.095559038,
+      "burnVol": 1.2212664260000001,
+      "z": -0.1777933066383605,
+      "procComp": 100,
+      "sigs": [
+        "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"
+      ]
+    },
+    {
+      "ts": 1783771200,
+      "date": "2026-07-11 12:00",
+      "netMint": 0.07893726100000006,
+      "mintVol": 0.9696668529999999,
+      "burnVol": 0.8907295919999999,
+      "z": -0.177495266317642,
+      "procComp": 100,
+      "sigs": [
+        "4V6xiLgK3hKLmqjSNWWvG56GN7A18MVfgoaVMXd3vG5Y4A9Fz2Xap7rj8ohEnPYoX6AB3zofDPRoKtWkQmYtWSz2",
+        "4YqJ8763ysGKCCbDZCpENpvV6Yf2LTPVJh7MWtthuSJeB4dbk42bt62QEtFbiLufh7nv5qtTdxTovo83gLir9f7a",
+        "4ZAngvDeKGEDpTX9e3N7UyfQDm3a4e3gVXA2h3wVTitmS4aFCgkjv3sb9RKPtKHtaZd9hqEaa3rpFHFvzJhow3fN",
+        "3NRFPXxCrGb34TbvuR3JKXri3kjpwAEJVEfG17m62NYXzVgKXLxS3rx43J21kdKdTWFBvJ5RazKoknQFxmrirBnW",
+        "gXBNGtqKwxPXQ6MTe3qS3CqqFZEpWbsZeJycAG1V9wu6qvqwP7emXUVhADoV73JqZ6zWDb4DQwPPGqNDnjU8CFA",
+        "4ESjAqjX7V3ffsTr9iUJGeDkAnTnounEuQZ8H5BuPU3SRJPmCism6yF7PAxWhoVH1XznNK1nWRR6wUc3NMF6sohZ",
+        "3jKqwLG8EWiUtCKLmVCpBb9f47TMp5m64CKuJPTQKj1XT8b4eex7aRqUaGK4tnsKhFTDdbrtR8NJdFEChWi8rWge",
+        "4sTA4q3wU5FjS9k4MTNCuQVyP8tJbXNurBekDb2YT5Cy9JCnBjyHoyRaeAb3mP143Z7N4trSqyZpanjiwKawsgrh",
+        "5Aif68UVPNm4cZdKzT38iui98e624aE5rGWqLhHAGzpbhG6eZSGTunSxi7T6s2JSdevaaHwnHQbvodVVwPKzGzQh",
+        "3FSRdMMw59wawb3QwwNmK8uAHWwjhPEjaoSxksuemXxfFMZw8tuRwPSxmNsQmhHWqh6koVv73jSw1Zg6zBedtY6j",
+        "3QR8NZj1EunUQZKYqysPxg82dgFETc8AqUGrHMAC9QFEXtfxPsVpUZLmxLtfR2m8KpJJab41Dprt93UZZXDj1bRu",
+        "9Wn1KoMmM4FToiCgffXJ62FkQSzrZ6u96QhiFsnwripMKPkxMvcvi9Y1zNT5nNUVqGeBX1RrRZvvsLrQmQ8cPPf",
+        "3y7YoRuDUMzB2myVrWQKEqHbaSGYLEQZopksSrBPXDsLyBic4Z13QSaMZNy5akJsEu8KUKfXXJC8E2rx5HCSenRA",
+        "5o7ehxsgiaCQoGfHFo19ZWadVswsxWG68XeeU9K6NrAkEushkkGobWA3WVMBb8yXAsCKkhJaXxiak9sJDauASmWB",
+        "22wUpW4AoHQAuqHhrqgN7wFi5QVK5yKYjSokSZRSY3pSkxULdefGRK9e1KWf5RHM6sMV8jtBNmJjNP32facw5cun",
+        "4rfCxD4G18n3HxLYJ9sqyLqUmntaSd6LrmJdTPBNXBYn287tKcdfyQWgM3NAiQnt3HfkgVc9kMzbTDdD1reCYkPX",
+        "VCofZCo28Za4fCZN87EdAsdyjzhz1MPcvty3HN2bZ2795jqjyzyheLguEVAt8kyneX6WsTCNbKcXMirCeKZKw88",
+        "52jxjx2KyKHoErHAXHJHXSbSyT8AFTj3BA26c3dcatqQ35PYP99sscFhR1G1TTGXdax8tf9rA3Ar5C5h4KwrA98K"
+      ]
+    },
+    {
+      "ts": 1783814400,
+      "date": "2026-07-12 00:00",
+      "netMint": 0.08678156699999995,
+      "mintVol": 1.404817384,
+      "burnVol": 1.318035817,
+      "z": -0.17644478084450405,
+      "procComp": 100,
+      "sigs": [
+        "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"
+      ]
+    },
+    {
+      "ts": 1783857600,
+      "date": "2026-07-12 12:00",
+      "netMint": 0.18614613800000004,
+      "mintVol": 1.228545379,
+      "burnVol": 1.042399241,
+      "z": -0.17532418951189624,
+      "procComp": 100,
+      "sigs": [
+        "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"
+      ]
+    },
+    {
+      "ts": 1783900800,
+      "date": "2026-07-13 00:00",
+      "netMint": -0.18614613800000002,
+      "mintVol": 0,
+      "burnVol": 0.18614613800000002,
+      "z": -0.1746787522622855,
+      "procComp": 100,
+      "sigs": [
+        "JiBsSCsanmm4MZbXBYFdcAEnDVPUzD7cz1SBLW94cucbUhg96Uom6BvCNk7bLcasnaQXdFsz8k5cKAYGVr7czJs",
+        "4cG2mktZk1SvgiSu6h3CMJdRYNNCotTS6dNq1ne5eUJP5B2mPRy2vEPN7vrw1en3yapxUjkvaRVULmgMhRwvSNma"
+      ]
+    }
+  ],
+  "peak": {
+    "z": 34.38183700687391,
+    "at": "2026-07-08 12:00"
+  },
+  "firstAlertAt": "2026-05-08 00:00"
+}

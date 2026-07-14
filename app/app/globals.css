@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * ReserveSentinel — dark "risk monitor" theme.
+ * Dark-only by design (a monitoring surface). Surfaces elevate cooler/lighter;
+ * text uses a soft off-white to avoid glare. See brand.md.
+ */
+:root {
+  --background: 222 26% 7%;
+  --foreground: 210 20% 93%;
+  --card: 222 21% 10%;
+  --card-foreground: 210 20% 93%;
+  --popover: 222 21% 12%;
+  --muted: 222 16% 16%;
+  --muted-foreground: 214 15% 66%;
+  --border: 222 16% 18%;
+
+  --primary: 172 66% 46%;
+  --primary-foreground: 200 40% 6%;
+  --ring: 172 66% 46%;
+
+  /* Risk scale — mapped to score bands (see lib/scoring.ts). */
+  --risk-safe: 152 58% 46%;
+  --risk-watch: 45 88% 55%;
+  --risk-warning: 26 88% 56%;
+  --risk-high: 0 74% 60%;
+
+  --radius: 0.75rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  /* Subtle top-lit radial so the page isn't a flat slab. */
+  background-image: radial-gradient(
+    1200px 600px at 50% -10%,
+    hsl(172 40% 12% / 0.35),
+    transparent 60%
+  );
+  background-attachment: fixed;
+}
+
+/* Tabular numerals everywhere numbers change, to stop digit jitter. */
+.tnum {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

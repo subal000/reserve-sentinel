@@ -1,0 +1,339 @@
+{
+  "address": "BVkkMMqDuFRgzNtwy9Uc87cJu574YDU6j4us9i7EYMba",
+  "metadata": {
+    "name": "reserve_sentinel",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "On-chain risk scores for tokenized RWA stocks on Solana"
+  },
+  "instructions": [
+    {
+      "name": "initialize_asset",
+      "docs": [
+        "Create the canonical score PDA for a mint and set its metadata.",
+        "Admin-only in practice (whoever pays); called once per tracked mint."
+      ],
+      "discriminator": [
+        214,
+        153,
+        49,
+        248,
+        95,
+        248,
+        208,
+        179
+      ],
+      "accounts": [
+        {
+          "name": "mint",
+          "docs": [
+            "The tokenized-stock mint this score account tracks.",
+            "",
+            "Typed as `UncheckedAccount` on purpose: we do NOT deserialize it as an",
+            "SPL/Token-2022 mint here because tokenized stocks live behind several",
+            "token programs and we only need its pubkey as a PDA seed. The indexer",
+            "verifies the mint actually exists on mainnet before ever calling this."
+          ]
+        },
+        {
+          "name": "asset_score",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  115,
+                  115,
+                  101,
+                  116,
+                  95,
+                  115,
+                  99,
+                  111,
+                  114,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "mint"
+              }
+            ]
+          }
+        },
+        {
+          "name": "payer",
+          "docs": [
+            "Pays rent and signs the init. The project admin."
+          ],
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "issuer",
+          "type": "u8"
+        },
+        {
+          "name": "underlying_ticker",
+          "type": {
+            "array": [
+              "u8",
+              8
+            ]
+          }
+        },
+        {
+          "name": "trust_tier",
+          "type": "u8"
+        },
+        {
+          "name": "authority",
+          "type": "pubkey"
+        }
+      ]
+    },
+    {
+      "name": "update_score",
+      "docs": [
+        "Push fresh risk signals. Authority-gated; reads are free."
+      ],
+      "discriminator": [
+        188,
+        226,
+        238,
+        41,
+        14,
+        241,
+        105,
+        215
+      ],
+      "accounts": [
+        {
+          "name": "asset_score",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  97,
+                  115,
+                  115,
+                  101,
+                  116,
+                  95,
+                  115,
+                  99,
+                  111,
+                  114,
+                  101
+                ]
+              },
+              {
+                "kind": "account",
+                "path": "asset_score.mint",
+                "account": "AssetScore"
+              }
+            ]
+          }
+        },
+        {
+          "name": "authority",
+          "docs": [
+            "Must equal `asset_score.authority` (enforced by `has_one`)."
+          ],
+          "signer": true,
+          "relations": [
+            "asset_score"
+          ]
+        }
+      ],
+      "args": [
+        {
+          "name": "score",
+          "type": "u8"
+        },
+        {
+          "name": "premium_bps",
+          "type": "i32"
+        },
+        {
+          "name": "liquidity_depth_usd",
+          "type": "u64"
+        },
+        {
+          "name": "mint_burn_z",
+          "type": "i32"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "AssetScore",
+      "discriminator": [
+        237,
+        40,
+        192,
+        24,
+        208,
+        169,
+        137,
+        220
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "ScoreOutOfRange",
+      "msg": "Score must be within 0-100."
+    },
+    {
+      "code": 6001,
+      "name": "TrustTierOutOfRange",
+      "msg": "Trust tier must be within 0-3."
+    },
+    {
+      "code": 6002,
+      "name": "IssuerOutOfRange",
+      "msg": "Issuer code must be within 0-3."
+    },
+    {
+      "code": 6003,
+      "name": "UnauthorizedAuthority",
+      "msg": "Signer is not the registered authority for this asset."
+    },
+    {
+      "code": 6004,
+      "name": "InvalidTicker",
+      "msg": "Underlying ticker must be ASCII uppercase/space, right-padded to 8 bytes."
+    }
+  ],
+  "types": [
+    {
+      "name": "AssetScore",
+      "docs": [
+        "One `AssetScore` PDA exists per tracked mint.",
+        "",
+        "PDA seeds: [b\"asset_score\", mint.as_ref()]",
+        "",
+        "The account is a *storage + authority* layer only. All scoring math runs",
+        "off-chain in the Go indexer; the program simply guarantees that:",
+        "- there is exactly one canonical account per mint (PDA uniqueness), and",
+        "- only the registered `authority` can mutate the score fields, while",
+        "anyone (dashboards, DeFi protocols) can read them for free.",
+        "",
+        "`#[derive(InitSpace)]` lets Anchor compute the byte size at compile time so",
+        "we never hand-count and get rent wrong. See `AssetScore::INIT_SPACE`."
+      ],
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "mint",
+            "docs": [
+              "The tokenized-stock mint this score describes."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "issuer",
+            "docs": [
+              "Issuer enum: 0=xStocks, 1=Ondo, 2=Backpack/Sunrise, 3=other.",
+              "Kept as a raw u8 (not a Rust enum) so new issuers can be added without",
+              "a program upgrade — the frontend owns the label mapping."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "underlying_ticker",
+            "docs": [
+              "Right-padded ASCII ticker of the *underlying* equity, e.g. b\"CRCL    \".",
+              "This groups cross-issuer wrappers (CRCLx vs CRCLON both -> \"CRCL\")",
+              "so the frontend can render side-by-side comparisons."
+            ],
+            "type": {
+              "array": [
+                "u8",
+                8
+              ]
+            }
+          },
+          {
+            "name": "trust_tier",
+            "docs": [
+              "Manually assigned custodial-trust tier, 0-3:",
+              "3 = redeemable / custodial (real shares held, redeemable)",
+              "0 = purely synthetic",
+              "Feeds the `trust_tier_component` of the composite score off-chain."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "score",
+            "docs": [
+              "Composite risk score, 0-100. Higher = safer."
+            ],
+            "type": "u8"
+          },
+          {
+            "name": "premium_bps",
+            "docs": [
+              "Signed premium/discount vs the reference (Pyth) price, in basis points.",
+              "Positive = trading above the real stock, negative = below."
+            ],
+            "type": "i32"
+          },
+          {
+            "name": "liquidity_depth_usd",
+            "docs": [
+              "Estimated USD notional required to move the on-chain price 1%.",
+              "A proxy for how thin the DEX liquidity is."
+            ],
+            "type": "u64"
+          },
+          {
+            "name": "mint_burn_z",
+            "docs": [
+              "Z-score of recent mint/burn velocity, scaled x100 (so 2.5σ -> 250).",
+              "A spike signals procurement stress (issuer minting fast to meet demand)."
+            ],
+            "type": "i32"
+          },
+          {
+            "name": "last_updated",
+            "docs": [
+              "Unix timestamp (seconds) of the last successful `update_score`."
+            ],
+            "type": "i64"
+          },
+          {
+            "name": "authority",
+            "docs": [
+              "The only key permitted to call `update_score`. Typically the indexer's",
+              "backend hot keypair. Reads are permissionless."
+            ],
+            "type": "pubkey"
+          },
+          {
+            "name": "bump",
+            "docs": [
+              "Stored PDA bump, so downstream CPIs / re-derivations are cheap and",
+              "don't have to brute-force the canonical bump again."
+            ],
+            "type": "u8"
+          }
+        ]
+      }
+    }
+  ]
+}
