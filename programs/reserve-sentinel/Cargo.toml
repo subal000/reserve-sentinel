@@ -1,0 +1,20 @@
+[package]
+name = "reserve-sentinel"
+version = "0.1.0"
+description = "On-chain risk scores for tokenized RWA stocks on Solana"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "reserve_sentinel"
+
+[features]
+default = []
+cpi = ["no-entrypoint"]
+no-entrypoint = []
+no-idl = []
+no-log-ix-name = []
+idl-build = ["anchor-lang/idl-build"]
+
+[dependencies]
+anchor-lang = "1.1.2"

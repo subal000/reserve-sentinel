@@ -1,0 +1,37 @@
+# Rust / Anchor
+.anchor/
+target/
+**/*.rs.bk
+Cargo.lock
+
+# Keep the program keypair OUT of git. Regenerate/register a dedicated mainnet
+# keypair and use `anchor keys sync`.
+target/deploy/*-keypair.json
+
+# Node / TS
+node_modules/
+.yarn/
+dist/
+*.tsbuildinfo
+
+# Next.js (app/)
+.next/
+next-env.d.ts
+.env.local
+.env.*.local
+
+# Go
+indexer/bin/
+indexer/**/*.test
+
+# Env & secrets
+.env
+.env.*
+*.keypair.json
+authority.json
+
+# OS
+.DS_Store
+
+# Local Claude Code tooling config (not part of the product)
+.claude/
