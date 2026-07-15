@@ -9,8 +9,8 @@ tracked token (price deviation, on-chain liquidity, mint/burn velocity),
 combines them into one score, and publishes it **on-chain** — free for anyone
 to read, composable for any DeFi protocol to check trustlessly.
 
-**🎥 Demo video:** _\[add Loom/YouTube link here\]_
-**🔗 Live app:** _\[add Vercel URL here\]_ — reads live scores from Solana devnet
+**🎥 Demo video:** https://www.loom.com/share/51901ee42c8b478593f58733ef3a447e
+**🔗 Live app:** https://reserve-sentinel.vercel.app — reads live scores directly from on-chain PDAs on Solana devnet
 **⛓️ Program:** [`BVkkMMqDuFRgzNtwy9Uc87cJu574YDU6j4us9i7EYMba`](https://explorer.solana.com/address/BVkkMMqDuFRgzNtwy9Uc87cJu574YDU6j4us9i7EYMba?cluster=devnet) on devnet
 
 <!-- add a screenshot or GIF of the dashboard / compare view here before submitting -->
