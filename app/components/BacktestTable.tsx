@@ -1,10 +1,10 @@
 import { RISK_HSL, riskKey } from "@/lib/scoring";
-import { explorerTx } from "@/lib/utils";
+import { explorerTxFor } from "@/lib/utils";
 import type { BacktestPoint } from "./BacktestChart";
 
 // Full bucket-by-bucket data, collapsed by default. <details>/<summary> gives
 // keyboard/screen-reader support and a toggle for free, no JS state needed.
-export function BacktestTable({ series }: { series: BacktestPoint[] }) {
+export function BacktestTable({ series, chain = "solana" }: { series: BacktestPoint[]; chain?: string }) {
   return (
     <details className="group rounded-lg border border-border bg-card">
       <summary className="flex cursor-pointer list-none items-center justify-between p-4 text-sm font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background">
@@ -44,15 +44,15 @@ export function BacktestTable({ series }: { series: BacktestPoint[] }) {
                   {s.procComp.toFixed(0)}
                 </Td>
                 <Td align="right">
-                  {s.sigs.length > 0 ? (
+                  {s.txs.length > 0 ? (
                     <a
-                      href={explorerTx(s.sigs[0])}
+                      href={explorerTxFor(chain, s.txs[0])}
                       target="_blank"
                       rel="noreferrer"
-                      title={s.sigs.join("\n")}
+                      title={s.txs.join("\n")}
                       className="font-mono text-muted-foreground hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                     >
-                      {s.sigs.length}↗
+                      {s.txs.length}↗
                     </a>
                   ) : (
                     <span className="text-muted-foreground">0</span>

@@ -2,7 +2,7 @@
 
 import { useRef, useState } from "react";
 import { RISK_HSL, riskKey } from "@/lib/scoring";
-import { explorerTx } from "@/lib/utils";
+import { explorerTxFor } from "@/lib/utils";
 
 export type BacktestPoint = {
   ts: number;
@@ -12,7 +12,7 @@ export type BacktestPoint = {
   burnVol: number;
   z: number;
   procComp: number;
-  sigs: string[];
+  txs: string[];
 };
 
 const MAX_TOOLTIP_SIGS = 5;
@@ -27,9 +27,11 @@ const ALERT_Z = 2; // matches scripts/backtest.ts's "first crossed 2σ" threshol
 export function BacktestChart({
   series,
   peakAt,
+  chain = "solana",
 }: {
   series: BacktestPoint[];
   peakAt: string | null;
+  chain?: string;
 }) {
   const w = 900;
   const h = 240;
@@ -143,29 +145,29 @@ export function BacktestChart({
             <Row label="minted" value={fmtTok(hovered.mintVol)} />
             <Row label="burned" value={fmtTok(hovered.burnVol)} />
           </dl>
-          {hovered.sigs.length > 0 && (
+          {hovered.txs.length > 0 && (
             <div className="mt-2 border-t border-border pt-1.5">
               <p className="text-[10px] text-muted-foreground">
-                {hovered.sigs.length} on-chain tx{hovered.sigs.length > 1 ? "s" : ""}
+                {hovered.txs.length} on-chain tx{hovered.txs.length > 1 ? "s" : ""}
               </p>
               {/* pointer-events-auto: the tooltip itself ignores the mouse (so
                   chart hover-tracking isn't disrupted), but these links need
                   to be clickable within it. */}
               <div className="mt-1 flex flex-wrap gap-1 pointer-events-auto">
-                {hovered.sigs.slice(0, MAX_TOOLTIP_SIGS).map((sig, i) => (
+                {hovered.txs.slice(0, MAX_TOOLTIP_SIGS).map((tx, i) => (
                   <a
-                    key={sig}
-                    href={explorerTx(sig)}
+                    key={tx}
+                    href={explorerTxFor(chain, tx)}
                     target="_blank"
                     rel="noreferrer"
-                    title={sig}
+                    title={tx}
                     className="rounded bg-muted px-1 font-mono text-[10px] text-muted-foreground hover:text-foreground hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
                   >
                     #{i + 1}↗
                   </a>
                 ))}
-                {hovered.sigs.length > MAX_TOOLTIP_SIGS && (
-                  <span className="text-[10px] text-muted-foreground">+{hovered.sigs.length - MAX_TOOLTIP_SIGS} more</span>
+                {hovered.txs.length > MAX_TOOLTIP_SIGS && (
+                  <span className="text-[10px] text-muted-foreground">+{hovered.txs.length - MAX_TOOLTIP_SIGS} more</span>
                 )}
               </div>
             </div>

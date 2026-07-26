@@ -17,3 +17,9 @@ export function explorerAccount(address: string, cluster: string): string {
 export function explorerTx(signature: string): string {
   return `https://explorer.solana.com/tx/${signature}`;
 }
+
+// Chain-aware tx explorer for backtests (Solana signatures vs EVM tx hashes).
+export function explorerTxFor(chain: string, hash: string): string {
+  if (chain === "ethereum") return `https://etherscan.io/tx/${hash}`;
+  return `https://explorer.solana.com/tx/${hash}`;
+}
