@@ -82,11 +82,13 @@ export default function BacktestPage() {
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <h1 className="text-2xl font-semibold tracking-tight">Backtest: procurement stress</h1>
+        <h1 className="text-2xl font-semibold tracking-tight">Backtest: mint/burn anomaly signal</h1>
         <p className="max-w-prose text-sm text-muted-foreground">
-          Would ReserveSentinel&apos;s mint/burn signal have flagged unusual supply activity before it was
-          public? Here it is replayed over real history for the <em>same</em> tokenized stock (Circle) on{" "}
-          <em>two different chains</em> — the signal is chain-agnostic.
+          The mint/burn-velocity signal replayed over real history for the <em>same</em> tokenized stock
+          (Circle) on <em>two different chains</em> — same methodology, so it&apos;s chain-agnostic. It
+          surfaces unusual supply spikes; note a spike on its own isn&apos;t a risk verdict (it can be
+          demand, arbitrage/MEV, or genuine stress — the full composite adds premium + liquidity to tell
+          them apart, and those can&apos;t be reconstructed historically).
         </p>
       </div>
       <BacktestView datasets={datasets} />

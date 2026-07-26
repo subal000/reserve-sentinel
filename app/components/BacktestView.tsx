@@ -4,8 +4,7 @@ import { useState } from "react";
 import { AlertTriangle } from "lucide-react";
 import { BacktestChart, type BacktestPoint } from "./BacktestChart";
 import { BacktestTable } from "./BacktestTable";
-import { RiskLabel } from "./ScoreDial";
-import { label as riskLabel, RISK_HSL, riskKey } from "@/lib/scoring";
+import { RISK_HSL, riskKey } from "@/lib/scoring";
 import { explorerTxFor } from "@/lib/utils";
 
 const ALERT_Z = 2;
@@ -55,19 +54,18 @@ export function BacktestView({ datasets }: { datasets: Dataset[] }) {
       )}
 
       <p className="max-w-prose text-sm text-muted-foreground">
-        Reconstructed from real on-chain mint/burn history for{" "}
-        <span className="font-mono">{data.symbol}</span> on{" "}
-        <span className="text-foreground">{data.chainLabel}</span> — the{" "}
-        <em>same tokenized asset</em> across both chains, run through the identical velocity signal. Only
-        mint/burn is backtestable this way (no historical premium/depth to reconstruct), so this shows the
-        procurement component alone. Hover the chart or expand the table for every bucket.
+        Real on-chain mint/burn history for <span className="font-mono">{data.symbol}</span> on{" "}
+        <span className="text-foreground">{data.chainLabel}</span> — the <em>same tokenized asset</em> on
+        both chains, run through the identical velocity detector. This is the mint/burn component in
+        isolation; it marks buckets where net supply moved unusually vs the recent baseline. Hover the chart
+        or expand the table for every bucket&apos;s exact numbers and the transactions behind them.
       </p>
 
       <div className="grid gap-4 sm:grid-cols-4">
         <Stat label="History reconstructed" value={`${data.series.length} × ${data.bucketHours}h buckets`} />
         <Stat label="Peak velocity" value={`z = ${data.peak.z.toFixed(1)}`} sub={data.peak.at ?? undefined} accent />
-        <Stat label="First 2σ alert" value={data.firstAlertAt ?? "none"} sub={data.firstAlertAt ? "would have fired here" : undefined} />
-        <Stat label="Total 2σ alerts" value={String(alerts.length)} sub={alerts.length > 1 ? "distinct buckets, marked on chart" : undefined} />
+        <Stat label="First 2σ anomaly" value={data.firstAlertAt ?? "none"} sub={data.firstAlertAt ? "vs recent baseline" : undefined} />
+        <Stat label="Total 2σ anomalies" value={String(alerts.length)} sub={alerts.length > 1 ? "distinct buckets, marked on chart" : undefined} />
       </div>
 
       {peakBucket && peakBucket.z >= 2 && (
@@ -75,13 +73,13 @@ export function BacktestView({ datasets }: { datasets: Dataset[] }) {
           <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-risk-warning" aria-hidden="true" />
           <p className="text-sm">
             <span className="font-medium text-foreground">
-              {peakBucket.date} UTC: net +{Math.round(peakBucket.netMint).toLocaleString()} tokens minted in{" "}
-              {data.bucketHours}h
+              Biggest anomaly · {peakBucket.date} UTC: net +
+              {Math.round(peakBucket.netMint).toLocaleString()} tokens minted in {data.bucketHours}h
             </span>{" "}
             <span className="text-muted-foreground">
-              — a {peakBucket.z.toFixed(1)}σ velocity spike vs the recent baseline, dropping the procurement
-              component to {peakBucket.procComp.toFixed(0)}. Genuine detected event, reconstructed from real
-              on-chain data — not synthetic.
+              — a {peakBucket.z.toFixed(1)}σ jump vs the recent baseline. A real, verifiable supply spike
+              (not synthetic) — though on a mint/redeem token a spike this size is often demand or
+              arbitrage/MEV settlement, not distress on its own. Click through and judge for yourself:
             </span>{" "}
             {peakBucket.txs.length > 0 && (
               <a
@@ -91,7 +89,7 @@ export function BacktestView({ datasets }: { datasets: Dataset[] }) {
                 title={peakBucket.txs.join("\n")}
                 className="font-medium text-risk-warning underline-offset-2 hover:underline focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring"
               >
-                View on-chain tx ↗
+                view on-chain tx ↗
               </a>
             )}
           </p>
@@ -100,8 +98,8 @@ export function BacktestView({ datasets }: { datasets: Dataset[] }) {
 
       <div className="rounded-lg border border-border bg-card p-6">
         <div className="mb-4 flex items-center justify-between">
-          <p className="text-sm font-medium">Procurement component over time</p>
-          {peakBucket && <RiskLabel score={Math.round(peakBucket.procComp)} />}
+          <p className="text-sm font-medium">Mint/burn component over time</p>
+          <span className="text-xs text-muted-foreground">one signal of four — not a full risk score</span>
         </div>
 
         {alerts.length > 0 && (
@@ -138,8 +136,8 @@ export function BacktestView({ datasets }: { datasets: Dataset[] }) {
 
         <BacktestChart series={data.series} peakAt={data.peak.at} chain={data.chain} />
         <p className="mt-3 text-xs text-muted-foreground">
-          100 = no velocity anomaly · {peakBucket ? riskLabel(Math.round(peakBucket.procComp)) : ""} at the marked
-          peak · hover any point for its exact numbers
+          100 = supply moving in line with baseline; dips = unusually large net mint/burn that period ·
+          hover any point for its exact numbers and transactions
         </p>
       </div>
 
