@@ -1,0 +1,195 @@
+{
+ "XsoCS1TfEyfFhfvj8EtZ528L3CaKBDBRqRapnBbDF2W": {
+  "supply": 4131621.7995782695,
+  "borrow": 92495.6513322177,
+  "markets": [
+   "xstocks",
+   "sentora"
+  ],
+  "ltv": [
+   0.73,
+   0.72
+  ],
+  "sym": "SPYx"
+ },
+ "XsP7xzNPvEHS1m6qfanPUGjNmdnmsLKEoNAnHjdxxyZ": {
+  "supply": 3874843.89692544,
+  "borrow": 0.0,
+  "markets": [
+   "xstocks"
+  ],
+  "ltv": [
+   0.3
+  ],
+  "sym": "MSTRx"
+ },
+ "XsCPL9dNWBMvFtTmwcCA5v3xWPSMEBCszbQdiLLq6aN": {
+  "supply": 2762595.226414033,
+  "borrow": 0.0,
+  "markets": [
+   "xstocks"
+  ],
+  "ltv": [
+   0.6
+  ],
+  "sym": "GOOGLx"
+ },
+ "Xs8S1uUs1zvS2p7iwtsG3b6fkhpvmwz4GYU3gWAmWHZ": {
+  "supply": 2744087.447244172,
+  "borrow": 44908.262181188074,
+  "markets": [
+   "xstocks",
+   "sentora"
+  ],
+  "ltv": [
+   0.7,
+   0.7
+  ],
+  "sym": "QQQx"
+ },
+ "XsDoVfqeBukxuZHWhdvWHBhgEHjGNst4MLodqsJHzoB": {
+  "supply": 2695265.7318574684,
+  "borrow": 1343.2218794748132,
+  "markets": [
+   "xstocks"
+  ],
+  "ltv": [
+   0.55
+  ],
+  "sym": "TSLAx"
+ },
+ "Xsc9qvGR1efVDFGLrVsmkzv3qi45LTBjeUKSPmx9qEh": {
+  "supply": 2411373.86439544,
+  "borrow": 8788.986170717664,
+  "markets": [
+   "xstocks",
+   "sentora"
+  ],
+  "ltv": [
+   0.55,
+   0.62
+  ],
+  "sym": "NVDAx"
+ },
+ "XsueG8BtpquVJX9LVLLEGuViXUungE6WmK5YZ3p3bd1": {
+  "supply": 855374.779401414,
+  "borrow": 0.0,
+  "markets": [
+   "xstocks"
+  ],
+  "ltv": [
+   0.3
+  ],
+  "sym": "CRCLx"
+ },
+ "XsvNBAYkrDRNhA7wPHQfX3ZUXZyZLdnCQDfHZ56bzpg": {
+  "supply": 616562.9309908769,
+  "borrow": 0.0,
+  "markets": [
+   "xstocks"
+  ],
+  "ltv": [
+   0.3
+  ],
+  "sym": "HOODx"
+ },
+ "XsbEhLAtcf6HdfpFZ5xEMdqW8nfAvcsP5bdudRLJzJp": {
+  "supply": 460876.7521944823,
+  "borrow": 0.0,
+  "markets": [
+   "xstocks"
+  ],
+  "ltv": [
+   0.4
+  ],
+  "sym": "AAPLx"
+ },
+ "cbbtcf3aa214zXHbiAZQwf4122FBYbraNdFqgw4iMij": {
+  "supply": 274705.55264397844,
+  "borrow": 0.0,
+  "markets": [
+   "xstocks"
+  ],
+  "ltv": [
+   0.75
+  ],
+  "sym": "cbBTC"
+ },
+ "Xsa62P5mvPszXL1krVUnU5ar38bBSVcWAB6fmPCo5Zu": {
+  "supply": 0.6734443049213638,
+  "borrow": 0.0,
+  "markets": [
+   "xstocks"
+  ],
+  "ltv": [
+   0.35
+  ],
+  "sym": "METAx"
+ },
+ "7GzQgf6DPo6ZANjnbhe9tNCpkGTv3zqHbsDx74jyQf9": {
+  "supply": 19712267.844569,
+  "borrow": 0.0,
+  "markets": [
+   "openingbell"
+  ],
+  "ltv": [
+   0.25
+  ],
+  "sym": "FWDI"
+ },
+ "BTRR3sj1Bn2ZjuemgbeQ6SCtf84iXS81CS7UDTSxUCaK": {
+  "supply": 3270231.83218455,
+  "borrow": 0.0,
+  "markets": [
+   "openingbell"
+  ],
+  "ltv": [
+   0.85
+  ],
+  "sym": "USCC"
+ },
+ "2HehXG149TXuVptQhbiWAWDjbbuCsXSAtLTB5wc2aajK": {
+  "supply": 13.17734355,
+  "borrow": 0.0,
+  "markets": [
+   "openingbell"
+  ],
+  "ltv": [
+   0.3
+  ],
+  "sym": "GLXY"
+ },
+ "CCz3SGVziFeLYk2xfEstkiqJfYkjaSWb2GCABYsVcjo2": {
+  "supply": 1.6818732,
+  "borrow": 0.0,
+  "markets": [
+   "openingbell"
+  ],
+  "ltv": [
+   0.9
+  ],
+  "sym": "USTB"
+ },
+ "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v": {
+  "supply": 0.099990798,
+  "borrow": 0.0,
+  "markets": [
+   "openingbell"
+  ],
+  "ltv": [
+   0.0
+  ],
+  "sym": "USDC-Dep"
+ },
+ "Xs78JED6PFZxWc2wCEPspZW9kL3Se5J7L5TChKgsidH": {
+  "supply": 718261.5287214614,
+  "borrow": 0.0,
+  "markets": [
+   "strcx"
+  ],
+  "ltv": [
+   0.5
+  ],
+  "sym": "STRCx"
+ }
+}
