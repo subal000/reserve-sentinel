@@ -8,7 +8,9 @@
     "lint:fix": "prettier */*.js \"*/**/*{.js,.ts}\" -w",
     "lint": "prettier */*.js \"*/**/*{.js,.ts}\" --check",
     "init-assets": "ts-node scripts/init_assets.ts",
-    "backtest": "ts-node scripts/backtest.ts"
+    "backtest": "ts-node scripts/backtest.ts",
+    "pair-arb": "ts-node scripts/pair_arb.ts",
+    "basis-scan": "ts-node scripts/basis_scan.ts"
   },
   "dependencies": {
     "@coral-xyz/anchor": "^0.32.1",
