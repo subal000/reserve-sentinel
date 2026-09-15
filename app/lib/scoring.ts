@@ -42,7 +42,8 @@ export const ISSUER_NAME: Record<number, string> = {
   0: "xStocks",
   1: "Ondo",
   2: "Backpack/Sunrise",
-  3: "Other",
+  // Code 3 is "other" on-chain; PreStocks is the only such issuer tracked today.
+  3: "PreStocks",
 };
 
 // Trust tier -> short descriptor for the IssuerBadge tooltip.

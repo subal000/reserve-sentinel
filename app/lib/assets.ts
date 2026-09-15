@@ -25,8 +25,8 @@ export const ASSETS: AssetMeta[] = [
   {
     symbol: "SPCX",
     mint: "SPCXxcqXj6e5dJDVNovHN8744zkbhM2bYudU45BimGb",
-    hasPriceFeed: false,
-    note: "SpaceX (private) via Backpack/Sunrise. No reference price — premium disabled.",
+    hasPriceFeed: true,
+    note: "SpaceX (private) via Backpack/Sunrise. Reference is Backpack's published mark (via Jupiter), not an independent market.",
   },
   {
     symbol: "AAPLx",
@@ -45,6 +45,56 @@ export const ASSETS: AssetMeta[] = [
     mint: "MUxEsUKSMACyw5fZf68wxf5FLnZVhtU9CwH8uNNGay1",
     hasPriceFeed: true,
     note: "Micron via Backpack/Sunrise. Market-hours equity reference feed.",
+  },
+  // PreStocks: private-company tokens backed by SPV exposure. The premium is
+  // measured against PreStocks' own published mark, not an independent market.
+  {
+    symbol: "SPACEX",
+    mint: "PreANxuXjsy2pvisWWMNB6YaJNzr7681wJJr2rHsfTh",
+    hasPriceFeed: true,
+    note: "SpaceX via PreStocks. Same company as SPCX on a different issuer. Reference is PreStocks' own mark.",
+  },
+  {
+    symbol: "OPENAI",
+    mint: "PreweJYECqtQwBtpxHL171nL2K6umo692gTm7Q3rpgF",
+    hasPriceFeed: true,
+    note: "OpenAI via PreStocks. Reference is PreStocks' own mark.",
+  },
+  {
+    symbol: "ANTHROPIC",
+    mint: "Pren1FvFX6J3E4kXhJuCiAD5aDmGEb7qJRncwA8Lkhw",
+    hasPriceFeed: true,
+    note: "Anthropic via PreStocks. Reference is PreStocks' own mark.",
+  },
+  {
+    symbol: "ANDURIL",
+    mint: "PresTj4Yc2bAR197Er7wz4UUKSfqt6FryBEdAriBoQB",
+    hasPriceFeed: true,
+    note: "Anduril via PreStocks. Reference is PreStocks' own mark.",
+  },
+  {
+    symbol: "NEURALINK",
+    mint: "PrekqLJvJ3qVdXmBGDiexvwUTF4rLFDa6HWS4HJbw9S",
+    hasPriceFeed: true,
+    note: "Neuralink via PreStocks. Reference is PreStocks' own mark.",
+  },
+  {
+    symbol: "POLYMARKET",
+    mint: "Pre8AREmFPtoJFT8mQSXQLh56cwJmM7CFDRuoGBZiUP",
+    hasPriceFeed: true,
+    note: "Polymarket via PreStocks. Reference is PreStocks' own mark.",
+  },
+  {
+    symbol: "FIGUREAI",
+    mint: "PreZad18qfPtbxNpMtMuAuX2zVpvkEU8DnJx56faCWd",
+    hasPriceFeed: true,
+    note: "Figure AI via PreStocks. Reference is PreStocks' own mark.",
+  },
+  {
+    symbol: "KALSHI",
+    mint: "PreLWGkkeqG1s4HEfFZSy9moCrJ7btsHuUtfcCeoRua",
+    hasPriceFeed: true,
+    note: "Kalshi via PreStocks. Reference is PreStocks' own mark.",
   },
 ];
 
