@@ -13,6 +13,12 @@ export function priceComponent(premiumBps: number): number {
   return 100 - Math.min(100, Math.abs(premiumBps) / 10);
 }
 
+// Below the liquidity floor the token can't be sold or priced: no price credit,
+// and the indexer caps the composite at 39 ("High risk").
+export function noExitMarket(depthUsd: number): boolean {
+  return depthUsd < LIQ_FLOOR;
+}
+
 export function liquidityComponent(depthUsd: number): number {
   if (depthUsd <= LIQ_FLOOR) return 0;
   if (depthUsd >= LIQ_CAP) return 100;
@@ -46,7 +52,8 @@ export function breakdown(a: {
   trustTier: number;
   hasPriceFeed: boolean;
 }): Breakdown[] {
-  const price = priceComponent(a.premiumBps);
+  const noExit = noExitMarket(a.liquidityDepthUsd);
+  const price = noExit ? 0 : priceComponent(a.premiumBps);
   const liq = liquidityComponent(a.liquidityDepthUsd);
   const proc = procurementComponent(a.mintBurnZ);
   const trust = trustComponent(a.trustTier);
@@ -57,7 +64,11 @@ export function breakdown(a: {
       value: price,
       weight: WEIGHTS.price,
       weighted: price * WEIGHTS.price,
-      hint: a.hasPriceFeed ? "How far the token trades from its reference price" : "No reference price (private company)",
+      hint: noExit
+        ? "No market deep enough to sell into, so there is no real price"
+        : a.hasPriceFeed
+          ? "How far the token trades from its reference price"
+          : "No reference price (private company)",
     },
     {
       key: "liquidity",
@@ -65,7 +76,7 @@ export function breakdown(a: {
       value: liq,
       weight: WEIGHTS.liquidity,
       weighted: liq * WEIGHTS.liquidity,
-      hint: "USD needed to move the on-chain price 1%",
+      hint: "USD you can sell before each token fetches 1% less",
     },
     {
       key: "procurement",

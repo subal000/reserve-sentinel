@@ -60,10 +60,12 @@ and is unit-tested. The on-chain program only stores results.
 Calibration (tuned against real observed data, 2026-07): `liquidity` uses a
 **log10 scale** ($1k→0, $1M→100) because real 1%-depths span ~$40–$560k. When a
 token's DEX liquidity is below ~$1k the price is unreliable (a 1-token quote
-returns ~$0, i.e. a bogus −100% "premium"), so the `price` component is skipped
-for it and the (correctly low) `liquidity` component carries the risk — this is
-why CRCLon (Ondo, mint/redeem-first, ~$41 depth) scores below CRCLx despite a
-higher trust tier. The frontend's breakdown mirrors these constants.
+returns ~$0, i.e. a bogus −100% "premium"). Such a token has **no exit market**:
+it earns no `price` credit and its composite is capped at 39 ("High risk"),
+because a holder who can't sell carries the whole risk whatever the issuer or
+mint activity looks like. This is why CRCLon (Ondo, mint/redeem-first, no
+Jupiter route in Sept 2026) scores High risk while CRCLx does not. The
+frontend's breakdown mirrors these constants.
 
 ## Repo layout
 

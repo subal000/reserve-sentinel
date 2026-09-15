@@ -32,6 +32,17 @@ type Asset struct {
 	PythFeedID string `json:"pyth_feed_id"`
 	// PythFeedKind is "xstock_crypto" (24/7), "equity" (US market hours), or "none".
 	PythFeedKind string `json:"pyth_feed_kind"`
+	// PythProUnderlying is the Pyth Pro symbol for the real share, e.g.
+	// "Equity.US.AAPL/USD". Preferred reference price when the key is entitled.
+	PythProUnderlying string `json:"pyth_pro_underlying"`
+	// PythProToken is the Pyth Pro symbol for this issuer's own token, e.g.
+	// "Crypto.AAPLX/USD" (xStocks) or "Crypto.AAPLON/USD" (Ondo). Empty when
+	// Pyth doesn't publish one for this issuer.
+	PythProToken string `json:"pyth_pro_token"`
+	// PreStocks marks a PreStocks private-company token. Its reference price is
+	// PreStocks' own published mark for the underlying share, since no oracle
+	// prices private companies.
+	PreStocks bool `json:"prestocks"`
 	// PrimaryDex selects the liquidity data path; "jupiter" derives price + 1%
 	// depth from Jupiter quotes keyed by Mint (no single pool address needed).
 	PrimaryDex string `json:"primary_dex"`
@@ -40,7 +51,7 @@ type Asset struct {
 
 // HasPriceFeed reports whether a usable reference price feed is configured.
 func (a Asset) HasPriceFeed() bool {
-	return a.PythFeedID != "" && a.PythFeedKind != "none"
+	return a.PreStocks || a.PythProUnderlying != "" || (a.PythFeedID != "" && a.PythFeedKind != "none")
 }
 
 // TickerBytes returns the underlying ticker right-padded to the on-chain
@@ -86,6 +97,13 @@ type Config struct {
 	DataRPCURL string
 	// HermesURL is the Pyth Hermes base URL for pull-model price fetches.
 	HermesURL string
+	// Pyth Pro (authenticated). Empty key disables it and the engine falls
+	// back to Hermes, then Jupiter.
+	PythProAPIKey     string
+	PythProURL        string
+	PythProSymbolsURL string
+	// PreStocksURL is PreStocks' public token list (marks for private companies).
+	PreStocksURL string
 	// HeliusWebhookSecret authenticates inbound webhook POSTs (optional but recommended).
 	HeliusWebhookSecret string
 	// ListenAddr is where the webhook HTTP server binds, e.g. ":8080".
@@ -102,6 +120,11 @@ type Config struct {
 	ScoreChangeThreshold uint8
 	// RefreshIntervalSecs: ticker cadence for price+liquidity refresh.
 	RefreshIntervalSecs int
+	// Telegram alert delivery (optional; empty = alerts disabled).
+	TelegramBotToken string
+	TelegramChatID   string
+	// DashboardURL is linked in alerts so a recipient can jump to the full view.
+	DashboardURL string
 }
 
 // Load reads assets.json from assetsPath and overlays environment variables.
@@ -123,6 +146,10 @@ func Load(assetsPath string) (*Config, error) {
 		RPCURL:               envOr("SOLANA_RPC_URL", ""),
 		DataRPCURL:           envOr("DATA_RPC_URL", envOr("SOLANA_RPC_URL", "")),
 		HermesURL:            envOr("HERMES_URL", "https://hermes.pyth.network"),
+		PythProAPIKey:        envOr("PYTH_PRO_API_KEY", ""),
+		PythProURL:           envOr("PYTH_PRO_URL", ""),
+		PythProSymbolsURL:    envOr("PYTH_PRO_SYMBOLS_URL", ""),
+		PreStocksURL:         envOr("PRESTOCKS_URL", ""),
 		HeliusWebhookSecret:  envOr("HELIUS_WEBHOOK_SECRET", ""),
 		ListenAddr:           envOr("LISTEN_ADDR", ":8080"),
 		AuthorityKeypairPath: envOr("AUTHORITY_KEYPAIR", ""),
@@ -131,6 +158,9 @@ func Load(assetsPath string) (*Config, error) {
 		Registry:             reg,
 		ScoreChangeThreshold: 2,
 		RefreshIntervalSecs:  envInt("REFRESH_SECS", 60),
+		TelegramBotToken:     envOr("TELEGRAM_BOT_TOKEN", ""),
+		TelegramChatID:       envOr("TELEGRAM_CHAT_ID", ""),
+		DashboardURL:         envOr("DASHBOARD_URL", "https://reserve-sentinel.vercel.app"),
 	}
 
 	if cfg.RPCURL == "" {

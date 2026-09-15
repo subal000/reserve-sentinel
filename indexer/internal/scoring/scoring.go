@@ -46,14 +46,38 @@ const (
 	liqCapUSD   = 1_000_000.0
 )
 
+// noExitMaxScore caps an asset with no exit market at the top of "High risk".
+//
+// SCORING FIX (2026-09): below liqFloorUSD of 1% depth the token can't be
+// priced, so the indexer reports premium 0, and a premium of 0 used to earn
+// full price marks. CRCLon on Solana had no Jupiter route at any size yet
+// scored 70 ("Watch this one"), 30 of those points for a "perfect peg" nobody
+// could trade at. Now a market that can't be priced earns no price credit, and
+// since a holder who can't sell carries the whole risk regardless of issuer or
+// mint activity, the composite is capped here.
+const noExitMaxScore = 39
+
+// NoExitMarket reports whether 1% depth is too thin to sell or price the
+// token. It depends only on depth, which is stored on-chain, so readers of the
+// account can apply the same rule.
+func NoExitMarket(depthUSD uint64) bool {
+	return float64(depthUSD) < liqFloorUSD
+}
+
 // Compute returns the four components and the rounded composite score.
 func Compute(s Signals) Components {
 	price := priceComponent(s.PremiumBps)
+	if NoExitMarket(s.LiquidityDepthUSD) {
+		price = 0
+	}
 	liq := liquidityComponent(s.LiquidityDepthUSD)
 	proc := procurementComponent(s.MintBurnZ)
 	trust := trustTierComponent(s.TrustTier)
 
 	composite := wPrice*price + wLiquidity*liq + wProcurement*proc + wTrustTier*trust
+	if NoExitMarket(s.LiquidityDepthUSD) {
+		composite = math.Min(composite, noExitMaxScore)
+	}
 
 	return Components{
 		Price:       price,
@@ -111,6 +135,22 @@ func Label(score uint8) string {
 		return "Showing warning signs"
 	default:
 		return "High risk"
+	}
+}
+
+// Band returns the risk tier as an integer where HIGHER = SAFER:
+// 3=Looks safe, 2=Watch, 1=Warning, 0=High risk. Used to detect when an asset
+// crosses from one plain-English band into another (the alert trigger).
+func Band(score uint8) int {
+	switch {
+	case score >= 80:
+		return 3
+	case score >= 60:
+		return 2
+	case score >= 40:
+		return 1
+	default:
+		return 0
 	}
 }
 
