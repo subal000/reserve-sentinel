@@ -1,0 +1,8 @@
+{
+  "name": "unwind-intro-render",
+  "private": true,
+  "description": "Frame capture for intro.html. Kept separate so installing it never touches the repo root's yarn.lock.",
+  "devDependencies": {
+    "puppeteer-core": "^25.11.0"
+  }
+}

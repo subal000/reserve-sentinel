@@ -24,9 +24,11 @@ command -v node >/dev/null || { echo "node not installed"; exit 1; }
 # Chrome once per frame costs ~2.5s each, and running several at once deadlocks
 # on the shared profile (--user-data-dir hangs too), so a single session is
 # both far faster and the only reliable option here.
+# Installed next to this script (package.json here) so npm never walks up to
+# the repo root, where it would rewrite yarn.lock in npm's format.
 [ -d node_modules/puppeteer-core ] || {
   echo "installing puppeteer-core…"
-  npm install --no-save --no-audit --no-fund --silent puppeteer-core
+  npm install --no-package-lock --no-audit --no-fund --silent
 }
 
 OUT="unwind-intro-${W}x${H}.mp4"
