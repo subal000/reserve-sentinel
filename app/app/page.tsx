@@ -10,7 +10,7 @@ import { UnwindMark } from "@/components/UnwindMark";
 // snapshot committed with the research that produced them.
 export const dynamic = "force-dynamic";
 
-const GITHUB = "https://github.com/subal000/reserve-sentinel";
+const GITHUB = "https://github.com/subal000/unwindfi";
 const RESEARCH = `${GITHUB}/tree/main/research/2026-09-16-cross-lender-exit`;
 
 export default async function HomePage() {

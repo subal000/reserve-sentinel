@@ -54,7 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <div className="flex items-center gap-4">
               <a
                 className="hover:text-foreground"
-                href="https://github.com/subal000/reserve-sentinel"
+                href="https://github.com/subal000/unwindfi"
                 target="_blank"
                 rel="noreferrer"
               >
