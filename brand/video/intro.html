@@ -4,247 +4,423 @@
 <meta charset="utf-8">
 <title>Unwind intro</title>
 <!--
-  Deterministic kinetic-type intro. The page draws exactly one frame, chosen by
-  ?f=<frame number> (30 fps), so a headless browser can capture the timeline
-  frame by frame and ffmpeg can encode it. Nothing is time- or transition-
-  driven: every value is a pure function of t, which is what makes renders
-  reproducible. Open without ?f to watch it play in a browser.
+  Deterministic kinetic-type intro. Every visual value is a pure function of
+  t (seconds): no CSS transitions, no timers, no Math.random. render.js calls
+  window.draw(t) once per frame and screenshots, so frame N always looks the
+  same. Open without ?f to watch it loop; ?f=300 freezes frame 300 (t=10s).
 
-  Fonts are embedded as data URIs by render.sh; the placeholders below are
-  swapped at render time so this file stays readable in git.
+  Fonts are inlined by render.sh; the placeholders below keep this file
+  readable in git. Every figure comes from research/2026-09-16-cross-lender-exit.
 -->
 <style>
-  @font-face {
-    font-family: "Instrument Sans";
-    src: url("__INST_FONT__") format("woff2");
-    font-weight: 600;
-    font-display: block;
-  }
-  @font-face {
-    font-family: "JetBrains Mono";
-    src: url("__MONO_FONT__") format("woff2");
-    font-weight: 600;
-    font-display: block;
-  }
+  @font-face { font-family: "Instrument Sans"; src: url("__INST_FONT__") format("woff2"); font-weight: 600; font-display: block; }
+  @font-face { font-family: "JetBrains Mono"; src: url("__MONO_FONT__") format("woff2"); font-weight: 600; font-display: block; }
 
   :root {
     --ink: #EBEEF2;
     --teal: #28C2AB;
-    --bg: #0D1119;
-    --dim: #8A94A6;
-    --red: #E5484D;
+    --bg: #0B0F16;
+    --panel: #121824;
+    --line: #1F2735;
+    --dim: #7D8799;
+    --red: #EF5350;
   }
-
   html, body { margin: 0; height: 100%; background: var(--bg); overflow: hidden; }
-  body {
-    font-family: "Instrument Sans", system-ui, sans-serif;
-    color: var(--ink);
-    -webkit-font-smoothing: antialiased;
-  }
+  body { font-family: "Instrument Sans", system-ui, sans-serif; color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
 
-  /* The stage is a fixed 1920x1080 design surface, scaled to the viewport, so
-     the same markup renders identically at any capture size. */
-  #stage {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 1920px;
-    height: 1080px;
-    margin: -540px 0 0 -960px;
-    transform-origin: center center;
-  }
+  /* Fixed 1920x1080 design surface, scaled to fit the viewport. */
+  #stage { position: absolute; top: 50%; left: 50%; width: 1920px; height: 1080px; margin: -540px 0 0 -960px; overflow: hidden; }
+  #cam { position: absolute; inset: 0; transform-origin: 50% 50%; }
 
-  .scene { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; }
-  .eyebrow {
-    font-size: 30px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim);
+  /* ---- atmosphere ---- */
+  #grid {
+    position: absolute; inset: -80px;
+    background-image:
+      linear-gradient(to right, rgba(235,238,242,.035) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(235,238,242,.035) 1px, transparent 1px);
+    background-size: 80px 80px;
   }
-  .figure {
-    font-family: "JetBrains Mono", ui-monospace, monospace;
-    font-variant-numeric: tabular-nums;
-    font-size: 168px; line-height: 1.05; letter-spacing: -0.02em;
-  }
-  .sub { font-size: 44px; color: var(--dim); }
-  .line { font-size: 84px; line-height: 1.18; letter-spacing: -0.02em; }
-  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; }
-  .teal { color: var(--teal); }
-  .red { color: var(--red); }
+  #glow { position: absolute; inset: 0; }
+  #vignette { position: absolute; inset: 0; background: radial-gradient(120% 90% at 50% 50%, transparent 55%, rgba(0,0,0,.55) 100%); }
+  #grain { position: absolute; inset: 0; opacity: .05; mix-blend-mode: screen; }
+  #flash { position: absolute; inset: 0; background: #fff; opacity: 0; }
 
-  #track {
-    width: 900px; height: 14px; border-radius: 99px; background: #1C2230;
-    overflow: hidden; margin: 44px auto 0;
-  }
-  #fill { height: 100%; background: var(--teal); border-radius: 99px; }
+  /* ---- persistent broadcast chrome: the data stamp ---- */
+  .chrome { position: absolute; font-size: 20px; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); }
+  #tl { top: 48px; left: 64px; display: flex; gap: 14px; align-items: center; }
+  #tr { top: 48px; right: 64px; text-align: right; }
+  #bl { bottom: 48px; left: 64px; }
+  #br { bottom: 48px; right: 64px; text-align: right; }
+  .dot { width: 12px; height: 12px; border-radius: 50%; background: var(--teal); display: inline-block; }
+  .rule { position: absolute; left: 64px; right: 64px; height: 1px; background: var(--line); }
+  #rt { top: 96px; } #rb { bottom: 96px; }
 
-  .stack { display: grid; gap: 26px; }
+  .scene { position: absolute; inset: 0; }
+  .center { display: grid; place-content: center; text-align: center; }
+  .eyebrow { font-size: 26px; letter-spacing: .24em; text-transform: uppercase; color: var(--dim); }
+
+  /* S0 hook */
+  #hook { font-size: 104px; letter-spacing: -0.02em; }
+  #cursor { display: inline-block; width: 0.55em; height: 0.95em; background: var(--teal); vertical-align: -0.12em; margin-left: 8px; }
+
+  /* S1 stack */
+  #s1 { display: grid; grid-template-columns: 760px 820px; gap: 120px; align-content: center; justify-content: center; }
+  #total { font-size: 132px; line-height: 1; margin-top: 22px; letter-spacing: -0.03em; }
+  #s1sub { font-size: 34px; color: var(--dim); margin-top: 26px; line-height: 1.35; }
+  #rows { display: grid; gap: 14px; }
+  .row { display: grid; grid-template-columns: 120px 1fr 150px; gap: 22px; align-items: center; font-size: 28px; }
+  .row .sym { color: var(--ink); }
+  .row .amt { text-align: right; color: var(--dim); }
+  .track { height: 18px; border-radius: 4px; background: rgba(235,238,242,.05); overflow: hidden; }
+  .bar { height: 100%; background: linear-gradient(90deg, #EBEEF2, #9AA3B2); border-radius: 4px; }
+
+  /* S2 drain */
+  #s2 { display: grid; place-content: center; }
+  #s2num { font-size: 150px; letter-spacing: -0.03em; line-height: 1; text-align: center; }
+  #slab { position: relative; width: 1500px; height: 132px; margin-top: 64px; border-radius: 14px; overflow: hidden; background: rgba(235,238,242,.04); }
+  #keep { position: absolute; left: 0; top: 0; bottom: 0; background: var(--teal); }
+  #gone {
+    position: absolute; top: 0; bottom: 0; right: 0;
+    background: repeating-linear-gradient(135deg, rgba(239,83,80,.55) 0 14px, rgba(239,83,80,.18) 14px 28px);
+  }
+  #legend { display: flex; justify-content: space-between; margin-top: 26px; font-size: 30px; }
+  #pct { position: absolute; left: 50%; top: 50%; font-size: 360px; letter-spacing: -0.05em; color: var(--teal); text-shadow: 0 0 80px rgba(40,194,171,.35); }
+
+  /* S3 ladder */
+  #s3 { display: grid; place-content: center; }
+  #term { width: 1240px; border-radius: 18px; background: rgba(18,24,36,.92); border: 1px solid var(--line); overflow: hidden; }
+  #termhead { display: flex; justify-content: space-between; padding: 26px 36px; border-bottom: 1px solid var(--line); font-size: 24px; color: var(--dim); letter-spacing: .12em; }
+  #ladder { padding: 18px 36px 30px; display: grid; gap: 6px; }
+  .step { display: grid; grid-template-columns: 90px 260px 70px 1fr 90px; align-items: center; font-size: 40px; padding: 14px 0; }
+  .step .k { color: var(--dim); font-size: 30px; }
+  .step .arrow { color: var(--dim); text-align: center; }
+  .step .res { color: var(--ink); }
+  .step .ok { color: var(--teal); text-align: right; }
+  .step.fail .res, .step.fail .ok { color: var(--red); }
+  #s3line { margin-top: 44px; text-align: center; font-size: 60px; letter-spacing: -0.02em; }
+
+  /* S4 statement */
+  .big { font-size: 96px; line-height: 1.15; letter-spacing: -0.03em; }
+  .word { display: inline-block; }
+
+  /* S5 end card */
+  #s5 { display: grid; place-content: center; justify-items: center; text-align: center; }
+  #wordmark { font-size: 128px; letter-spacing: -0.035em; margin-top: 8px; }
+  #slogan { font-size: 42px; color: var(--dim); margin-top: 18px; }
+  #stamp { margin-top: 64px; font-size: 22px; letter-spacing: .14em; color: var(--dim); text-transform: uppercase; }
+  #handle { margin-top: 22px; font-size: 34px; color: var(--teal); }
 </style>
 </head>
 <body>
 <div id="stage">
-  <!-- 1. how much is pledged -->
-  <section class="scene" id="s1">
-    <div class="stack">
-      <p class="eyebrow" id="s1a">Pledged for loans on Solana</p>
-      <p class="figure" id="s1n">$0</p>
-      <p class="sub" id="s1b">of tokenized stocks, held as collateral</p>
-    </div>
-  </section>
+  <div id="cam">
+    <div id="grid"></div>
+    <div id="glow"></div>
 
-  <!-- 2. how much of it can be sold -->
-  <section class="scene" id="s2">
-    <div class="stack">
-      <p class="eyebrow" id="s2a">What can actually be sold</p>
-      <p class="figure teal" id="s2n">$0</p>
-      <p class="sub" id="s2b">before the price drops 5%</p>
-      <div id="track"><div id="fill"></div></div>
-      <p class="sub mono" id="s2p">13%</p>
-    </div>
-  </section>
+    <!-- S0: the hook -->
+    <section class="scene center" id="s0">
+      <p class="mono" id="hook" style="margin:0"><span id="hooktext"></span><span id="cursor"></span></p>
+    </section>
 
-  <!-- 3. the sharpest single fact -->
-  <section class="scene" id="s3">
-    <div class="stack">
-      <p class="figure mono" id="s3n" style="font-size:132px">GOOGLx</p>
-      <p class="line" id="s3a">No buyer above <span class="mono">$250,000</span>.</p>
-      <p class="line red" id="s3b"><span class="mono">$2.77M</span> sits behind loans.</p>
-    </div>
-  </section>
+    <!-- S1: what is pledged, built from the real per-token figures -->
+    <section class="scene" id="s1">
+      <div style="align-self:center">
+        <p class="eyebrow" id="s1eye" style="margin:0">Pledged as loan collateral</p>
+        <p class="mono" id="total" style="margin-bottom:0">$0</p>
+        <p id="s1sub" style="margin-bottom:0">of tokenized stocks, across<br>Kamino and Jupiter Lend</p>
+      </div>
+      <div id="rows"></div>
+    </section>
 
-  <!-- 4. what we do about it -->
-  <section class="scene" id="s4">
-    <div class="stack">
-      <p class="line" id="s4a">We quote real sales, all day.</p>
-      <p class="line teal" id="s4b">Then publish what you'd get — on-chain.</p>
-    </div>
-  </section>
+    <!-- S2: how much of it can actually be sold -->
+    <section class="scene" id="s2">
+      <p class="eyebrow" id="s2eye" style="margin:0 0 28px; text-align:center">Sellable within 5% of its price</p>
+      <p class="mono" id="s2num" style="margin:0">$0</p>
+      <div id="slab"><div id="keep"></div><div id="gone"></div></div>
+      <div id="legend">
+        <span id="legkeep" class="mono" style="color:var(--teal)">$5.2M can be sold</span>
+        <span id="leggone" class="mono" style="color:var(--red)">$34.0M can't, not within 5%</span>
+      </div>
+      <p class="mono" id="pct" style="margin:0">13%</p>
+    </section>
 
-  <!-- 5. sign-off -->
-  <section class="scene" id="s5">
-    <div class="stack" style="justify-items:center">
-      <svg id="mark" width="440" height="200" viewBox="10 10 56 34" fill="none">
+    <!-- S3: the cliff, as it happened -->
+    <section class="scene" id="s3">
+      <div id="term">
+        <div id="termhead" class="mono"><span>GOOGLx · SELL LADDER</span><span>JUPITER · LIVE QUOTES</span></div>
+        <div id="ladder" class="mono"></div>
+      </div>
+      <p id="s3line"><span class="mono" style="color:var(--red)">$2.77M</span> of GOOGLx is pledged against loans.</p>
+    </section>
+
+    <!-- S4: the blind spot -->
+    <section class="scene center" id="s4">
+      <p class="big" id="s4a" style="margin:0"></p>
+      <p class="big" id="s4b" style="margin:24px 0 0; color:var(--teal)"></p>
+    </section>
+
+    <!-- S5: sign-off -->
+    <section class="scene" id="s5">
+      <svg id="mark" width="400" height="190" viewBox="10 12 56 32" fill="none">
         <defs>
           <linearGradient id="g" gradientUnits="userSpaceOnUse" x1="21" y1="0" x2="61" y2="0">
-            <stop offset="0" stop-color="#EBEEF2"/>
-            <stop offset=".22" stop-color="#28C2AB"/>
-            <stop offset="1" stop-color="#28C2AB" stop-opacity=".1"/>
+            <stop offset="0" stop-color="#EBEEF2"/><stop offset=".22" stop-color="#28C2AB"/><stop offset="1" stop-color="#28C2AB" stop-opacity=".1"/>
           </linearGradient>
         </defs>
         <path id="mline" d="M21 33 H58" stroke="url(#g)" stroke-width="4.6" stroke-linecap="round"/>
         <path id="mcurl" d="M30 24 A9 9 0 1 0 21 33" stroke="#EBEEF2" stroke-width="4.6" stroke-linecap="round"/>
       </svg>
-      <p id="s5w" style="font-size:112px; letter-spacing:-0.03em; margin:0">Unwind</p>
-      <p class="sub" id="s5t">The price you see isn't the price you get.</p>
-      <p class="sub mono teal" id="s5h" style="font-size:36px">@unwindfi</p>
-    </div>
-  </section>
+      <p id="wordmark" style="margin-bottom:0">Unwind</p>
+      <p id="slogan" style="margin-bottom:0">The price you see isn't the price you get.</p>
+      <p id="stamp" class="mono" style="margin-bottom:0">Measured 16 Sept 2026 · 05:42 UTC · US markets closed</p>
+      <p id="handle" class="mono" style="margin-bottom:0">@unwindfi</p>
+    </section>
+
+    <div id="vignette"></div>
+    <div id="grain"></div>
+  </div>
+
+  <!-- Chrome sits outside the camera so it stays put while the scene moves. -->
+  <div id="chromebox">
+    <div class="rule" id="rt"></div>
+    <div class="rule" id="rb"></div>
+    <div class="chrome mono" id="tl"><span class="dot" id="recdot"></span><span>Unwind · exit depth</span></div>
+    <div class="chrome mono" id="tr">Data 16 Sep 2026 · 05:42 UTC</div>
+    <div class="chrome mono" id="bl">Kamino + Jupiter Lend · Jupiter sell quotes</div>
+    <div class="chrome mono" id="br"><span id="tc">T+00:00.00</span></div>
+  </div>
+  <div id="flash"></div>
 </div>
 
 <script>
 const FPS = 30;
-const DURATION = 16.5;          // seconds; render.sh reads this via window.UNWIND_DURATION
-window.UNWIND_DURATION = DURATION;
+const DURATION = 20.5;      // render.sh reads this line
 window.UNWIND_FPS = FPS;
+window.UNWIND_DURATION = DURATION;
 
-// Real measurements (research/2026-09-16-cross-lender-exit).
+// research/2026-09-16-cross-lender-exit (measured 2026-09-16T05:42:20Z)
 const PLEDGED = 39270433;
 const SELLABLE = 5242433;
 const COVERAGE = SELLABLE / PLEDGED;
+const TOKENS = [
+  ["SPYx", 18230967], ["QQQx", 4377080], ["TSLAx", 4244975], ["NVDAx", 3883008],
+  ["MSTRx", 3849650], ["GOOGLx", 2769955], ["CRCLx", 840580], ["HOODx", 613475], ["AAPLx", 460743],
+];
+// GOOGLx sell ladder: USD in -> USD out, then no route.
+const LADDER = [[10000, 9956], [25000, 24835], [50000, 49483], [100000, 98139], [250000, null]];
 
+const $ = (id) => document.getElementById(id);
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
-// Progress through [start, end] in seconds, eased.
-const seg = (t, start, end) => clamp((t - start) / (end - start));
+const seg = (t, a, b) => clamp((t - a) / (b - a));
 const outCubic = (p) => 1 - Math.pow(1 - p, 3);
+const outExpo = (p) => (p >= 1 ? 1 : 1 - Math.pow(2, -10 * p));
 const inOut = (p) => (p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2);
-
+const outBack = (p) => { const c = 1.9; return 1 + (c + 1) * Math.pow(p - 1, 3) + c * Math.pow(p - 1, 2); };
 const usd = (n) => "$" + Math.round(n).toLocaleString("en-US");
+const usdM = (n) => "$" + (n / 1e6).toFixed(1) + "M";
 
-// Fade + rise, the one motion used throughout: enters over `dur`, holds, then
-// leaves. `out` is the moment it starts leaving (0 = never).
-function reveal(el, t, inAt, out = 0, dur = 0.55, rise = 34) {
-  const p = outCubic(seg(t, inAt, inAt + dur));
-  let o = p, y = (1 - p) * rise;
-  if (out) {
-    const q = outCubic(seg(t, out, out + 0.45));
-    o = p * (1 - q);
-    y -= q * 26;
+// ---- build static structure once ------------------------------------------
+const max = TOKENS[0][1];
+$("rows").innerHTML = TOKENS.map(([s, v], i) => `
+  <div class="row mono" id="r${i}">
+    <span class="sym">${s}</span>
+    <div class="track"><div class="bar" id="b${i}" style="width:0"></div></div>
+    <span class="amt">${usdM(v)}</span>
+  </div>`).join("");
+
+$("ladder").innerHTML = LADDER.map(([inp, out], i) => `
+  <div class="step${out === null ? " fail" : ""}" id="l${i}">
+    <span class="k">SELL</span>
+    <span>${usd(inp)}</span>
+    <span class="arrow">→</span>
+    <span class="res">${out === null ? "NO ROUTE" : usd(out)}</span>
+    <span class="ok">${out === null ? "✕" : "✓"}</span>
+  </div>`).join("");
+
+// Word spans for S4, so each word can land on its own beat.
+const S4A = "Every lender sees its own book.";
+const S4B = "Nobody sees the shared exit.";
+const wordsInto = (el, text, prefix) =>
+  (el.innerHTML = text.split(" ").map((w, i) => `<span class="word" id="${prefix}${i}">${w}</span>`).join(" "));
+wordsInto($("s4a"), S4A, "wa");
+wordsInto($("s4b"), S4B, "wb");
+
+// Film grain: one seeded noise tile, shifted per frame. Seeded so renders repeat.
+(function grain() {
+  let s = 1337;
+  const rnd = () => ((s = (s * 16807) % 2147483647) / 2147483647);
+  const c = document.createElement("canvas");
+  c.width = c.height = 256;
+  const g = c.getContext("2d");
+  const img = g.createImageData(256, 256);
+  for (let i = 0; i < img.data.length; i += 4) {
+    const v = rnd() * 255;
+    img.data[i] = img.data[i + 1] = img.data[i + 2] = v;
+    img.data[i + 3] = 255;
   }
-  el.style.opacity = o.toFixed(3);
-  el.style.transform = `translateY(${y.toFixed(2)}px)`;
+  g.putImageData(img, 0, 0);
+  $("grain").style.backgroundImage = `url(${c.toDataURL()})`;
+})();
+
+// ---- helpers ----------------------------------------------------------------
+function show(el, o, x = 0, y = 0, s = 1) {
+  el.style.opacity = clamp(o).toFixed(3);
+  el.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) scale(${s.toFixed(4)})`;
+}
+// Enter with a rise, leave with a lift. Returns visibility so callers can chain.
+function reveal(el, t, inAt, outAt = 0, dur = 0.5, rise = 40) {
+  const p = outCubic(seg(t, inAt, inAt + dur));
+  const q = outAt ? outCubic(seg(t, outAt, outAt + 0.35)) : 0;
+  show(el, p * (1 - q), 0, (1 - p) * rise - q * 30);
+  return p * (1 - q);
+}
+function scene(el, t, a, b) { el.style.display = t >= a && t < b ? "" : "none"; }
+function shake(t, at, amp) {
+  const k = seg(t, at, at + 0.5);
+  return k > 0 && k < 1 ? Math.sin(t * 90) * amp * (1 - k) : 0;
 }
 
-function sceneAlpha(el, t, from, to) {
-  // Scenes overlap slightly; children handle their own motion.
-  el.style.opacity = t >= from - 0.01 && t < to ? 1 : 0;
-  el.style.pointerEvents = "none";
-}
+// ---- the timeline -----------------------------------------------------------
+const CUTS = [2.3, 6.2, 10.4, 15.2, 17.4];
 
 function draw(t) {
-  // --- scene 1: 0.0 - 3.6
-  sceneAlpha(s1, t, 0, 3.6);
-  reveal(s1a, t, 0.25, 3.15);
-  reveal(s1n, t, 0.45, 3.2);
-  reveal(s1b, t, 1.9, 3.1);
-  const p1 = inOut(seg(t, 0.55, 2.35));
-  s1n.textContent = usd(PLEDGED * p1);
+  // Camera: a slow push-in inside each scene, reset at every cut.
+  const cutStart = [0, ...CUTS].filter((c) => c <= t).pop();
+  const push = 1 + 0.035 * seg(t, cutStart, cutStart + 4);
+  const hit = 0.02 * (Math.exp(-18 * Math.max(0, t - 9.0)) * (t >= 9.0)) + 0.025 * (Math.exp(-14 * Math.max(0, t - 13.05)) * (t >= 13.05));
+  $("cam").style.transform = `scale(${(push + hit).toFixed(4)}) translateX(${shake(t, 13.05, 10).toFixed(1)}px)`;
 
-  // --- scene 2: 3.6 - 7.6
-  sceneAlpha(s2, t, 3.6, 7.6);
-  reveal(s2a, t, 3.75, 7.15);
-  reveal(s2n, t, 3.95, 7.2);
-  reveal(s2b, t, 5.3, 7.1);
-  reveal(track, t, 5.5, 7.1, 0.5, 10);
-  reveal(s2p, t, 6.0, 7.05);
-  // Counts down from the pledged figure: the drop is the point.
-  const p2 = inOut(seg(t, 4.05, 5.85));
-  s2n.textContent = usd(PLEDGED + (SELLABLE - PLEDGED) * p2);
-  fill.style.width = (COVERAGE * 100 * outCubic(seg(t, 5.6, 6.5))).toFixed(2) + "%";
-  s2p.textContent = Math.round(COVERAGE * 100 * outCubic(seg(t, 5.6, 6.5))) + "%";
+  // Atmosphere drifts with time.
+  const gx = 50 + 18 * Math.sin(t * 0.35), gy = 40 + 12 * Math.cos(t * 0.27);
+  const warm = t >= 13.05 && t < 15.2 ? 0.22 * (1 - seg(t, 13.05, 15.2)) : 0;
+  $("glow").style.background =
+    `radial-gradient(900px 600px at ${gx}% ${gy}%, rgba(40,194,171,.13), transparent 70%),` +
+    `radial-gradient(900px 600px at 50% 60%, rgba(239,83,80,${warm.toFixed(3)}), transparent 70%)`;
+  $("grid").style.transform = `translate(${(-t * 6) % 80}px, ${(-t * 3) % 80}px)`;
+  const f = Math.round(t * FPS);
+  $("grain").style.backgroundPosition = `${(f * 73) % 256}px ${(f * 151) % 256}px`;
 
-  // --- scene 3: 7.6 - 11.0
-  sceneAlpha(s3, t, 7.6, 11.0);
-  reveal(s3n, t, 7.75, 10.55);
-  reveal(s3a, t, 8.35, 10.5);
-  reveal(s3b, t, 9.25, 10.45);
+  // Cut flashes.
+  const flash = CUTS.slice(0, 3).reduce((m, c) => Math.max(m, t >= c ? 0.14 * Math.exp(-22 * (t - c)) : 0), 0)
+    + (t >= 13.05 ? 0.22 * Math.exp(-16 * (t - 13.05)) : 0);
+  $("flash").style.opacity = flash.toFixed(3);
 
-  // --- scene 4: 11.0 - 13.6
-  sceneAlpha(s4, t, 11.0, 13.6);
-  reveal(s4a, t, 11.15, 13.15);
-  reveal(s4b, t, 11.95, 13.2);
+  // Chrome: on during the evidence, off for the hook and the end card.
+  const chromeOn = seg(t, 2.35, 2.8) * (1 - seg(t, 17.2, 17.6));
+  $("chromebox").style.opacity = chromeOn.toFixed(3);
+  $("recdot").style.opacity = Math.floor(t * 2) % 2 ? 0.25 : 1;
+  const secs = Math.max(0, t - 2.3);
+  $("tc").textContent = `T+${String(Math.floor(secs / 60)).padStart(2, "0")}:${secs.toFixed(2).padStart(5, "0")}`;
 
-  // --- scene 5: 13.6 - end
-  sceneAlpha(s5, t, 13.6, 99);
-  // The mark draws itself: coil first, then the line released from it.
+  // ---- S0: hook (0 - 2.3)
+  scene($("s0"), t, 0, 2.3);
+  const hook = "can you actually sell it?";
+  $("hooktext").textContent = hook.slice(0, Math.floor(seg(t, 0.25, 1.35) * hook.length));
+  $("cursor").style.opacity = t > 1.35 ? (Math.floor(t * 3.2) % 2 ? 0 : 1) : 1;
+  show($("hook"), 1 - seg(t, 2.05, 2.3), 0, 0, 1 + 0.06 * seg(t, 1.6, 2.3));
+
+  // ---- S1: stack (2.3 - 6.2)
+  scene($("s1"), t, 2.3, 6.2);
+  reveal($("s1eye"), t, 2.4, 5.85);
+  reveal($("total"), t, 2.5, 5.9);
+  reveal($("s1sub"), t, 4.6, 5.85);
+  let sum = 0;
+  TOKENS.forEach(([, v], i) => {
+    const a = 2.6 + i * 0.16;
+    const p = outExpo(seg(t, a, a + 0.55));
+    const q = outCubic(seg(t, 5.7 + i * 0.02, 6.0 + i * 0.02));
+    show($("r" + i), p * (1 - q), (1 - p) * 90, 0);
+    $("b" + i).style.width = ((v / max) * 100 * outCubic(seg(t, a + 0.1, a + 0.8))).toFixed(2) + "%";
+    sum += v * outCubic(seg(t, a + 0.1, a + 0.8));
+  });
+  $("total").textContent = usd(sum);
+
+  // ---- S2: drain (6.2 - 10.4)
+  scene($("s2"), t, 6.2, 10.4);
+  reveal($("s2eye"), t, 6.3, 10.0);
+  reveal($("s2num"), t, 6.35, 10.0);
+  reveal($("slab"), t, 6.45, 10.05, 0.5, 20);
+  const drain = inOut(seg(t, 7.0, 8.6));
+  $("s2num").textContent = usd(PLEDGED + (SELLABLE - PLEDGED) * drain);
+  $("s2num").style.color = drain >= 1 ? "var(--teal)" : "var(--ink)";
+  // The slab starts full, then the unsellable share turns red and bleeds away.
+  const keepW = 100 * COVERAGE;
+  $("keep").style.width = (100 - (100 - keepW) * drain).toFixed(2) + "%";
+  $("keep").style.background = drain > 0 ? "var(--teal)" : "#D5DAE1";
+  $("gone").style.width = ((100 - keepW) * seg(t, 7.0, 7.25)).toFixed(2) + "%";
+  $("gone").style.opacity = (1 - seg(t, 8.6, 9.3) * 0.65).toFixed(3);
+  $("gone").style.backgroundPosition = `${(t * 60).toFixed(1)}px 0`;
+  reveal($("legkeep"), t, 8.4, 10.0, 0.4, 16);
+  reveal($("leggone"), t, 8.55, 10.0, 0.4, 16);
+  // The punch: 13% slams in over the slab.
+  const pp = seg(t, 9.0, 9.35);
+  const pq = seg(t, 10.0, 10.3);
+  const ps = pp < 1 ? 1.9 - 0.9 * outBack(pp) : 1 + 0.03 * seg(t, 9.35, 10.3);
+  $("pct").style.opacity = (Math.min(1, pp * 3) * (1 - pq)).toFixed(3);
+  $("pct").style.transform = `translate(-50%, -50%) scale(${ps.toFixed(4)})`;
+  // Dim the rest while 13% owns the frame.
+  const dimRest = 1 - 0.8 * seg(t, 9.0, 9.2);
+  ["s2eye", "s2num", "slab", "legend"].forEach((id) => ($(id).style.filter = `brightness(${dimRest.toFixed(3)})`));
+
+  // ---- S3: ladder (10.4 - 15.2)
+  scene($("s3"), t, 10.4, 15.2);
+  reveal($("term"), t, 10.45, 14.9, 0.5, 30);
+  LADDER.forEach((_, i) => {
+    const a = 11.0 + i * 0.52;
+    const p = outCubic(seg(t, a, a + 0.25));
+    show($("l" + i), p, (1 - p) * -24, 0);
+  });
+  // The failure lands at 13.05: border and header go red, frame shakes.
+  const fail = seg(t, 13.05, 13.2);
+  $("term").style.borderColor = fail ? `rgba(239,83,80,${(0.35 + 0.65 * Math.exp(-3 * (t - 13.05))).toFixed(3)})` : "var(--line)";
+  $("term").style.boxShadow = fail ? `0 0 ${Math.round(90 * Math.exp(-2 * (t - 13.05)))}px rgba(239,83,80,.45)` : "none";
+  reveal($("s3line"), t, 13.55, 14.95);
+
+  // ---- S4: statement (15.2 - 17.4)
+  scene($("s4"), t, 15.2, 17.4);
+  S4A.split(" ").forEach((_, i) => {
+    const a = 15.3 + i * 0.08;
+    const p = outCubic(seg(t, a, a + 0.35));
+    show($("wa" + i), p * (1 - seg(t, 17.05, 17.35)), 0, (1 - p) * 50);
+  });
+  S4B.split(" ").forEach((_, i) => {
+    const a = 16.05 + i * 0.09;
+    const p = outCubic(seg(t, a, a + 0.35));
+    show($("wb" + i), p * (1 - seg(t, 17.05, 17.35)), 0, (1 - p) * 50);
+  });
+
+  // ---- S5: end card (17.4 - end)
+  scene($("s5"), t, 17.4, 99);
   const curlLen = 42, lineLen = 37;
-  const dc = outCubic(seg(t, 13.75, 14.5));
-  mcurl.style.strokeDasharray = curlLen;
-  mcurl.style.strokeDashoffset = (curlLen * (1 - dc)).toFixed(2);
-  const dl = outCubic(seg(t, 14.15, 14.95));
-  mline.style.strokeDasharray = lineLen;
-  mline.style.strokeDashoffset = (lineLen * (1 - dl)).toFixed(2);
-  mark.style.opacity = seg(t, 13.7, 13.9).toFixed(3);
-  reveal(s5w, t, 14.6);
-  reveal(s5t, t, 15.0);
-  reveal(s5h, t, 15.4);
+  const dc = outCubic(seg(t, 17.5, 18.2));
+  const dl = outCubic(seg(t, 17.9, 18.7));
+  $("mcurl").style.strokeDasharray = curlLen;
+  $("mcurl").style.strokeDashoffset = (curlLen * (1 - dc)).toFixed(2);
+  $("mline").style.strokeDasharray = lineLen;
+  $("mline").style.strokeDashoffset = (lineLen * (1 - dl)).toFixed(2);
+  $("mark").style.opacity = seg(t, 17.45, 17.6).toFixed(3);
+  reveal($("wordmark"), t, 18.35);
+  reveal($("slogan"), t, 18.75);
+  reveal($("stamp"), t, 19.15, 0, 0.5, 16);
+  reveal($("handle"), t, 19.4, 0, 0.5, 16);
 }
+window.draw = draw;
 
 function fit() {
   const s = Math.min(innerWidth / 1920, innerHeight / 1080);
-  stage.style.transform = `scale(${s})`;
+  $("stage").style.transform = `scale(${s})`;
 }
-
 addEventListener("resize", fit);
 fit();
-
-window.draw = draw;   // render.js calls this once per frame
 
 const qs = new URLSearchParams(location.search);
 if (qs.has("f")) {
   draw(Number(qs.get("f")) / FPS);
-  document.fonts.ready.then(() => document.documentElement.setAttribute("data-ready", "1"));
 } else {
   const t0 = performance.now();
   (function loop(now) {
-    const t = ((now - t0) / 1000) % (DURATION + 1.2);
-    draw(t);
+    draw(((now - t0) / 1000) % (DURATION + 1.5));
     requestAnimationFrame(loop);
   })(t0);
 }

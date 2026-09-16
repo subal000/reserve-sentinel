@@ -11,7 +11,8 @@ set -euo pipefail
 W=${1:-1920}
 H=${2:-1080}
 FPS=30
-DURATION=16.5
+# The timeline length lives in intro.html; read it rather than duplicating it.
+DURATION=$(grep -oE 'const DURATION = [0-9.]+' "$(dirname "$0")/intro.html" | grep -oE '[0-9.]+$')
 
 cd "$(dirname "$0")"
 CHROME=${CHROME_PATH:-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"}
@@ -64,6 +65,9 @@ echo "rendering $(python3 -c "print(int($DURATION*$FPS))") frames at ${W}x${H}â€
 node render.js "$WORK/scene.html" "$WORK/frames" "$W" "$H" "$FPS" "$DURATION"
 
 ffmpeg -y -loglevel error -framerate "$FPS" -i "$WORK/frames/f%04d.png" \
-  -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p -movflags +faststart "$OUT"
+  -c:v libx264 -preset slow -crf 19 -maxrate 6M -bufsize 12M \
+  -pix_fmt yuv420p -movflags +faststart "$OUT"
+# The bitrate cap matters: film grain makes every frame unique, and at an
+# uncapped CRF the 20s cut came out at 112MB (over GitHub's 100MB limit).
 
 echo "wrote $OUT ($(du -h "$OUT" | cut -f1), ${DURATION}s)"

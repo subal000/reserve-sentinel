@@ -1,7 +1,8 @@
 # Unwind intro video
 
-A 16.5-second text-only intro, rendered from HTML so the numbers in it are the
-measured ones and every cut can be re-rendered when they change.
+A 20.5-second text-led intro, rendered from HTML so every figure in it is the
+measured one (research/2026-09-16-cross-lender-exit, taken 16 Sept 2026 at
+05:42 UTC) and every cut can be re-rendered when the numbers change.
 
 ```
 ./render.sh                # 1920x1080 -> unwind-intro-1920x1080.mp4
@@ -9,18 +10,23 @@ measured ones and every cut can be re-rendered when they change.
 ./render.sh 1080 1920      # vertical
 ```
 
-Open `intro.html` in a browser to watch it loop while editing; add `?f=200` to
-freeze a single frame (30 fps, so that's t=6.67s).
+Open `intro.html` in a browser to watch it loop while editing; add `?f=300` to
+freeze a single frame (30 fps, so that's t=10s).
 
 ## Beats
 
 | Time | On screen |
 |---|---|
-| 0.0–3.6s | `$39,270,433` counts up — pledged for loans on Solana |
-| 3.6–7.6s | the same figure falls to `$5,242,433`, the part that can actually be sold, then a bar fills to 13% |
-| 7.6–11.0s | `GOOGLx` — no buyer above $250,000, against $2.77M behind loans |
-| 11.0–13.6s | what Unwind does |
-| 13.6–16.5s | the mark draws itself, wordmark, slogan, @unwindfi |
+| 0.0–2.3s | `can you actually sell it?` types out |
+| 2.3–6.2s | nine token bars stack in (SPYx, QQQx, TSLAx…) and sum to `$39,270,433` pledged across Kamino and Jupiter Lend |
+| 6.2–10.4s | one slab of that total: 87% turns red and drains away, the counter falls to `$5,242,433`, then **13%** slams in |
+| 10.4–15.2s | a GOOGLx sell ladder fills: $10k, $25k, $50k, $100k… then `$250,000 → NO ROUTE`, with a red hit and shake |
+| 15.2–17.4s | "Every lender sees its own book. / Nobody sees the shared exit." |
+| 17.4–20.5s | the mark draws itself, wordmark, slogan, measurement date, @unwindfi |
+
+A broadcast-style strip stays on screen through the evidence (2.3–17.4s):
+`DATA 16 SEP 2026 · 05:42 UTC`, the sources, and a running timecode. The end
+card repeats the date and notes that US markets were closed at the time.
 
 ## How it renders
 
@@ -42,5 +48,7 @@ is installed on first run.
 ## Updating the numbers
 
 The figures live at the top of the script block in `intro.html` (`PLEDGED`,
-`SELLABLE`) and come from `research/2026-09-16-cross-lender-exit`. The site
+`SELLABLE`, `TOKENS`, `LADDER`) and come from
+`research/2026-09-16-cross-lender-exit`. If the study is re-run, update those,
+the date in the chrome strip (`#tr`) and the end-card stamp (`#stamp`). The site
 reads the same study through `app/lib/research.ts`; keep them in step.
