@@ -8,7 +8,7 @@ export default async function BasketPage() {
   const live = all.filter((a) => a.initialized && a.lastUpdated > 0);
 
   return (
-    <div className="space-y-6">
+    <div className="container space-y-6 py-10">
       <div className="space-y-1">
         <h1 className="text-2xl font-semibold tracking-tight">Basket risk</h1>
         <p className="max-w-prose text-sm text-muted-foreground">

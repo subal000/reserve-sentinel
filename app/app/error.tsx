@@ -3,7 +3,7 @@
 // Route-level error boundary with a real recovery action.
 export default function Error({ error, reset }: { error: Error; reset: () => void }) {
   return (
-    <div className="rounded-lg border border-risk-high/40 bg-risk-high/10 p-6">
+    <div className="container my-10 rounded-lg border border-risk-high/40 bg-risk-high/10 p-6">
       <p className="font-medium text-foreground">Something went wrong.</p>
       <p className="mt-1 text-sm text-muted-foreground">{error.message}</p>
       <button

@@ -80,7 +80,7 @@ export default function BacktestPage() {
   ];
 
   return (
-    <div className="space-y-6">
+    <div className="container space-y-6 py-10">
       <div className="space-y-2">
         <h1 className="text-2xl font-semibold tracking-tight">Backtest: mint/burn anomaly signal</h1>
         <p className="max-w-prose text-sm text-muted-foreground">

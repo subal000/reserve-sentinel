@@ -19,9 +19,9 @@ export default async function ComparePage({ params }: { params: { ticker: string
   const multi = matches.length > 1;
 
   return (
-    <div className="space-y-6">
+    <div className="container space-y-6 py-10">
       <Link
-        href="/"
+        href="/scores"
         className="inline-flex items-center gap-1.5 rounded-md text-sm text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
       >
         <ArrowLeft className="h-4 w-4" aria-hidden="true" />
