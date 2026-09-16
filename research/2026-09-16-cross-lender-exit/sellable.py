@@ -4,14 +4,17 @@ Loss is measured against a $1,000 sale of the same token (the price a retail
 seller gets), not against an oracle, so it isolates market impact.
 Sizes account for Token-2022 scaled UI multipliers.
 """
-import json, sys, time, urllib.request
+import json, os, sys, time, urllib.request
 
-OUT = "/private/tmp/claude-501/-Users-subal-ReserveSentinel/e99c45c8-24e9-44fd-bcd8-25987c50077b/scratchpad"
+# Output directory: first argument, else this folder.
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(os.path.abspath(__file__))
+os.makedirs(OUT, exist_ok=True)
 USDC = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"
 UA = {"User-Agent": "unwind-research", "Content-Type": "application/json"}
 LADDER = [1_000, 10_000, 25_000, 50_000, 100_000, 250_000, 500_000, 1_000_000,
           2_000_000, 4_000_000, 8_000_000, 16_000_000]
 THRESHOLDS = [0.01, 0.05, 0.10]
+REFINE_STEPS = 4
 
 col = json.load(open(f"{OUT}/collateral.json"))
 
@@ -74,6 +77,32 @@ for mint, pledged, sym in targets:
             base_unit = unit
         pts.append({"usd_in": usd, "usd_out": out, "loss": 1 - unit / base_unit})
         print(f"  {sym:<8} ${usd:>10,} -> ${out:>12,.0f}  loss {(1-unit/base_unit)*100:6.2f}%", file=sys.stderr, flush=True)
+
+    # A route that ends between two ladder steps used to report the last step
+    # that filled (GOOGLx read $100k when ~$200k sold within 5%). Bisect the gap
+    # so the ceiling is measured, not assumed. Ladder steps stay the same, so
+    # runs remain comparable with the 16 Sept 05:42 UTC snapshot.
+    ok = [p for p in pts if not p.get("no_route")]
+    nr = [p for p in pts if p.get("no_route")]
+    if ok and nr and ok[-1]["loss"] < max(THRESHOLDS):
+        lo, hi = ok[-1]["usd_in"], nr[0]["usd_in"]
+        for _ in range(REFINE_STEPS):
+            mid = (lo + hi) / 2
+            raw = int(mid / px / mult * 10 ** dec)
+            q, err = get(f"https://lite-api.jup.ag/swap/v1/quote?inputMint={mint}&outputMint={USDC}&amount={raw}&slippageBps=5000")
+            time.sleep(1.1)
+            if q is None:
+                pts.append({"usd_in": round(mid), "no_route": True, "detail": err, "refine": True})
+                hi = mid
+            else:
+                out = int(q["outAmount"]) / 1e6
+                pts.append({"usd_in": round(mid), "usd_out": out, "loss": 1 - (out / mid) / base_unit, "refine": True})
+                print(f"  {sym:<8} ${mid:>10,.0f} -> ${out:>12,.0f}  loss {(1-(out/mid)/base_unit)*100:6.2f}%  (refine)", file=sys.stderr, flush=True)
+                lo = mid
+        pts.sort(key=lambda p: (p["usd_in"], bool(p.get("no_route"))))
+        # keep only the first no-route point after the last filled size
+        first_nr = next(i for i, p in enumerate(pts) if p.get("no_route"))
+        pts = pts[: first_nr + 1]
 
     sellable = {}
     for th in THRESHOLDS:

@@ -1,8 +1,10 @@
 """Collect tokenized-stock collateral across Kamino, Jupiter Lend and Loopscale."""
-import json, sys, time, urllib.request
+import json, os, sys, time, urllib.request
 
 UA = {"User-Agent": "unwind-research"}
-OUT = "/private/tmp/claude-501/-Users-subal-ReserveSentinel/e99c45c8-24e9-44fd-bcd8-25987c50077b/scratchpad"
+# Output directory: first argument, else this folder.
+OUT = sys.argv[1] if len(sys.argv) > 1 else os.path.dirname(os.path.abspath(__file__))
+os.makedirs(OUT, exist_ok=True)
 
 
 def get(url, tries=3):
