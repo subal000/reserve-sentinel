@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Unwind — market hours graphic</title>
+<!--
+  Static 1600x900 tweet graphic for the "does the US market open change
+  anything" post. Numbers from research/2026-09-16-cross-lender-exit and its
+  daytime-2026-09-16T1550Z re-run. Fonts inlined by render-graphic.sh.
+-->
+<style>
+  @font-face { font-family: "Instrument Sans"; src: url("__INST_FONT__") format("woff2"); font-weight: 600; font-display: block; }
+  @font-face { font-family: "JetBrains Mono"; src: url("__MONO_FONT__") format("woff2"); font-weight: 600; font-display: block; }
+
+  :root {
+    --ink: #EBEEF2;
+    --teal: #28C2AB;
+    --bg: #0D1119;
+    --dim: #7D8799;
+    --line: #1F2735;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1600px; height: 900px; background: var(--bg); overflow: hidden; }
+  body {
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(900px 500px at 82% -8%, rgba(40,194,171,.16), transparent 70%),
+      linear-gradient(to right, rgba(235,238,242,.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(235,238,242,.03) 1px, transparent 1px);
+    background-size: auto, 64px 64px, 64px 64px;
+  }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+  #frame { position: relative; width: 1600px; height: 900px; padding: 72px 84px; }
+
+  /* header */
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand span { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+  .eyebrow { margin-top: 40px; font-size: 22px; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+  h1 { margin: 14px 0 0; font-size: 46px; font-weight: 600; letter-spacing: -0.01em; line-height: 1.25; max-width: 1180px; }
+  h1 .teal { color: var(--teal); }
+
+  /* comparison */
+  #compare { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .card { border: 1px solid var(--line); border-radius: 20px; padding: 36px 40px; background: rgba(235,238,242,.02); }
+  .card .label { font-size: 20px; letter-spacing: .1em; text-transform: uppercase; color: var(--dim); }
+  .card .pct { font-size: 108px; line-height: 1; margin-top: 14px; letter-spacing: -0.02em; }
+  .card .sub { margin-top: 10px; font-size: 22px; color: var(--dim); }
+  .card.now { border-color: rgba(40,194,171,.45); background: rgba(40,194,171,.06); }
+  .card.now .pct { color: var(--teal); }
+
+  #barrow { margin-top: 14px; height: 22px; border-radius: 6px; background: rgba(235,238,242,.06); overflow: hidden; }
+  #barfill { height: 100%; border-radius: 6px; background: linear-gradient(90deg, var(--dim), var(--ink)); }
+  .card.now #barfill { background: linear-gradient(90deg, #1B7F70, var(--teal)); }
+
+  /* footer strip */
+  #foot { position: absolute; left: 84px; right: 84px; bottom: 64px; display: flex; justify-content: space-between; align-items: baseline; font-size: 20px; color: var(--dim); letter-spacing: .02em; }
+  #foot .mono { color: var(--dim); }
+</style>
+</head>
+<body>
+<div id="frame">
+  <div class="brand">
+    <svg width="30" height="17" viewBox="12 14 52 28" fill="none">
+      <defs><linearGradient id="g" gradientUnits="userSpaceOnUse" x1="21" y1="0" x2="61" y2="0">
+        <stop offset="0" stop-color="#EBEEF2"/><stop offset=".22" stop-color="#28C2AB"/><stop offset="1" stop-color="#28C2AB" stop-opacity=".1"/>
+      </linearGradient></defs>
+      <path d="M21 33 H58" stroke="url(#g)" stroke-width="4.6" stroke-linecap="round"/>
+      <path d="M30 24 A9 9 0 1 0 21 33" stroke="#EBEEF2" stroke-width="4.6" stroke-linecap="round"/>
+    </svg>
+    <span>Unwind</span>
+  </div>
+
+  <p class="eyebrow">Does the US market open change anything?</p>
+  <h1>On-chain exit depth for tokenized stocks follows <span class="teal">market-maker inventory</span>, not the opening bell.</h1>
+
+  <div id="compare">
+    <div class="card">
+      <p class="label">Overnight · US markets closed</p>
+      <p class="pct mono">13%</p>
+      <p class="sub">$5.24M of $39.27M sellable within 5%</p>
+      <div id="barrow"><div id="barfill" style="width:13%"></div></div>
+    </div>
+    <div class="card now">
+      <p class="label">US market hours</p>
+      <p class="pct mono">14%</p>
+      <p class="sub">$5.53M of $39.37M sellable within 5%</p>
+      <div id="barrow"><div id="barfill" style="width:14%"></div></div>
+    </div>
+  </div>
+
+  <div id="foot">
+    <span>Kamino + Jupiter Lend · Jupiter sell quotes</span>
+    <span class="mono">16 Sept 2026 · 05:42 &amp; 15:50 UTC</span>
+  </div>
+</div>
+</body>
+</html>
