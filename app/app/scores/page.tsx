@@ -3,6 +3,8 @@ import { AlertTriangle } from "lucide-react";
 import { fetchAllScores, type AssetScore } from "@/lib/anchor";
 import { ScoreCard } from "@/components/ScoreCard";
 import { RISK_HSL, label } from "@/lib/scoring";
+import { noExitMarket } from "@/lib/components";
+import { fmtUSD } from "@/lib/format";
 
 // Read live from chain on every request — this is a monitoring board.
 export const dynamic = "force-dynamic";
@@ -16,10 +18,11 @@ export default async function DashboardPage() {
     error = e instanceof Error ? e.message : "Failed to read on-chain scores";
   }
 
-  // Riskiest first — a watch list surfaces problems, not alphabetical order.
+  // Thinnest exit first — sorted by sellable depth, the number the page leads
+  // with, not the composite score (see the intro copy above).
   const sorted = [...assets].sort((a, b) => {
-    const ai = a.initialized && a.lastUpdated > 0 ? a.score : 999;
-    const bi = b.initialized && b.lastUpdated > 0 ? b.score : 999;
+    const ai = a.initialized && a.lastUpdated > 0 ? a.liquidityDepthUsd : Infinity;
+    const bi = b.initialized && b.lastUpdated > 0 ? b.liquidityDepthUsd : Infinity;
     return ai - bi;
   });
   const live = sorted.filter((a) => a.initialized && a.lastUpdated > 0);
@@ -32,9 +35,10 @@ export default async function DashboardPage() {
           Live scores
         </h1>
         <p className="max-w-prose text-muted-foreground">
-          Every tracked token, riskiest first. Each score combines what the token can actually be
-          sold for, how far it trades from the real share, how fast the issuer is minting, and how
-          it&apos;s backed — written on-chain for anyone to read.
+          Every tracked token, worst exit first. The number on each card is what actually sells
+          within 1% of its price right now — the figure a lending protocol would size a limit
+          against. A composite score (premium, depth, mint/burn, trust tier) sits next to it as a
+          summary, not the headline; open a token to see the full breakdown.
         </p>
         <p className="flex max-w-prose items-start gap-2 rounded-md border border-border bg-card px-3 py-2 text-xs text-muted-foreground">
           <AlertTriangle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-risk-warning" aria-hidden="true" />
@@ -51,10 +55,16 @@ export default async function DashboardPage() {
           <section className="grid gap-4 sm:grid-cols-3">
             <SummaryStat label="Assets tracked" value={String(assets.length)} />
             <SummaryStat
-              label="Highest risk"
-              value={worst ? `${worst.symbol} · ${worst.score}` : "—"}
+              label="Thinnest exit"
+              value={worst ? `${worst.symbol} · ${fmtUSD(worst.liquidityDepthUsd)}` : "—"}
               accent={worst ? RISK_HSL[worstKey(worst.score)] : undefined}
-              sub={worst ? label(worst.score) : undefined}
+              sub={
+                worst
+                  ? noExitMarket(worst.liquidityDepthUsd)
+                    ? "No exit market at this size"
+                    : label(worst.score)
+                  : undefined
+              }
             />
             <Legend />
           </section>

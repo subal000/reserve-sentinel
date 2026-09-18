@@ -1,13 +1,19 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import { CLUSTER, type AssetScore } from "@/lib/anchor";
-import { ScoreDial, RiskLabel } from "./ScoreDial";
+import { RiskPill } from "./ScoreDial";
 import { IssuerBadge } from "./IssuerBadge";
+import { noExitMarket } from "@/lib/components";
 import { fmtBps, fmtUSD, fmtZ, relativeTime, shortAddr } from "@/lib/format";
 import { explorerAccount } from "@/lib/utils";
 
+// The headline number on this card is what can actually be sold — the figure
+// a lending protocol would read to set a limit. The composite score is a
+// small pill next to the symbol, not the focal point: a protocol integrates
+// against the depth, not against a subjective 0-100 rating (see README).
 export function ScoreCard({ asset, index = 0 }: { asset: AssetScore; index?: number }) {
   const href = `/compare/${asset.underlyingTicker || asset.symbol}`;
+  const noExit = noExitMarket(asset.liquidityDepthUsd);
 
   return (
     <div
@@ -31,7 +37,7 @@ export function ScoreCard({ asset, index = 0 }: { asset: AssetScore; index?: num
             </span>
           )}
         </div>
-        <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100" aria-hidden="true" />
+        {asset.initialized && asset.lastUpdated > 0 && <RiskPill score={asset.score} />}
       </div>
 
       {!asset.initialized ? (
@@ -40,17 +46,25 @@ export function ScoreCard({ asset, index = 0 }: { asset: AssetScore; index?: num
         <p className="relative mt-6 text-sm text-muted-foreground">Awaiting first score from the indexer.</p>
       ) : (
         <>
-          <div className="relative mt-4 flex items-center gap-4">
-            <ScoreDial score={asset.score} size={112} />
-            <div className="min-w-0 space-y-2">
-              <RiskLabel score={asset.score} />
+          <div className="relative mt-4">
+            <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+              Sellable within 1%
+            </p>
+            <p
+              className={`mt-1 font-mono text-3xl font-semibold tnum ${noExit ? "text-risk-high" : ""}`}
+            >
+              {fmtUSD(asset.liquidityDepthUsd)}
+            </p>
+            {noExit && (
+              <p className="mt-0.5 text-xs font-medium text-risk-high">No exit market at this size</p>
+            )}
+            <div className="mt-2">
               <IssuerBadge issuer={asset.issuer} trustTier={asset.trustTier} />
             </div>
           </div>
 
-          <dl className="relative mt-5 grid grid-cols-3 gap-3 border-t border-border pt-4">
+          <dl className="relative mt-5 grid grid-cols-2 gap-3 border-t border-border pt-4">
             <Signal label="Premium" value={asset.hasPriceFeed ? fmtBps(asset.premiumBps) : "n/a"} />
-            <Signal label="1% depth" value={fmtUSD(asset.liquidityDepthUsd)} />
             <Signal label="Mint/burn" value={fmtZ(asset.mintBurnZ)} />
           </dl>
           <div className="relative mt-3 flex items-center justify-between">
@@ -69,6 +83,11 @@ export function ScoreCard({ asset, index = 0 }: { asset: AssetScore; index?: num
           </div>
         </>
       )}
+
+      <ArrowUpRight
+        className="pointer-events-none absolute right-5 top-16 h-4 w-4 shrink-0 text-muted-foreground opacity-0 transition-opacity group-hover:opacity-100"
+        aria-hidden="true"
+      />
     </div>
   );
 }

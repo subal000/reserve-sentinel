@@ -54,6 +54,23 @@ export function ScoreDial({
   );
 }
 
+// Compact score badge: the number, colored by band, with the label as a
+// tooltip rather than spelled out. Used where the composite score is a
+// secondary detail next to a bigger, more important number (raw depth) —
+// see ScoreCard and CrossIssuerView, and the README on why depth leads.
+export function RiskPill({ score }: { score: number }) {
+  const color = RISK_HSL[riskKey(score)];
+  return (
+    <span
+      title={`Composite score: ${score}/100 — ${label(score)}`}
+      className="inline-flex shrink-0 items-center gap-1 rounded-md px-1.5 py-0.5 font-mono text-xs font-semibold tnum"
+      style={{ color, backgroundColor: `${color.replace(")", " / 0.12)")}` }}
+    >
+      {score}
+    </span>
+  );
+}
+
 // Small pill of the plain-English label, colored by band.
 export function RiskLabel({ score, className = "" }: { score: number; className?: string }) {
   const color = RISK_HSL[riskKey(score)];

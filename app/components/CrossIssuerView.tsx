@@ -1,10 +1,11 @@
 import { AlertTriangle } from "lucide-react";
 import type { AssetScore } from "@/lib/anchor";
 import type { HistoryPoint } from "@/lib/clickhouse";
-import { ScoreDial, RiskLabel } from "./ScoreDial";
+import { RiskPill } from "./ScoreDial";
 import { IssuerBadge } from "./IssuerBadge";
 import { ScoreBreakdown } from "./ScoreBreakdown";
 import { ScoreHistory } from "./ScoreHistory";
+import { noExitMarket } from "@/lib/components";
 import { fmtBps, fmtUSD, fmtZ, relativeTime, shortAddr } from "@/lib/format";
 import { explorerAccount } from "@/lib/utils";
 import { CLUSTER } from "@/lib/anchor";
@@ -40,13 +41,13 @@ export function CrossIssuerView({
         {assets.map((a) => (
           <article key={a.mint} className="rounded-lg border border-border bg-card p-6">
             <div className="flex items-start justify-between gap-3">
-              <div>
+              <div className="flex items-baseline gap-2">
                 <h2 className="font-mono text-xl font-semibold">{a.symbol}</h2>
-                <div className="mt-2">
-                  <IssuerBadge issuer={a.issuer} trustTier={a.trustTier} />
-                </div>
+                {a.initialized && a.lastUpdated > 0 && <RiskPill score={a.score} />}
               </div>
-              {a.initialized && a.lastUpdated > 0 && <ScoreDial score={a.score} size={96} />}
+            </div>
+            <div className="mt-2">
+              <IssuerBadge issuer={a.issuer} trustTier={a.trustTier} />
             </div>
 
             {!a.initialized || a.lastUpdated === 0 ? (
@@ -55,13 +56,26 @@ export function CrossIssuerView({
               </p>
             ) : (
               <>
-                <div className="mt-4">
-                  <RiskLabel score={a.score} />
+                <div className="mt-5">
+                  <p className="text-[11px] uppercase tracking-wide text-muted-foreground">
+                    Sellable within 1%
+                  </p>
+                  <p
+                    className={`mt-1 font-mono text-3xl font-semibold tnum ${
+                      noExitMarket(a.liquidityDepthUsd) ? "text-risk-high" : ""
+                    }`}
+                  >
+                    {fmtUSD(a.liquidityDepthUsd)}
+                  </p>
+                  {noExitMarket(a.liquidityDepthUsd) && (
+                    <p className="mt-0.5 text-xs font-medium text-risk-high">
+                      No exit market at this size
+                    </p>
+                  )}
                 </div>
 
-                <dl className="mt-5 grid grid-cols-3 gap-3 border-y border-border py-4">
+                <dl className="mt-5 grid grid-cols-2 gap-3 border-y border-border py-4">
                   <Stat label="Premium" value={a.hasPriceFeed ? fmtBps(a.premiumBps) : "n/a"} />
-                  <Stat label="1% depth" value={fmtUSD(a.liquidityDepthUsd)} />
                   <Stat label="Mint/burn" value={fmtZ(a.mintBurnZ)} />
                 </dl>
 
