@@ -1,0 +1,68 @@
+name: Score assets
+
+# Runs the indexer once every 15 minutes: reads live market data, writes fresh
+# scores to the devnet program, updates ClickHouse if configured. This is the
+# "continuous" part of the pitch — before this workflow, every score was
+# pushed by hand from a laptop.
+#
+# Needs these repo secrets (Settings -> Secrets and variables -> Actions):
+#   AUTHORITY_KEYPAIR_JSON  - the score-writer keypair as a JSON array,
+#                             e.g. `cat ~/.config/solana/id.json`
+#                             (NOT the upgrade-authority key — that one must
+#                             never leave your machine, see docs/CI.md)
+#   PYTH_PRO_API_KEY        - optional, Pyth Pro key (indexer degrades to
+#                             Jupiter reference prices without it)
+#   TELEGRAM_BOT_TOKEN      - optional, for failure alerts
+#   TELEGRAM_CHAT_ID        - optional, for failure alerts
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+concurrency:
+  group: unwind-score
+  cancel-in-progress: false
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.22"
+          cache-dependency-path: indexer/go.sum
+
+      - name: Write authority keypair
+        run: |
+          mkdir -p "$HOME/.config/solana"
+          printf '%s' '${{ secrets.AUTHORITY_KEYPAIR_JSON }}' > "$HOME/.config/solana/authority.json"
+          # Sanity check: must parse as a 64-byte JSON array, or every run
+          # from here on would silently fail to sign.
+          python3 -c "import json,sys; a=json.load(open('$HOME/.config/solana/authority.json')); assert isinstance(a, list) and len(a) == 64, 'bad keypair length'"
+
+      - name: Run one scoring cycle
+        working-directory: indexer
+        env:
+          SOLANA_RPC_URL: https://api.devnet.solana.com
+          DATA_RPC_URL: https://api.mainnet-beta.solana.com
+          AUTHORITY_KEYPAIR: /home/runner/.config/solana/authority.json
+          PYTH_PRO_API_KEY: ${{ secrets.PYTH_PRO_API_KEY }}
+        run: go run ./cmd/indexer --assets ../config/assets.json --once
+
+      - name: Alert on failure
+        if: failure() && env.TELEGRAM_BOT_TOKEN != ''
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d text="🔻 Unwind scoring run failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            > /dev/null
