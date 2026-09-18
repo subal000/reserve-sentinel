@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Unwind — thread finding graphic</title>
+<!--
+  Static 1600x900 tweet card for tweet 5 of the Friday explainer thread.
+  Same fonts/palette as graphic-market-hours.html. Numbers from
+  research/2026-09-16-cross-lender-exit (16 Sept snapshot).
+-->
+<style>
+  @font-face { font-family: "Instrument Sans"; src: url("__INST_FONT__") format("woff2"); font-weight: 600; font-display: block; }
+  @font-face { font-family: "JetBrains Mono"; src: url("__MONO_FONT__") format("woff2"); font-weight: 600; font-display: block; }
+
+  :root {
+    --ink: #EBEEF2;
+    --teal: #28C2AB;
+    --bg: #0D1119;
+    --dim: #7D8799;
+    --red: #E5484D;
+    --line: #1F2735;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1600px; height: 900px; background: var(--bg); overflow: hidden; }
+  body {
+    font-family: "Instrument Sans", system-ui, sans-serif;
+    color: var(--ink);
+    -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(900px 500px at 18% -8%, rgba(40,194,171,.14), transparent 70%),
+      linear-gradient(to right, rgba(235,238,242,.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(235,238,242,.03) 1px, transparent 1px);
+    background-size: auto, 64px 64px, 64px 64px;
+  }
+  .mono { font-family: "JetBrains Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; }
+
+  #frame { position: relative; width: 1600px; height: 900px; padding: 72px 84px; }
+
+  .brand { display: flex; align-items: center; gap: 12px; }
+  .brand span { font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+  .eyebrow { margin-top: 40px; font-size: 22px; letter-spacing: .18em; text-transform: uppercase; color: var(--dim); }
+
+  /* pledged -> sellable slab */
+  #slabwrap { margin-top: 36px; }
+  #nums { display: flex; align-items: baseline; gap: 28px; }
+  #nums .big { font-size: 92px; line-height: 1; letter-spacing: -0.02em; }
+  #nums .arrow { font-size: 40px; color: var(--dim); }
+  #nums .teal { color: var(--teal); }
+  #capline { margin-top: 10px; font-size: 26px; color: var(--dim); }
+  #capline b { color: var(--ink); font-weight: 600; }
+
+  #slab { position: relative; width: 1432px; height: 40px; margin-top: 26px; border-radius: 10px; overflow: hidden; background: rgba(235,238,242,.06); }
+  #fill { position: absolute; left: 0; top: 0; bottom: 0; width: 14%; background: linear-gradient(90deg, #1B7F70, var(--teal)); border-radius: 10px 0 0 10px; }
+
+  /* GOOGLx callout card */
+  #callout {
+    margin-top: 56px; padding: 34px 40px; border-radius: 18px;
+    border: 1px solid rgba(229,72,77,.4); background: rgba(229,72,77,.07);
+    display: flex; align-items: center; justify-content: space-between; gap: 40px;
+  }
+  #callout .left .sym { font-size: 30px; font-weight: 600; }
+  #callout .left .desc { margin-top: 8px; font-size: 24px; color: var(--dim); }
+  #callout .left .desc b { color: var(--red); font-weight: 600; }
+  #callout .right { text-align: right; white-space: nowrap; }
+  #callout .right .v { font-size: 52px; color: var(--red); font-weight: 600; }
+  #callout .right .l { margin-top: 4px; font-size: 20px; color: var(--dim); letter-spacing: .04em; text-transform: uppercase; }
+
+  #foot { position: absolute; left: 84px; right: 84px; bottom: 56px; display: flex; justify-content: space-between; align-items: baseline; font-size: 20px; color: var(--dim); }
+</style>
+</head>
+<body>
+<div id="frame">
+  <div class="brand">
+    <svg width="30" height="17" viewBox="12 14 52 28" fill="none">
+      <defs><linearGradient id="g" gradientUnits="userSpaceOnUse" x1="21" y1="0" x2="61" y2="0">
+        <stop offset="0" stop-color="#EBEEF2"/><stop offset=".22" stop-color="#28C2AB"/><stop offset="1" stop-color="#28C2AB" stop-opacity=".1"/>
+      </linearGradient></defs>
+      <path d="M21 33 H58" stroke="url(#g)" stroke-width="4.6" stroke-linecap="round"/>
+      <path d="M30 24 A9 9 0 1 0 21 33" stroke="#EBEEF2" stroke-width="4.6" stroke-linecap="round"/>
+    </svg>
+    <span>Unwind</span>
+  </div>
+
+  <p class="eyebrow">Kamino + Jupiter Lend · tokenized-stock collateral</p>
+
+  <div id="slabwrap">
+    <div id="nums">
+      <span class="big mono">$39.3M</span>
+      <span class="arrow">pledged →</span>
+      <span class="big mono teal">14%</span>
+      <span class="arrow">sellable within 5%</span>
+    </div>
+    <p id="capline">That's <b>$5.5M</b> of $39.3M — the rest can't move without the price falling apart.</p>
+    <div id="slab"><div id="fill"></div></div>
+  </div>
+
+  <div id="callout">
+    <div class="left">
+      <p class="sym mono">GOOGLx</p>
+      <p class="desc">No buyer at all above <b>$240,000</b> — the route just ends.</p>
+    </div>
+    <div class="right">
+      <p class="v mono">$2.8M</p>
+      <p class="l">held as collateral</p>
+    </div>
+  </div>
+
+  <div id="foot">
+    <span>Jupiter sell quotes, rising sizes</span>
+    <span class="mono">16 Sept 2026</span>
+  </div>
+</div>
+</body>
+</html>
